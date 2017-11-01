@@ -1,0 +1,25 @@
+{
+  "name": "trimmerwork",
+  "version": "1.0.0",
+  "description": "An Open Job Board for the Cannabis Community",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asaldivar/trimmerwork.git"
+  },
+  "author": "alexander",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/asaldivar/trimmerwork/issues"
+  },
+  "homepage": "https://github.com/asaldivar/trimmerwork#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2"
+  }
+}
