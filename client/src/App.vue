@@ -18,11 +18,15 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-
 .nav-tabs>li {
   font-size: 16px;
 }
 .nav>li>a {
   color: #2c3e50;
+}
+@media only screen and (max-width: 320px) {
+  a.navigation {
+    padding: 10px 5px !important;
+  }
 }
 </style>
