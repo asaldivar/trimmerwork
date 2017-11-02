@@ -29,11 +29,16 @@
 		}
 	}
 	&__metadata {
-		float: right;
+		display: block;
 		font-weight: 300;
 		color: #2c3e50;
 		&__date {
+			float: right;
 			font-style: italic;
+		}
+		@media (min-width: 426px) {
+			display: inline-block;
+			float: right;
 		}
 	}
 }
