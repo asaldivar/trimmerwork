@@ -1,2 +1,1 @@
 <p align="center"><a href="https://vuejs.org" target="_blank"><img width="100"src="https://i.imgur.com/1NpEGsi.png"></a></p>
-<p align="center" style="color:#7aba71">An Open Job Board for the Cannabis Community</p>
