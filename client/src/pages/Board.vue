@@ -15,7 +15,7 @@
 		<!-- board content -->
 		<div class="tab-content">
 			<div id="jobs" class="tab-pane" role="tabpanel">
-				<jobs-board></jobs-board>
+				<jobs-board :jobs="jobs"></jobs-board>
 			</div>
 			<div id="trimmers" class="tab-pane" role="tabpanel">
 				<trimmers-board></trimmers-board>
@@ -33,6 +33,11 @@
 	import ResumesBoard from '../components/ResumesBoard/ResumesBoard.vue'
 
 	export default {
+		data() {
+			return {
+				jobs: this.$store.getters.allJobs
+			}
+		},
 		components: {
 			JobsBoard,
 			TrimmersBoard,
