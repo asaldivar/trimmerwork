@@ -18,4 +18,8 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+.nav-tabs>li {
+  font-size: 16px;
+}
 </style>
