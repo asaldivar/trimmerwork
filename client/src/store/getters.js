@@ -3,3 +3,8 @@ export const jobGetters = {
 		return state.jobs
 	}
 }
+export const activeTabGetters = {
+	getActiveBoardTab: state => {
+		return state.activeBoardTab
+	}
+}

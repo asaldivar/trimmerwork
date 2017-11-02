@@ -1,13 +1,19 @@
 <template>
   <div id="app" class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-12">
+    <TWHead></TWHead>
     <router-view/>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  import TWHead from '@/components/Head/Head.vue'
+
+  export default {
+    name: 'app',
+    components: {
+      TWHead
+    }
+  }
 </script>
 
 <style>
@@ -16,7 +22,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
 }
 .nav-tabs>li {
   font-size: 16px;
