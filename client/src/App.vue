@@ -22,4 +22,7 @@ export default {
 .nav-tabs>li {
   font-size: 16px;
 }
+.nav>li>a {
+  color: #2c3e50;
+}
 </style>
