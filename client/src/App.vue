@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-12">
     <router-view/>
   </div>
 </template>
