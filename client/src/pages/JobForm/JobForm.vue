@@ -1,9 +1,14 @@
 <template>
 	<form class="job-form">
 		<TWHeadSmall></TWHeadSmall>
+		<back-to-jobs></back-to-jobs>
+		<div class="row">
+			<div class="job-form__company-details__header">
+				<h1>Create a job post</h1>
+				<job-form-phase :step="'create'"></job-form-phase>
+			</div>
+		</div>
 		<div class="row job-form__company-details">
-			<back-to-jobs></back-to-jobs>
-			<h1 class="job-form__company-details__header">Create a job post</h1>
 			<fieldset>
 				<legend>Company details</legend>
 				<div class="col-md-8">
@@ -104,9 +109,11 @@
 			</fieldset>
 		</div>
 		<div class="text-center">
-			<button type="submit" class="btn btn-info job-form__button">
-				Preview Your Post
-			</button>
+			<router-link to="/job-post-preview">
+				<button type="submit" class="btn btn-info job-form__button">
+					Preview Your Post
+				</button>
+			</router-link>
 		</div>
 	</form>
 </template>
@@ -115,12 +122,14 @@
 	import { VueEditor } from 'vue2-editor'
 	import BackToJobs from '@/components/BackToJobs/BackToJobs'
 	import TWHeadSmall from '@/components/HeadSmall/HeadSmall'
+	import JobFormPhase from '@/components/JobFormPhase/JobFormPhase'
 
 	export default {
 		components: {
 			BackToJobs,
 			VueEditor,
-			TWHeadSmall
+			TWHeadSmall,
+			JobFormPhase
 		},
 		data() {
 			return {

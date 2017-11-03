@@ -1,0 +1,16 @@
+.job-form-phase {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	margin: 0;
+	text-align: right;
+	&__step {
+		display: inline-block;
+		&:not(:last-child) {
+			margin-right: 15px;
+		}
+		&--active {
+			border-bottom: 1px solid;
+		}
+	}
+}
