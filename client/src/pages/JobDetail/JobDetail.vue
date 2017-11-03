@@ -12,10 +12,10 @@
 				<div class="job-detail__header__date">Posted {{ job.date | daysAgo }}</div>
 				<h4>{{ job.company_name }}</h4>
 				<div>
-					<h4 class="job-detail__header__location">
+					<h5 class="job-detail__header__location">
 						<i class="fa fa-map-marker" aria-hidden="true"></i>
 						{{ job.job_location }}
-					</h4>
+					</h5>
 				</div>
 			</div>
 			<div class="col-md-4 job-detail__company-logo"></div>
