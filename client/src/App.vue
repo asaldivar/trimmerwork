@@ -1,18 +1,12 @@
 <template>
   <div id="app" class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-12">
-    <TWHead></TWHead>
     <router-view/>
   </div>
 </template>
 
 <script>
-  import TWHead from '@/components/Head/Head.vue'
-
   export default {
-    name: 'app',
-    components: {
-      TWHead
-    }
+    name: 'app'
   }
 </script>
 

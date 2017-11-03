@@ -15,9 +15,25 @@
 		&__type {
 			padding-right: 0;
 		}
-		&__button {
-			background-color: #4fc08d;
-			border-color: #4fc08d;
+	}
+	&__featured-post {
+		margin-top: 20px;
+		&__description {
+			font-weight: 400;
+			line-height: 1.4;
 		}
+		&__image {
+			height: 130px;
+			background-image: url('../../../static/images/featured-post.png');
+	    background-size: contain;
+	    background-repeat: no-repeat;
+	    background-position: center;
+		}
+	}
+	&__button {
+		margin-top: 25px;
+		background-color: #4fc08d;
+		border-color: #4fc08d;
+		text-transform: uppercase;
 	}
 }

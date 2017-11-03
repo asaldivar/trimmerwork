@@ -1,5 +1,6 @@
 <template>
 	<div class="board">
+		<TWHead></TWHead>
 		<!-- boad navigation -->
 		<ul class="nav nav-tabs">
 		  <li role="presentation" :class="{'active': activeTab === 'jobs'}">
@@ -34,6 +35,7 @@
 	import TrimmersBoard from '@/components/TrimmersBoard/TrimmersBoard'
 	import ResumesBoard from '@/components/ResumesBoard/ResumesBoard'
 	import PostTab from '@/components/PostTab/PostTab'
+	import TWHead from '@/components/Head/Head.vue'
 
 	export default {
 		data() {
@@ -45,7 +47,8 @@
 			JobsBoard,
 			TrimmersBoard,
 			ResumesBoard,
-			PostTab
+			PostTab,
+			TWHead
 		},
 		computed: {
 			activeTab() {

@@ -1,5 +1,6 @@
 <template>
 	<div>
+		<TWHeadSmall></TWHeadSmall>
 		<div class="job-detail row">
 			<back-to-jobs></back-to-jobs>
 			<div class="col-md-8 job-detail__header">
@@ -47,6 +48,7 @@
 <script>
 	import moment from 'moment'
 	import BackToJobs from '@/components/BackToJobs/BackToJobs'
+	import TWHeadSmall from '@/components/HeadSmall/HeadSmall'
 
 	export default {
 		data() {
@@ -55,7 +57,8 @@
 			}
 		},
 		components: {
-			BackToJobs
+			BackToJobs,
+			TWHeadSmall
 		},
 		filters: {
 			daysAgo: function(value) {

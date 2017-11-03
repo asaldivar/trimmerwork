@@ -1,5 +1,6 @@
 <template>
 	<form class="job-form">
+		<TWHeadSmall></TWHeadSmall>
 		<div class="row job-form__company-details">
 			<back-to-jobs></back-to-jobs>
 			<h1 class="job-form__company-details__header">Create a job post</h1>
@@ -83,12 +84,29 @@
 					<label for="jobApplication">How to apply</label>
 					<textarea id="jobApplication" class="form-control" cols="30" rows="3" placeholder="e.g. Please email all applications to hr@company.com"></textarea>
 				</div>
-				<div class="text-center">
-					<button type="submit" class="btn btn-info job-form__job-details__button">
-						SUBMIT YOUR JOB TO TRIMMERWORK FOR FREE
-					</button>
-				</div>
 			</fieldset>
+		</div>
+		<div class="row job-form__featured-post">
+			<fieldset>
+				<legend>Make your ad stand out!</legend>
+				<div class="col-md-6">
+					<h5 class="job-form__featured-post__description">
+						For only <strong>$25</strong> you can feature your post. Featured posts will be brought to the top of the list and highlighted yellow so they stand out against others!
+					</h5>
+					<div class="checkbox">
+						<label for="jobFeatured">
+							<input id="jobFeatured" type="checkbox">
+							Yes, feature my post.
+						</label>
+					</div>
+				</div>
+				<div class="col-md-6 job-form__featured-post__image"></div>
+			</fieldset>
+		</div>
+		<div class="text-center">
+			<button type="submit" class="btn btn-info job-form__button">
+				Preview Your Post
+			</button>
 		</div>
 	</form>
 </template>
@@ -96,11 +114,13 @@
 <script>
 	import { VueEditor } from 'vue2-editor'
 	import BackToJobs from '@/components/BackToJobs/BackToJobs'
+	import TWHeadSmall from '@/components/HeadSmall/HeadSmall'
 
 	export default {
 		components: {
 			BackToJobs,
-			VueEditor
+			VueEditor,
+			TWHeadSmall
 		},
 		data() {
 			return {
