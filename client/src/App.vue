@@ -34,4 +34,7 @@
     padding: 10px 5px !important;
   }
 }
+div[class^="col-md-"] {
+  padding: 0;
+}
 </style>

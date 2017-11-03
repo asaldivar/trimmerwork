@@ -12,7 +12,7 @@
 		  	<a class="navigation" href="#resumes" aria-controls="resumes" role="tab" data-toggle="tab" @click="setActiveTab('resumes')">RESUMES</a>
 		  </li>
 		  <!-- post a <job, trimmer resume, resume button -->
-		  <post-tab></post-tab>
+		  <post-tab :postType="activeTab"></post-tab>
 		</ul>
 		<!-- board content -->
 		<div class="tab-content">
@@ -30,16 +30,15 @@
 </template>
 
 <script>
-	import JobsBoard from '../components/JobsBoard/JobsBoard.vue'
-	import TrimmersBoard from '../components/TrimmersBoard/TrimmersBoard.vue'
-	import ResumesBoard from '../components/ResumesBoard/ResumesBoard.vue'
-	import PostTab from '../components/PostTab/PostTab.vue'
+	import JobsBoard from '@/components/JobsBoard/JobsBoard'
+	import TrimmersBoard from '@/components/TrimmersBoard/TrimmersBoard'
+	import ResumesBoard from '@/components/ResumesBoard/ResumesBoard'
+	import PostTab from '@/components/PostTab/PostTab'
 
 	export default {
 		data() {
 			return {
-				jobs: this.$store.getters.allJobs,
-				activeTab: this.$store.getters.getActiveBoardTab
+				jobs: this.$store.getters.allJobs
 			}
 		},
 		components: {
@@ -47,6 +46,11 @@
 			TrimmersBoard,
 			ResumesBoard,
 			PostTab
+		},
+		computed: {
+			activeTab() {
+				return this.$store.getters.getActiveBoardTab
+			}
 		},
 		methods: {
 			setActiveTab(tab) {

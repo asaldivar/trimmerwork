@@ -1,0 +1,23 @@
+.job-form {
+	padding-bottom: 50px;
+	&__company-details {
+		&__header {
+			margin-bottom: 20px;
+		}
+	}
+	&__job-details {
+		margin-top: 20px;
+		&__description {
+		}
+		&__category {
+			padding-left: 0;
+		}
+		&__type {
+			padding-right: 0;
+		}
+		&__button {
+			background-color: #4fc08d;
+			border-color: #4fc08d;
+		}
+	}
+}
