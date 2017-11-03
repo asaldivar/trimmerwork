@@ -1,6 +1,12 @@
 <template>
 	<div>
 		<div class="job-detail row">
+			<div class="job-detail__back">
+				<router-link to="/">
+					<i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+					back to all jobs
+				</router-link>
+			</div>
 			<div class="col-md-8 job-detail__header">
 				<h1 class="job-detail__header__title">{{ job.job_title }}</h1>
 				<div class="job-detail__header__date">Posted {{ job.date | daysAgo }}</div>

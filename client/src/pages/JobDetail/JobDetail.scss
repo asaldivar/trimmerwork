@@ -1,6 +1,9 @@
 .job-detail {
 	padding-bottom: 15px;
 	border-bottom: 1px solid #ddd;
+	&__back {
+		margin-bottom: 15px;
+	}
 	&__header {
 		padding: 0;
 		&__title {
