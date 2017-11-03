@@ -93,7 +93,7 @@
 		</div>
 		<div class="row job-form__featured-post">
 			<fieldset>
-				<legend>Make your ad stand out!</legend>
+				<legend>Make your post stand out!</legend>
 				<div class="col-md-6">
 					<h5 class="job-form__featured-post__description">
 						For only <strong>$25</strong> you can feature your post. Featured posts will be brought to the top of the list and highlighted yellow so they stand out against others!
