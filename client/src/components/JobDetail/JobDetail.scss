@@ -1,0 +1,32 @@
+.job-detail {
+	padding-bottom: 15px;
+	border-bottom: 1px solid #ddd;
+	&__header {
+		padding: 0;
+		font-weight: 300;
+		&__title {
+			margin: 0;
+		}
+		&__date {
+			margin-bottom: 20px;
+		}
+		&__location {
+			font-weight: 300;
+		}
+	}
+	&__metadata {
+		padding: 15px 0;
+		border-bottom: 1px solid #ddd;
+		@media (min-width: 426px) {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+	&__description {
+		font-size: 16px;
+		white-space: pre-wrap;
+		&__application {
+			margin-top: 20px;
+		}
+	}
+}

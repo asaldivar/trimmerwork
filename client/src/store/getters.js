@@ -11,3 +11,8 @@ export const activeTabGetters = {
 		return state.activeBoardTab
 	}
 }
+export const jobForm = {
+	jobFormApplication: state => {
+		return state.jobForm
+	}
+}

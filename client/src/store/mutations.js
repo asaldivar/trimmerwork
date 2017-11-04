@@ -3,3 +3,8 @@ export const boardMutations = {
 		state.activeBoardTab = payload
 	}
 }
+export const formMutations = {
+	setJobFormState(state, payload) {
+		state.jobForm = payload
+	}
+}
