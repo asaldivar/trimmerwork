@@ -13,7 +13,8 @@ export default new Vuex.Store({
 		jobs: jobs,
 		activeBoardTab: 'jobs',
 		jobForm: {
-			jobCategory: 'Grow',
+			job_category: 'Grow',
+			job_type: 'Full-time',
 			date: new Date().toISOString()
 		}
 	},

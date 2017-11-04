@@ -2,6 +2,7 @@
 	<div>
 		<TWHeadSmall></TWHeadSmall>
 		<job-form-phase :step="'submit'"></job-form-phase>
+		<h1>STRIPE GOES HERE! :)</h1>
 	</div>
 </template>
 

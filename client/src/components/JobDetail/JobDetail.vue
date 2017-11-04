@@ -26,7 +26,7 @@
 				<i class="fa fa-clock-o" aria-hidden="true"></i>
 				<span>{{job.job_type}}</span>
 			</div>
-			<span class="job-detail__metadata__compensation">{{job.job_compensation}}</span>
+			<span v-if="job.job_compensation" class="job-detail__metadata__compensation">{{job.job_compensation}}</span>
 			<div v-show="job.job_category === 'Grow' || job.job_category === 'Harvest'" class="job-detail__metadata__accommodations">
 				<i class="fa fa-home" aria-hidden="true"></i>
 				<span v-if="job.job_accommodations === 'true'">Housing</span>

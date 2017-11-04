@@ -1,5 +1,5 @@
 <template>
-	<form class="job-form">
+	<form class="job-form" @submit.prevent="validateBeforeSubmit">
 		<TWHeadSmall></TWHeadSmall>
 		<back-to-jobs></back-to-jobs>
 		<job-form-phase :step="'create'"></job-form-phase>
@@ -7,13 +7,35 @@
 			<fieldset>
 				<legend>Company details</legend>
 				<div class="col-md-8">
-					<div class="form-group">
-						<label for="companyName">Company name</label>
-						<input type="text" id="companyName" class="form-control" placeholder="The Company" v-model="jobForm['company_name']">
+					<div
+						class="form-group"
+						:class="{'has-error':errors.has('companyName')}">
+						<label class="control-label" for="companyName">Company name</label>
+						<input
+							type="text"
+							name="companyName"
+							id="companyName"
+							class="form-control"
+							placeholder="The Company"
+							v-model="jobForm['company_name']"
+							v-validate="'required'"
+							data-vv-as="company name">
+						<span v-show="errors.has('companyName')" class="help-block">{{ errors.first('companyName') }}</span>
 					</div>
-					<div class="form-group">
-						<label for="companyEmail">Company email</label>
-						<input type="text" id="companyEmail" class="form-control" placeholder="you@company.com" v-model="jobForm['company_email']">
+					<div
+						class="form-group"
+						:class="{'has-error':errors.has('companyEmail')}">
+						<label class="control-label" for="companyEmail">Company email</label>
+						<input
+							type="text"
+							name="companyEmail"
+							id="companyEmail"
+							class="form-control"
+							placeholder="you@company.com"
+							v-model="jobForm['company_email']"
+							v-validate="'required'"
+							data-vv-as="company email">
+						<span v-show="errors.has('companyEmail')" class="help-block">{{ errors.first('companyEmail') }}</span>
 					</div>
 					<div class="form-group">
 						<label for="companyWebsite">
@@ -29,13 +51,35 @@
 		<div class="row job-form__job-details">
 			<fieldset>
 				<legend>Job details</legend>
-				<div class="form-group">
-					<label for="jobTitle">Job title</label>
-					<input type="text" id="jobTitle" class="form-control" placeholder="Trimmer" v-model="jobForm['job_title']">
+				<div
+					class="form-group"
+					:class="{'has-error':errors.has('jobTitle')}">
+					<label class="control-label" for="jobTitle">Job title</label>
+					<input
+						type="text"
+						name="jobTitle"
+						id="jobTitle"
+						class="form-control"
+						placeholder="Trimmer"
+						v-model="jobForm['job_title']"
+						v-validate="'required'"
+						data-vv-as="job title">
+						<span v-show="errors.has('jobTitle')" class="help-block">{{ errors.first('jobTitle') }}</span>
 				</div>
-				<div class="form-group">
-					<label for="jobLocation">Job location</label>
-					<input type="text" id="jobLocation" class="form-control" placeholder="Medford, OR" v-model="jobForm['job_location']">
+				<div
+					class="form-group"
+					:class="{'has-error':errors.has('jobLocation')}">
+					<label class="control-label" for="jobLocation">Job location</label>
+					<input
+						type="text"
+						name="jobLocation"
+						id="jobLocation"
+						class="form-control"
+						placeholder="Medford, OR"
+						v-model="jobForm['job_location']"
+						v-validate="'required'"
+						data-vv-as="job location">
+						<span v-show="errors.has('jobLocation')" class="help-block">{{ errors.first('jobLocation') }}</span>
 				</div>
 				<div class="form-group col-md-6 job-form__job-details__category">
 					<label for="jobCategory">Job category</label>
@@ -62,9 +106,18 @@
 					<div class="help-block">Job posts listed with pay help both workers and companies more quickly determine if they fit each other's needs.</div>
 					<input type="text" id="jobCompensation" class="form-control" placeholder="$20/hr or $175/lb" v-model="jobForm['job_compensation']">
 				</div>
-				<div class="form-group">
-					<label for="jobDescription">Job description</label>
-					<vue-editor class="job-form__job-details__description" :editorToolbar="customToolbar" v-model="jobForm['job_description']"></vue-editor>
+				<div
+					class="form-group"
+					:class="{'has-error':errors.has('jobDescription')}">
+					<label class="control-label" for="jobDescription">Job description</label>
+					<vue-editor
+						class="job-form__job-details__description"
+						name="jobDescription"
+						:editorToolbar="customToolbar"
+						v-model="jobForm['job_description']"
+						v-validate="'required'"
+						data-vv-as="job description"></vue-editor>
+						<span v-show="errors.has('jobDescription')" class="help-block">{{ errors.first('jobDescription') }}</span>
 				</div>
 				<div class="form-group" v-show="jobForm['job_category'] === 'Grow' || jobForm['job_category'] ===  'Harvest'">
 					<label for="">Accommodations</label>
@@ -80,9 +133,20 @@
 						</label>
 					</div>
 				</div>
-				<div class="form-group">
-					<label for="jobApplication">How to apply</label>
-					<textarea id="jobApplication" class="form-control" cols="30" rows="3" placeholder="e.g. Please email all applications to hr@company.com" v-model="jobForm['job_application']"></textarea>
+				<div
+					class="form-group"
+					:class="{'has-error':errors.has('jobApplication')}">
+					<label class="control-label" for="jobApplication">How to apply</label>
+					<textarea
+						name="jobApplication"
+						id="jobApplication"
+						class="form-control"
+						cols="30" rows="3"
+						placeholder="e.g. Please email all applications to hr@company.com"
+						v-model="jobForm['job_application']"
+						v-validate="'required'"
+						data-vv-as="how to apply"></textarea>
+						<span v-show="errors.has('jobApplication')" class="help-block">{{ errors.first('jobApplication') }}</span>
 				</div>
 			</fieldset>
 		</div>
@@ -104,7 +168,7 @@
 			</fieldset>
 		</div>
 		<div class="text-center">
-			<button type="button" class="btn btn-info job-form__button" @click="setJobFormState">
+			<button type="submit" class="btn btn-info job-form__button">
 				Preview Your Post
 			</button>
 		</div>
@@ -141,9 +205,14 @@
 			}
 		},
 		methods: {
-			setJobFormState() {
-				this.$store.commit('setJobFormState', this.jobForm)
-				this.$router.push('/job-post-preview')
+			validateBeforeSubmit() {
+				this.$validator.validateAll().then((result) => {
+					if (result) {
+						this.$store.commit('setJobFormState', this.jobForm)
+						this.$router.push('/job-post-preview')
+					}
+					console.warn('Please fill out all form goodness')
+				})
 			}
 		}
 	}
