@@ -1,10 +1,8 @@
 <template>
 	<div>
 		<TWHeadSmall></TWHeadSmall>
-		<div class="row">
-			<back-to-jobs></back-to-jobs>
-			<job-detail :job="job"></job-detail>
-		</div>
+		<back-to-jobs></back-to-jobs>
+		<job-detail :job="job"></job-detail>
 	</div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class="job-detail row">
+		<div class="job-detail col-md-12">
 			<div class="col-md-8 job-detail__header">
 				<h1 class="job-detail__header__title">{{ job.job_title }}</h1>
 				<div class="job-detail__header__date">Posted {{ job.date | daysAgo }}</div>
@@ -14,7 +14,7 @@
 			</div>
 			<div class="col-md-4 job-detail__company-logo"></div>
 		</div>
-		<div class="job-detail__metadata row">
+		<div class="job-detail__metadata col-md-12">
 			<div class="job-detail__metadata__category">
 				<i v-if="job.job_category === 'Grow'" class="fa fa-sun-o" aria-hidden="true"></i>
 				<i v-else-if="job.job_category === 'Harvest'" class="fa fa-scissors" aria-hidden="true"></i>
@@ -33,7 +33,7 @@
 				<span v-else>No housing</span>
 			</div>
 		</div>
-		<div class="row job-detail__description">
+		<div class="col-md-12 job-detail__description">
 			<div class="job-detail-description" v-html="job.job_description"></div>
 			<div class="job-detail__description__application">
 				<label>How to apply:</label>

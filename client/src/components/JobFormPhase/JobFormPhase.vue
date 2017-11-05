@@ -1,5 +1,5 @@
 <template>
-	<div class="row">
+	<div class="col-md-12">
 		<div class="job-form-phase">
 			<h1 v-if="step === 'create'">Create a job post</h1>
 			<h1 v-else-if="step === 'preview'">Preview your job post</h1>

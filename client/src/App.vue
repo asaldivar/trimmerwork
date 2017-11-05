@@ -1,12 +1,17 @@
 <template>
   <div id="app" class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-12">
     <router-view/>
+    <TWFooter></TWFooter>
   </div>
 </template>
 
 <script>
+  import TWFooter from '@/components/Footer/Footer'
   export default {
-    name: 'app'
+    name: 'app',
+    components: {
+      TWFooter
+    }
   }
 </script>
 
