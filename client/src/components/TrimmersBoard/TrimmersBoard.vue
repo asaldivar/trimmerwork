@@ -1,6 +1,6 @@
 <template>
 	<ul class="trimmers">
-	  <paginate name="trimmers" :per="25" :list="orderedTrimmers" class="paginate-list">
+	  <paginate name="trimmers" :per="15" :list="orderedTrimmers" class="paginate-list">
 			<li class="trimmer-post" v-for="trimmer in paginated('trimmers')">
 				<router-link class="trimmer-post__link" :to="`/trimmers/${trimmer._id}`">
 					<span class="trimmer-post__trimmer-skill">{{ trimmer.skill_level }}-level</span>
