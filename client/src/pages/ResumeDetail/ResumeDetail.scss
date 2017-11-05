@@ -17,11 +17,9 @@
 	&__metadata {
 		padding: 15px 0;
 		border-bottom: 1px solid #ddd;
-		@media (min-width: 426px) {
-			display: flex;
-			flex-flow: row wrap;
-			justify-content: space-around;
-		}
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-around;
 	}
 	&__description {
 		padding: 15px 0;
