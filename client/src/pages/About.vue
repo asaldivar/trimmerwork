@@ -9,7 +9,7 @@
 			By allowing users to view and post jobs for free, this site is meant to be used not only by large scale marijuana growers and corporations but by small scale farmers, businesses and employees alike.
 		</p>
 		<p class="about__text">
-			Thank you for your participation in the TrimmerWork community.
+			We sincerely hope you enjoy this service, and thank you for your participation in the TrimmerWork Community.
 		</p>
 	</div>
 </template>
