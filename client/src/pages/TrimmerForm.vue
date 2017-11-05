@@ -131,6 +131,7 @@
 				class="form-group"
 				:class="{'has-error':errors.has('contact')}">
 				<label class="control-label" for="contact">Contact</label>
+				<small class="help-block">How would you like to be contacted by employers?</small>
 				<input
 					type="text"
 					name="contact"
@@ -179,6 +180,9 @@
 			border-color: #4fc08d;
 			text-transform: uppercase;
 		}
+	}
+	.help-block {
+		margin-top: 0;
 	}
 </style>
 
