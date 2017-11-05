@@ -9,6 +9,7 @@ import Test from '@/pages/Subscription/Test'
 import JobDetail from '@/pages/JobDetail/JobDetail'
 import TrimmerDetail from '@/pages/TrimmerDetail/TrimmerDetail'
 import ResumeDetail from '@/pages/ResumeDetail/ResumeDetail'
+import ChooseForm from '@/pages/ChooseForm'
 import JobForm from '@/pages/JobForm/JobForm'
 import TrimmerForm from '@/pages/TrimmerForm'
 import ResumeForm from '@/pages/ResumeForm'
@@ -34,7 +35,7 @@ export default new Router({
       path: '/trimmers/:id',
       name: 'TrimmerDetail',
       component: TrimmerDetail
-    },,
+    },
     {
       path: '/resumes/:id',
       name: 'ResumeDetail',
@@ -44,6 +45,11 @@ export default new Router({
       path: '/job-form',
       name: 'JobForm',
       component: JobForm
+    },
+    {
+      path: '/choose-form',
+      name: 'ChooseForm',
+      component: ChooseForm
     },
     {
       path: '/trimmer-form',
