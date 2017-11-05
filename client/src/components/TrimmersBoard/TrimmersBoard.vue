@@ -79,7 +79,7 @@
 	    cursor: no-drop;
 	  }
 		a {
-		  color: #42b983;
+		  color: #4fc08d;
 		}
 	}
 </style>
