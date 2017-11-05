@@ -10,6 +10,8 @@ import JobDetail from '@/pages/JobDetail/JobDetail'
 import TrimmerDetail from '@/pages/TrimmerDetail/TrimmerDetail'
 import ResumeDetail from '@/pages/ResumeDetail/ResumeDetail'
 import JobForm from '@/pages/JobForm/JobForm'
+import TrimmerForm from '@/pages/TrimmerForm'
+import ResumeForm from '@/pages/ResumeForm'
 import JobPostPreview from '@/pages/JobPostPreview/JobPostPreview'
 import JobPostSubmit from '@/pages/JobPostSubmit/JobPostSubmit'
 
@@ -41,6 +43,11 @@ export default new Router({
       path: '/job-form',
       name: 'JobForm',
       component: JobForm
+    },,
+    {
+      path: '/trimmer-form',
+      name: 'TrimmerForm',
+      component: TrimmerForm
     },
     {
       path: '/job-post-preview',
