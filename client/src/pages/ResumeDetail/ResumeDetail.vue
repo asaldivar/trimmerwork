@@ -21,8 +21,8 @@
 				<i v-if="resume.job_category === 'Grow'" class="fa fa-sun-o" aria-hidden="true"></i>
 				<i v-else-if="resume.job_category === 'Harvest'" class="fa fa-scissors" aria-hidden="true"></i>
 				<i v-else-if="resume.job_category === 'Sales'" class="fa fa-users" aria-hidden="true"></i>
-				<i v-else aria-hidden="true"></i>
-				<span v-if="resume.job_category !== 'Other'">{{resume.job_category}}</span>
+				<i v-else class="fa fa-random" aria-hidden="true"></i>
+				<span>{{resume.job_category}}</span>
 			</div>
 			<div v-if="resume.references === 'true'">
 				<i class="fa fa-address-book-o" aria-hidden="true"></i>
