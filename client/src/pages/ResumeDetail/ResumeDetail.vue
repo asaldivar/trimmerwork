@@ -24,6 +24,10 @@
 				<i v-else aria-hidden="true"></i>
 				<span v-if="resume.job_category !== 'Other'">{{resume.job_category}}</span>
 			</div>
+			<div v-if="resume.references === 'true'">
+				<i class="fa fa-address-book-o" aria-hidden="true"></i>
+				<span>has references</span>
+			</div>
 		</div>
 		<div class="col-md-12 trimmer-detail__description">
 			<div class="trimmer-detail-description" v-html="resume.cover_letter"></div>

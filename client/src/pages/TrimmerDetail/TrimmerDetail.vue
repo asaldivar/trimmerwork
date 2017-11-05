@@ -28,12 +28,10 @@
 			<div v-if="trimmer.certification === 'true'">
 				<i class="fa fa-certificate" aria-hidden="true"></i>
 				<span>licensed marijuana worker</span>
-				<!-- <span>marijuana worker licensed/permitted/certified</span> -->
 			</div>
 			<div v-if="trimmer.references === 'true'">
 				<i class="fa fa-address-book-o" aria-hidden="true"></i>
 				<span>has references</span>
-				<!-- <span>marijuana worker licensed/permitted/certified</span> -->
 			</div>
 		</div>
 		<div class="col-md-12 trimmer-detail__description">
