@@ -1,7 +1,7 @@
-.trimmers {
+.resumes {
 	padding: 0;
 }
-.trimmer-post {
+.resume-post {
 	padding: 10px 0;
 	list-style: none;
 	&:hover {
@@ -10,7 +10,7 @@
 	&:not(:last-child) {
 		border-bottom: 1px solid #ddd;
 	}
-	&__trimmer-skill {
+	&__job-title {
 		font-weight: 600;
 	  color: #ff9d00;
 	  cursor: pointer;
@@ -21,7 +21,7 @@
 	  text-overflow: ellipsis;
 	  vertical-align: top;
 	}
-	&__trimmer-name {
+	&__name {
 		font-weight: 300;
 		font-size: 14px;
 		color: #2c3e50;

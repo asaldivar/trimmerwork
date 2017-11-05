@@ -1,16 +1,16 @@
 <template>
-	<ul class="trimmers">
+	<ul class="resumes">
 	  <paginate name="resumes" :per="15" :list="orderedResumes" class="paginate-list">
-			<li class="trimmer-post" v-for="resume in paginated('resumes')">
-				<router-link class="trimmer-post__link" :to="`/resumes/${resume._id}`">
-					<span class="trimmer-post__trimmer-skill">{{ resume.job_title }}</span>
-					<span class="trimmer-post__trimmer-name">/ {{ resume.name }}</span>
-					<span class="trimmer-post__metadata">
+			<li class="resume-post" v-for="resume in paginated('resumes')">
+				<router-link class="resume-post__link" :to="`/resumes/${resume._id}`">
+					<span class="resume-post__job-title">{{ resume.job_title }}</span>
+					<span class="resume-post__name">/ {{ resume.name }}</span>
+					<span class="resume-post__metadata">
 						<span>
 							<i class="fa fa-map-marker" aria-hidden="true"></i>
 							{{ resume.location }}
 						</span>
-						<span class="trimmer-post__metadata__date">
+						<span class="resume-post__metadata__date">
 							<span class="hidden-xs">-</span>
 							{{ resume.date | formatDate }}
 						</span>
