@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Board from '@/pages/Board'
 import About from '@/pages/About'
 import Donate from '@/pages/Donate'
+import Contact from '@/pages/Contact'
 import SignUp from '@/pages/SignUp/SignUp'
 import JobDetail from '@/pages/JobDetail/JobDetail'
 import JobForm from '@/pages/JobForm/JobForm'
@@ -52,6 +53,11 @@ export default new Router({
       path: '/sign-up',
       name: 'SignUp',
       component: SignUp
+    },
+    {
+      path: '/contact',
+      name: 'Contact',
+      component: Contact
     }
   ]
 })
