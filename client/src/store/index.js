@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import Cookies from 'js-cookie'
 
 import { jobGetters, activeTabGetters, jobForm } from './getters'
-import { boardMutations, formMutations } from './mutations'
+import { boardMutations, formMutations, cookieMutations } from './mutations'
 
 import jobs from '../../data/jobs.json'
 
@@ -16,8 +17,9 @@ export default new Vuex.Store({
 			job_category: 'Grow',
 			job_type: 'Full-time',
 			date: new Date().toISOString()
-		}
+		},
+		hasCookie: Cookies.get('trimmerWorkEmail')
 	},
 	getters: Object.assign({}, jobGetters, activeTabGetters, jobForm),
-	mutations: Object.assign({}, boardMutations, formMutations)
+	mutations: Object.assign({}, boardMutations, formMutations, cookieMutations)
 })

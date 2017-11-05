@@ -8,3 +8,8 @@ export const formMutations = {
 		state.jobForm = payload
 	}
 }
+export const cookieMutations = {
+	setCookie(state, payload) {
+		state.hasCookie = payload
+	}
+}
