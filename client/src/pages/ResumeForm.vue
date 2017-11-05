@@ -1,6 +1,7 @@
 <template>
 	<form class="resume-form" @submit.prevent="validateBeforeSubmit">
 		<TWHeadSmall></TWHeadSmall>
+		<back-to-jobs></back-to-jobs>
 		<div class="col-md-12">
 			<h1>Submit your resume</h1>
 			<h4 class="help-block">Let the cannabis community know you're ready to work!</h4>
@@ -41,13 +42,12 @@
 						class="form-group"
 						:class="{'has-error':errors.has('location')}">
 						<label class="control-label" for="location">Location</label>
-						<small class="help-block">Where do you want to work?</small class="help-block">
 						<input
 							type="text"
 							name="location"
 							id="location"
 							class="form-control"
-							placeholder="Ashland, OR"
+							placeholder="Los Angeles, CA"
 							v-model="resume['location']"
 							v-validate="'required'">
 						<span v-show="errors.has('location')" class="help-block">{{ errors.first('location') }}</span>
@@ -210,9 +210,11 @@
 	import { VueEditor } from 'vue2-editor'
 
 	import TWHeadSmall from '@/components/HeadSmall/HeadSmall'
+	import BackToJobs from '@/components/BackToJobs/BackToJobs'
 
 	export default {
 		components: {
+			BackToJobs,
 			VueEditor,
 			TWHeadSmall,
 		},

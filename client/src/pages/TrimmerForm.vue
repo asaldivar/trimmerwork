@@ -1,6 +1,7 @@
 <template>
 	<form class="trimmer-form" @submit.prevent="validateBeforeSubmit">
 		<TWHeadSmall></TWHeadSmall>
+		<back-to-jobs></back-to-jobs>
 		<div class="col-md-12">
 			<h1>Submit your resume</h1>
 			<h4 class="help-block">Let the community know you're ready to trim!</h4>
@@ -204,9 +205,11 @@
 	import { VueEditor } from 'vue2-editor'
 
 	import TWHeadSmall from '@/components/HeadSmall/HeadSmall'
+	import BackToJobs from '@/components/BackToJobs/BackToJobs'
 
 	export default {
 		components: {
+			BackToJobs,
 			VueEditor,
 			TWHeadSmall,
 		},
