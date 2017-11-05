@@ -1,5 +1,6 @@
 .trimmerwork-nav {
   margin: 0 -5% 20px;
+  padding: 3px 10px;
   background-color: #2c3e50;
   color: #fff;
   &__leaf-link {
@@ -13,7 +14,6 @@
     color: #fff !important;
   }
   &__post {
-    margin-right: 5px;
     border: 1px solid #fff;
     border-radius: 3px;
     &__link {
