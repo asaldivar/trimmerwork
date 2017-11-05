@@ -25,6 +25,20 @@
 					</div>
 					<div
 						class="form-group"
+						:class="{'has-error':errors.has('email')}">
+						<label class="control-label" for="email">Email</label>
+						<input
+							type="text"
+							name="email"
+							id="email"
+							class="form-control"
+							placeholder="asmith@gmail.com"
+							v-model="trimmer['email']"
+							v-validate="'required'">
+						<span v-show="errors.has('email')" class="help-block">{{ errors.first('name') }}</span>
+					</div>
+					<div
+						class="form-group"
 						:class="{'has-error':errors.has('location')}">
 						<label class="control-label" for="location">Location</label>
 						<small class="help-block">Where do you want to work?</small class="help-block">
@@ -90,8 +104,8 @@
 				class="form-group"
 				:class="{'has-error':errors.has('coverLetter')}">
 				<label class="control-label" for="coverLetter">Cover letter</label>
+				<small class="help-block">Please describe your qualifications, any accommodations desired, timeframe you are available to work and anything else you deem appropriate.</small>
 				<vue-editor
-					class="job-form__job-details__description"
 					name="coverLetter"
 					:editorToolbar="customToolbar"
 					v-model="trimmer['coverLetter']"
@@ -215,7 +229,7 @@
 			validateBeforeSubmit() {
 				this.$validator.validateAll().then((result) => {
 					if (result) {
-						this.$router.push('/job-post-preview')
+						this.$router.push('/donate')
 					}
 					console.warn('Please fill out all form goodness')
 				})

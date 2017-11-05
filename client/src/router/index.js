@@ -43,11 +43,16 @@ export default new Router({
       path: '/job-form',
       name: 'JobForm',
       component: JobForm
-    },,
+    },
     {
       path: '/trimmer-form',
       name: 'TrimmerForm',
       component: TrimmerForm
+    },
+    {
+      path: '/resume-form',
+      name: 'ResumeForm',
+      component: ResumeForm
     },
     {
       path: '/job-post-preview',
