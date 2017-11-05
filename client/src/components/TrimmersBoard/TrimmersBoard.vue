@@ -1,17 +1,55 @@
 <template>
-	<ul class="trimmers">
-	<input type="text" class="form-control" v-model="search" placeholder="search location">
+	<ul class="trimmers-board">
+		<!-- filters -->
+		<div class="input-group trimmers-board__filters">
+			<input type="text" class="form-control" v-model="search" placeholder="search location">
+		  <span class="input-group-btn">
+		    <button class="btn btn-default filter-button" type="button" @click="filtersOn = !filtersOn">
+		    	Filters
+		  	</button>
+		  </span>
+	  </div>
+		<div class="form-group" v-show="filtersOn">
+			<select class="form-control" id="job_category" v-model="skillLevel">
+				<option value="all" selected="All">All skill levels</option>
+				<option value="Entry">Entry-level</option>
+				<option value="Mid">Mid-level</option>
+				<option value="Senior">Senior-level</option>
+			</select>
+			<div class="checkbox">
+				<label for="certification-filter">
+					<input id="certification-filter" type="checkbox" v-model="isCertified">
+					<i class="fa fa-certificate" aria-hidden="true"></i>
+					Has certification(s)
+				</label>
+			</div>
+			<div class="checkbox">
+				<label for="accommodations-filter">
+					<input id="accommodations-filter" type="checkbox" v-model="wantsAccommodations">
+						<i class="fa fa-home" aria-hidden="true"></i>
+						Requests accommodations
+				</label>
+			</div>
+			<div class="checkbox">
+				<label for="references-filter">
+					<input id="references-filter" type="checkbox" v-model="hasReferences">
+						<i class="fa fa-address-book" aria-hidden="true"></i>
+						Has references
+				</label>
+			</div>
+		</div>
+	  <!-- li items paginated -->
 	  <paginate name="trimmers" :per="15" :list="orderedAndFilteredTrimmers" class="paginate-list">
-			<li class="trimmer-post" v-for="trimmer in paginated('trimmers')">
-				<router-link class="trimmer-post__link" :to="`/trimmers/${trimmer._id}`">
-					<span class="trimmer-post__trimmer-skill">{{ trimmer.skill_level }}-level</span>
-					<span class="trimmer-post__trimmer-name">/ {{ trimmer.trimmer_name }}</span>
-					<span class="trimmer-post__metadata">
+			<li class="trimmers-board__post" v-for="trimmer in paginated('trimmers')">
+				<router-link class="trimmers-board__post__link" :to="`/trimmers/${trimmer._id}`">
+					<span class="trimmers-board__post__trimmer-skill">{{ trimmer.skill_level }}-level</span>
+					<span class="trimmers-board__post__trimmer-name">/ {{ trimmer.trimmer_name }}</span>
+					<span class="trimmers-board__post__metadata">
 						<span>
 							<i class="fa fa-map-marker" aria-hidden="true"></i>
 							{{ trimmer.trimmer_location }}
 						</span>
-						<span class="trimmer-post__metadata__date">
+						<span class="trimmers-board__post__metadata__date">
 							<span class="hidden-xs">-</span>
 							{{ trimmer.date | formatDate }}
 						</span>
@@ -31,6 +69,11 @@
 		data() {
 			return {
 				search : '',
+				filtersOn: false,
+				skillLevel: 'all',
+				isCertified: false,
+				wantsAccommodations: false,
+				hasReferences: false,
 				trimmers: this.$store.getters.allTrimmers,
 				paginate: ['trimmers']
 			}

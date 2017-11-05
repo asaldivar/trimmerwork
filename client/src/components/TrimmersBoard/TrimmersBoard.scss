@@ -1,49 +1,52 @@
-.trimmers {
+.trimmers-board {
 	padding: 0;
-}
-.trimmer-post {
-	padding: 10px 0;
-	list-style: none;
-	&:hover {
-		background-color: rgba(79,192,141	,0.1);
+	&__filters {
+		margin: 10px 0;
 	}
-	&:not(:last-child) {
-		border-bottom: 1px solid #ddd;
-	}
-	&__trimmer-skill {
-		font-weight: 600;
-	  color: #ff9d00;
-	  cursor: pointer;
-	  max-width: 165px;
-	  display: inline-block;
-	  overflow: hidden;
-	  white-space: nowrap;
-	  text-overflow: ellipsis;
-	  vertical-align: top;
-	}
-	&__trimmer-name {
-		font-weight: 300;
-		font-size: 14px;
-		color: #2c3e50;
-	}
-	&__link {
-		display: block;
-		font-size: 18px;
+	&__post {
+		padding: 10px 0;
+		list-style: none;
 		&:hover {
-			text-decoration: none;
+			background-color: rgba(79,192,141	,0.1);
 		}
-	}
-	&__metadata {
-		display: block;
-		font-weight: 300;
-		color: #2c3e50;
-		&__date {
-			float: right;
-			font-style: italic;
+		&:not(:last-child) {
+			border-bottom: 1px solid #ddd;
 		}
-		@media (min-width: 426px) {
-			display: inline-block;
-			float: right;
+		&__trimmer-skill {
+			font-weight: 600;
+		  color: #ff9d00;
+		  cursor: pointer;
+		  max-width: 165px;
+		  display: inline-block;
+		  overflow: hidden;
+		  white-space: nowrap;
+		  text-overflow: ellipsis;
+		  vertical-align: top;
+		}
+		&__trimmer-name {
+			font-weight: 300;
+			font-size: 14px;
+			color: #2c3e50;
+		}
+		&__link {
+			display: block;
+			font-size: 18px;
+			&:hover {
+				text-decoration: none;
+			}
+		}
+		&__metadata {
+			display: block;
+			font-weight: 300;
+			color: #2c3e50;
+			&__date {
+				float: right;
+				font-style: italic;
+			}
+			@media (min-width: 426px) {
+				display: inline-block;
+				float: right;
+			}
 		}
 	}
 }
