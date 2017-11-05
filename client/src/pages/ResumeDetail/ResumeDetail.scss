@@ -1,0 +1,34 @@
+.trimmer-detail {
+	padding: 15px 0;
+	border-bottom: 1px solid #ddd;
+	&__header {
+		padding: 0;
+		font-weight: 300;
+		&__title {
+			margin: 0;
+		}
+		&__date {
+			margin-bottom: 20px;
+		}
+		&__location {
+			font-weight: 300;
+		}
+	}
+	&__metadata {
+		padding: 15px 0;
+		border-bottom: 1px solid #ddd;
+		@media (min-width: 426px) {
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: space-around;
+		}
+	}
+	&__description {
+		padding: 15px 0;
+		font-size: 16px;
+		white-space: pre-wrap;
+		&__application {
+			margin-top: 20px;
+		}
+	}
+}

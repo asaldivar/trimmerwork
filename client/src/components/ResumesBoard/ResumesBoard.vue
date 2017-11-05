@@ -2,7 +2,7 @@
 	<ul class="trimmers">
 	  <paginate name="resumes" :per="15" :list="orderedResumes" class="paginate-list">
 			<li class="trimmer-post" v-for="resume in paginated('resumes')">
-				<router-link class="trimmer-post__link" :to="`/trimmers/${resume._id}`">
+				<router-link class="trimmer-post__link" :to="`/resumes/${resume._id}`">
 					<span class="trimmer-post__trimmer-skill">{{ resume.job_title }}</span>
 					<span class="trimmer-post__trimmer-name">/ {{ resume.name }}</span>
 					<span class="trimmer-post__metadata">
