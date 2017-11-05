@@ -24,7 +24,7 @@
 				<trimmers-board></trimmers-board>
 			</div>
 			<div id="resumes" class="tab-pane" role="tabpanel" :class="{'active': activeTab === 'resumes'}">
-				<resumes-board></resumes-board>
+				<resumes-board :resumes="resumes"></resumes-board>
 			</div>
 		</div>
 	</div>
@@ -40,7 +40,8 @@
 	export default {
 		data() {
 			return {
-				jobs: this.$store.getters.allJobs
+				jobs: this.$store.getters.allJobs,
+				resumes: this.$store.getters.allResumes,
 			}
 		},
 		components: {
