@@ -16,7 +16,7 @@ export const trimmersGetters = {
 }
 export const resumesGetters = {
 	allResumes: state => {
-		return state.jobs
+		return state.resumes
 	},
 	resumeById: (state, getters) => id => {
 		return getters.allResumes.filter(resume => resume._id === id)[0]

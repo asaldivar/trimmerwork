@@ -56,7 +56,7 @@
 	.paginate-list {
 		padding: 0;
 	}
-	.paginate-links.trimmers {
+	.paginate-links.resumes {
 	  text-align: center;
 	  user-select: none;
 	  li {
