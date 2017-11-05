@@ -12,6 +12,7 @@ import ResumeDetail from '@/pages/ResumeDetail/ResumeDetail'
 import JobForm from '@/pages/JobForm/JobForm'
 import TrimmerForm from '@/pages/TrimmerForm'
 import ResumeForm from '@/pages/ResumeForm'
+import SubmissionThankYou from '@/pages/SubmissionThankYou'
 import JobPostPreview from '@/pages/JobPostPreview/JobPostPreview'
 import JobPostSubmit from '@/pages/JobPostSubmit/JobPostSubmit'
 
@@ -73,6 +74,11 @@ export default new Router({
       path: '/donate',
       name: 'Donate',
       component: Donate
+    },
+    {
+      path: '/submission-thank-you',
+      name: 'SubmissionThankYou',
+      component: SubmissionThankYou
     },
     {
       path: '/sign-up',

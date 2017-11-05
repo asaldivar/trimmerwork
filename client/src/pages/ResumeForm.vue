@@ -236,7 +236,7 @@
 			validateBeforeSubmit() {
 				this.$validator.validateAll().then((result) => {
 					if (result) {
-						this.$router.push('/donate')
+						this.$router.push('/submission-thank-you')
 					}
 					console.warn('Please fill out all form goodness')
 				})
