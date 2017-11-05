@@ -6,6 +6,7 @@ import Donate from '@/pages/Donate'
 import Contact from '@/pages/Contact'
 import SignUp from '@/pages/SignUp/SignUp'
 import JobDetail from '@/pages/JobDetail/JobDetail'
+import TrimmerDetail from '@/pages/TrimmerDetail/TrimmerDetail'
 import JobForm from '@/pages/JobForm/JobForm'
 import JobPostPreview from '@/pages/JobPostPreview/JobPostPreview'
 import JobPostSubmit from '@/pages/JobPostSubmit/JobPostSubmit'
@@ -23,6 +24,11 @@ export default new Router({
     	path: '/jobs/:id',
     	name: 'JobDetail',
     	component: JobDetail
+    },
+    {
+      path: '/trimmers/:id',
+      name: 'TrimmerDetail',
+      component: TrimmerDetail
     },
     {
       path: '/job-form',

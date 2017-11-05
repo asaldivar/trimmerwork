@@ -37,9 +37,8 @@ export default {
 	            this.error = true
 	            $email.css('border-color', '#a94442')
 	            let message = data.msg.substr(data.msg.indexOf('- ') + 2)
-							console.log('first')
+
 							if (message.indexOf('(') !== -1) {
-								console.log('second')
 								message = message.substr(0, message.indexOf('('))
 							}
 	            this.errorMessage = message

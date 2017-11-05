@@ -45,6 +45,7 @@
 
 <script>
 	import moment from 'moment'
+
 	import BackToJobs from '@/components/BackToJobs/BackToJobs'
 	import TWHeadSmall from '@/components/HeadSmall/HeadSmall'
 

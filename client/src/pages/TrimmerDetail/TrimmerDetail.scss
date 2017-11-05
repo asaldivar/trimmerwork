@@ -1,4 +1,4 @@
-.job-detail {
+.trimmer-detail {
 	padding: 15px 0;
 	border-bottom: 1px solid #ddd;
 	&__header {
@@ -20,7 +20,7 @@
 		@media (min-width: 426px) {
 			display: flex;
 			flex-flow: row wrap;
-			justify-content: space-between;
+			justify-content: space-around;
 		}
 	}
 	&__description {
