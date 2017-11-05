@@ -17,13 +17,23 @@
 			<div class="col-md-4 trimmer-detail__company-logo"></div>
 		</div>
 		<div class="trimmer-detail__metadata col-md-12">
+			<div class="trimmer-detail__metadata__type">
+				<i class="fa fa-clock-o" aria-hidden="true"></i>
+				<span>{{trimmer.work_type}}</span>
+			</div>
 			<div class="trimmer-detail__metadata__category" v-if="trimmer.accommodations === 'true'">
 				<i class="fa fa-home" aria-hidden="true"></i>
 				<span>Accommodations desired</span>
 			</div>
-			<div class="trimmer-detail__metadata__type">
-				<i class="fa fa-clock-o" aria-hidden="true"></i>
-				<span>{{trimmer.work_type}}</span>
+			<div v-if="trimmer.certification === 'true'">
+				<i class="fa fa-certificate" aria-hidden="true"></i>
+				<span>licensed marijuana worker</span>
+				<!-- <span>marijuana worker licensed/permitted/certified</span> -->
+			</div>
+			<div v-if="trimmer.references === 'true'">
+				<i class="fa fa-address-book-o" aria-hidden="true"></i>
+				<span>has references</span>
+				<!-- <span>marijuana worker licensed/permitted/certified</span> -->
 			</div>
 		</div>
 		<div class="col-md-12 trimmer-detail__description">
