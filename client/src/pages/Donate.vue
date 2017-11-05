@@ -3,7 +3,7 @@
 		<TWHeadSmall></TWHeadSmall>
 		<h3>Donate</h3>
 		<p class="donate__text">
-			Where other job boards charge a minimum of $29 per job post, TrimmerWork is FREE!
+			Where other job boards charge a minimum of $29 per job post and don't give visibility to resumes looking for work, TrimmerWork provides all this and for FREE!
 		</p>
 		<p class="donate__text">
 			If you'd like to financially contribute to the TrimmerWork Community it would be greatly appreciated. All donations are used to keep the site up and running as well as fund the development of new features.
