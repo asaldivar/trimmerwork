@@ -6,7 +6,7 @@
   	&middot;
     <router-link to="/donate">Donate</router-link>
     &middot;
-    <router-link to="/sign-up">Sign up</router-link>
+    <router-link to="/subscribe">Discover jobs first!</router-link>
     &middot;
   	<router-link to="/contact">Contact</router-link>
   	&middot;

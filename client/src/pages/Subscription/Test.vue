@@ -3,7 +3,7 @@
 		<TWHeadSmall></TWHeadSmall>
 		<h3>Discover jobs first!</h3>
 		<p>Here at TrimmerWork, we're committed to being the best cannabis job resource there can be! We'll never spam you, only help you find a great job.</p>
-<!-- 		<div id="mc_embed_signup">
+		<div id="mc_embed_signup">
 			<form action="//trimmerwork.us16.list-manage.com/subscribe/post-json?u=c2998ebc9b1021aa3cbd8b458&amp;id=510ffda251&c=?" method="POST" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 				<div id="mc_embed_signup_scroll">
 				<div
@@ -31,13 +31,13 @@
 			    </div>
 				</div>
 			</form>
-		</div> -->
+		</div>
 	</div>
 </template>
-<!--
+
 <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
 
-<script src="./SignUp.js"></script> -->
+<script src="./Subscription.js"></script>
 
 <style lang="scss">
 	.sign-up {
