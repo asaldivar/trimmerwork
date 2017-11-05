@@ -2,7 +2,7 @@
 	<div class="back">
 		<router-link to="/">
 			<i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-			back to all jobs
+			back to board
 		</router-link>
 	</div>
 </template>

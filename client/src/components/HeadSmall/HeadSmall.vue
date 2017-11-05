@@ -1,5 +1,5 @@
 <template>
-	<header class="trimmerwork-header-small">
+	<header class="trimmerwork-header-small hidden-xs">
 		<router-link to="/">
 			<img class="trimmerwork-header-small__leaf" src="../../../static/images/trimmerwork-leaf.svg" alt="TrimmerWork Leaf">
 		</router-link>

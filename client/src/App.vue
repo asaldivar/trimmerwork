@@ -1,5 +1,6 @@
 <template>
   <div id="app" class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-12">
+    <navigation></navigation>
     <router-view/>
     <TWFooter></TWFooter>
   </div>
@@ -7,10 +8,13 @@
 
 <script>
   import TWFooter from '@/components/Footer/Footer'
+  import Navigation from '@/components/Navigation/Navigation'
+
   export default {
     name: 'app',
     components: {
-      TWFooter
+      TWFooter,
+      Navigation
     }
   }
 </script>
