@@ -2,8 +2,8 @@
 	<div>
 		<TWHeadSmall></TWHeadSmall>
 		<job-form-phase :step="'submit'"></job-form-phase>
-		<h5>STRIPE GOES HERE! :)</h5>
-		<div class="job-post-submit">
+		<h5 class="col-md-12">STRIPE GOES HERE! :)</h5>
+		<div class="job-post-submit col-md-12">
 			<h5>By creating a new job post you agree with:</h5>
 			<p>I am a part of / I represent the hiring company. Details provided above refer to the actual hiring entity.</p>
 		</div>

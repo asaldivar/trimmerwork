@@ -3,7 +3,7 @@
 		<TWHeadSmall></TWHeadSmall>
 		<back-to-jobs></back-to-jobs>
 		<job-form-phase :step="'create'"></job-form-phase>
-		<div class="row job-form__company-details">
+		<div class="col-md-12 job-form__company-details">
 			<fieldset>
 				<legend>Company details</legend>
 				<div class="col-md-8">
@@ -48,7 +48,7 @@
 				<div class="col-md-4"></div>
 			</fieldset>
 		</div>
-		<div class="row job-form__job-details">
+		<div class="col-md-12 job-form__job-details">
 			<fieldset>
 				<legend>Job details</legend>
 				<div
@@ -150,7 +150,7 @@
 				</div>
 			</fieldset>
 		</div>
-		<div class="row job-form__featured-post">
+		<div class="col-md-12 job-form__featured-post">
 			<fieldset>
 				<legend>Make your post stand out!</legend>
 				<div class="col-md-6">
