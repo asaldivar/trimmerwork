@@ -32,7 +32,11 @@ export const filterSettingsMutations = {
 	settrimmerFilterSettings(state, key, value) {
 		state.trimmerFilterSettings[key] = value
 	},
-	toggleFilter(state) {
-		state.trimmerFilterSettings['filtersOn'] = !state.trimmerFilterSettings['filtersOn']
+	resetResumeFilterSettings(state) {
+		state.resumeFilterSettings['search'] = '',
+		state.resumeFilterSettings['jobCategory'] = ''
+	},
+	toggleFilter(state, settings) {
+		state[settings]['filtersOn'] = !state[settings]['filtersOn']
 	}
 }

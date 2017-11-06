@@ -43,3 +43,8 @@ export const trimmerFilterSettings = {
 		return state.trimmerFilterSettings
 	}
 }
+export const resumeFilterSettings = {
+	allResumeSettings: state => {
+		return state.resumeFilterSettings
+	}
+}
