@@ -19,6 +19,7 @@ export default new Vuex.Store({
 		resumes,
 		filteredResumes: resumes,
 		filterSettings: {
+			filtersOn: false,
 			search: '',
 			skillLevel: 'all',
 			isCertified: false,

@@ -31,5 +31,8 @@ export const filterSettingsMutations = {
 	},
 	setFilterSettings(state, key, value) {
 		state.filterSettings[key] = value
+	},
+	toggleFilter(state) {
+		state.filterSettings['filtersOn'] = !state.filterSettings['filtersOn']
 	}
 }

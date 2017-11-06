@@ -4,7 +4,7 @@
 		<div class="input-group trimmers-board__filters">
 			<input type="text" class="form-control" v-model="filterSettings['search']" placeholder="search location">
 		  <span class="input-group-btn">
-		    <button class="btn btn-default" type="button" @click="filtersOn = !filtersOn">
+		    <button class="btn btn-default" type="button" @click="toggleFilter">
 		    	Filters
 		  	</button>
 		    <button class="btn btn-default" type="button" @click="resetFilters">
@@ -12,7 +12,7 @@
 		  	</button>
 		  </span>
 	  </div>
-		<div class="form-group" v-show="filtersOn">
+		<div class="form-group" v-show="filterSettings['filtersOn']">
 			<select class="form-control" id="job_category" v-model="filterSettings['skillLevel']">
 				<option value="all" selected="All">All skill levels</option>
 				<option value="Entry">Entry-level</option>
@@ -71,7 +71,6 @@
 	export default {
 		data() {
 			return {
-				filtersOn: false,
 				filterSettings: this.$store.getters.allSettings,
 				trimmers: this.$store.getters.allTrimmers,
 				paginate: ['trimmers']
@@ -105,6 +104,9 @@
 		methods: {
 			resetFilters() {
 				this.$store.commit('resetFilterSettings')
+			},
+			toggleFilter() {
+				this.$store.commit('toggleFilter')
 			}
 		}
 	}
