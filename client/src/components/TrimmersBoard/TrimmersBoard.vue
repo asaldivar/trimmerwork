@@ -2,7 +2,7 @@
 	<ul class="trimmers-board">
 		<!-- filters -->
 		<div class="input-group trimmers-board__filters">
-			<input type="text" class="form-control" v-model="search" placeholder="search location">
+			<input type="text" class="form-control" v-model="filterSettings['search']" placeholder="search location">
 		  <span class="input-group-btn">
 		    <button class="btn btn-default filter-button" type="button" @click="filtersOn = !filtersOn">
 		    	Filters
@@ -10,7 +10,7 @@
 		  </span>
 	  </div>
 		<div class="form-group" v-show="filtersOn">
-			<select class="form-control" id="job_category" v-model="skillLevel">
+			<select class="form-control" id="job_category" v-model="filterSettings['skillLevel']">
 				<option value="all" selected="All">All skill levels</option>
 				<option value="Entry">Entry-level</option>
 				<option value="Mid">Mid-level</option>
@@ -18,21 +18,21 @@
 			</select>
 			<div class="checkbox">
 				<label for="certification-filter">
-					<input id="certification-filter" type="checkbox" v-model="isCertified">
+					<input id="certification-filter" type="checkbox" v-model="filterSettings['isCertified']">
 					<i class="fa fa-certificate" aria-hidden="true"></i>
 					Has certification(s)
 				</label>
 			</div>
 			<div class="checkbox">
 				<label for="accommodations-filter">
-					<input id="accommodations-filter" type="checkbox" v-model="wantsAccommodations">
+					<input id="accommodations-filter" type="checkbox" v-model="filterSettings['wantsAccommodations']">
 						<i class="fa fa-home" aria-hidden="true"></i>
 						Requests accommodations
 				</label>
 			</div>
 			<div class="checkbox">
 				<label for="references-filter">
-					<input id="references-filter" type="checkbox" v-model="hasReferences">
+					<input id="references-filter" type="checkbox" v-model="filterSettings['hasReferences']">
 						<i class="fa fa-address-book" aria-hidden="true"></i>
 						Has references
 				</label>
@@ -68,12 +68,8 @@
 	export default {
 		data() {
 			return {
-				search : '',
 				filtersOn: false,
-				skillLevel: 'all',
-				isCertified: false,
-				wantsAccommodations: false,
-				hasReferences: false,
+				filterSettings: this.$store.getters.allSettings,
 				trimmers: this.$store.getters.allTrimmers,
 				paginate: ['trimmers']
 			}
@@ -86,7 +82,19 @@
 		computed: {
 			orderedAndFilteredTrimmers() {
 				let orderedTrimmers = orderByDate(this.trimmers)
-				let filteredResumes = filterByLocation(orderedTrimmers, this.search)
+				let filteredResumes = filterBySkillLevel(filterByLocation(orderedTrimmers, this.filterSettings['search']), this.filterSettings['skillLevel'])
+
+				if (this.filterSettings['isCertified']) {
+					filteredResumes = filterByMetadata('certification', filteredResumes)
+				}
+				if (this.filterSettings['wantsAccommodations']) {
+					filteredResumes = filterByMetadata('accommodations', filteredResumes)
+				}
+				if (this.filterSettings['hasReferences']) {
+					filteredResumes = filterByMetadata('references', filteredResumes)
+				}
+
+				this.$store.commit('setFilteredTrimmers', filteredResumes)
 
 				return filteredResumes
 			}
@@ -102,6 +110,16 @@
 		const search = userLocationInput.trim().toLowerCase()
 		return resumes.filter(resume => {
 			return resume.trimmer_location.toLowerCase().match(search)
+		})
+	}
+	function filterBySkillLevel(resumes, skillLevel) {
+		if (skillLevel === 'all') return resumes
+
+		return resumes.filter(resume => resume.skill_level === skillLevel)
+	}
+	function filterByMetadata(metadata, resumes) {
+		return resumes.filter(resume => {
+			return resume[metadata] == 'true'
 		})
 	}
 </script>

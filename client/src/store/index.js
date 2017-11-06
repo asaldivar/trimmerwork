@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Cookies from 'js-cookie'
 
-import { jobGetters, trimmersGetters, resumesGetters, activeTabGetters, jobForm } from './getters'
-import { boardMutations, formMutations, cookieMutations } from './mutations'
+import { jobGetters, trimmersGetters, resumesGetters, activeTabGetters, jobForm, filterSettings } from './getters'
+import { boardMutations, formMutations, cookieMutations, resumesMutations, filterSettingsMutations } from './mutations'
 
 import jobs from '../../data/jobs.json'
 import trimmers from '../../data/trimmers.json'
@@ -15,7 +15,16 @@ export default new Vuex.Store({
 	state: {
 		jobs,
 		trimmers,
+		filteredTrimmers: trimmers,
 		resumes,
+		filteredResumes: resumes,
+		filterSettings: {
+			search: '',
+			skillLevel: 'all',
+			isCertified: false,
+			wantsAccommodations: false,
+			hasReferences: false,
+		},
 		activeBoardTab: 'jobs',
 		jobForm: {
 			job_category: 'Grow',
@@ -24,6 +33,6 @@ export default new Vuex.Store({
 		},
 		hasCookie: Cookies.get('trimmerWorkEmail')
 	},
-	getters: Object.assign({}, jobGetters, trimmersGetters, resumesGetters, activeTabGetters, jobForm),
-	mutations: Object.assign({}, boardMutations, formMutations, cookieMutations)
+	getters: Object.assign({}, jobGetters, trimmersGetters, resumesGetters, activeTabGetters, jobForm, filterSettings),
+	mutations: Object.assign({}, boardMutations, formMutations, cookieMutations, resumesMutations, filterSettingsMutations)
 })

@@ -13,3 +13,19 @@ export const cookieMutations = {
 		state.hasCookie = payload
 	}
 }
+export const resumesMutations = {
+	setFilteredTrimmers(state, payload) {
+		state.filteredTrimmers = payload
+	},
+	setFilteredResumes(state, payload) {
+		state.filteredTrimmers = payload
+	}
+}
+export const filterSettingsMutations = {
+	resetFilterSettings() {
+		state.filterSettings = {}
+	},
+	setFilterSettings(state, key, value) {
+		state.filterSettings[key] = value
+	}
+}

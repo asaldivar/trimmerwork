@@ -12,6 +12,9 @@ export const trimmersGetters = {
 	},
 	trimmerById: (state, getters) => id => {
 		return getters.allTrimmers.filter(trimmer => trimmer._id === id)[0]
+	},
+	filteredTrimmers: state => {
+		return state.filteredTrimmers
 	}
 }
 export const resumesGetters = {
@@ -20,6 +23,9 @@ export const resumesGetters = {
 	},
 	resumeById: (state, getters) => id => {
 		return getters.allResumes.filter(resume => resume._id === id)[0]
+	},
+	filteredResumes: state => {
+		return state.filteredResumes
 	}
 }
 export const activeTabGetters = {
@@ -30,5 +36,10 @@ export const activeTabGetters = {
 export const jobForm = {
 	jobFormApplication: state => {
 		return state.jobForm
+	}
+}
+export const filterSettings = {
+	allSettings: state => {
+		return state.filterSettings
 	}
 }

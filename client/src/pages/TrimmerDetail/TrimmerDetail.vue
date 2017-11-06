@@ -41,6 +41,18 @@
 				<div v-html="trimmer.trimmer_contact"></div>
 			</div>
 		</div>
+
+		<div class="col-md-12 trimmer-detail__navigation">
+			<router-link v-if="previousResume" :to="`/trimmers/${previousResume._id}`" class="pull-left trimmer-detail__navigation__left">
+				<i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+				<span>previous</span>
+			</router-link>
+			<router-link v-if="nextResume" :to="`/trimmers/${nextResume._id}`" class="pull-right trimmer-detail__navigation__right">
+				<span>next</span>
+				<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+			</router-link>
+		</div>
+
 	</div>
 </template>
 
@@ -53,7 +65,21 @@
 	export default {
 		data() {
 			return {
-				trimmer: this.$store.getters.trimmerById(this.$route.params.id)
+				trimmer: this.$store.getters.trimmerById(this.$route.params.id),
+				filteredResumes: this.$store.getters.filteredTrimmers
+			}
+		},
+		computed: {
+			currentResumeIndex() {
+				return this.filteredResumes.map(function(trimmer) {
+					return trimmer._id
+				}).indexOf(this.$route.params.id)
+			},
+			previousResume() {
+				return this.filteredResumes[this.currentResumeIndex - 1]
+			},
+			nextResume() {
+				return this.filteredResumes[this.currentResumeIndex + 1]
 			}
 		},
 		components: {
@@ -63,6 +89,11 @@
 		filters: {
 			daysAgo: function(value) {
 				return moment(String(value)).fromNow()
+			}
+		},
+		watch: {
+			$route () {
+				this.trimmer = this.$store.getters.trimmerById(this.$route.params.id)
 			}
 		}
 	}
