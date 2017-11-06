@@ -22,7 +22,7 @@ export const resumesMutations = {
 	}
 }
 export const filterSettingsMutations = {
-	resettrimmerFilterSettings(state) {
+	resetTrimmerFilterSettings(state) {
 		state.trimmerFilterSettings['search'] = ''
 		state.trimmerFilterSettings['skillLevel'] = 'all'
 		state.trimmerFilterSettings['isCertified'] = false

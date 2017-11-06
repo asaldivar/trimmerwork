@@ -103,7 +103,7 @@
 		},
 		methods: {
 			resetFilters() {
-				this.$store.commit('resettrimmerFilterSettings')
+				this.$store.commit('resetTrimmerFilterSettings')
 			},
 			toggleFilter() {
 				this.$store.commit('toggleFilter')
