@@ -38,8 +38,8 @@ export const jobForm = {
 		return state.jobForm
 	}
 }
-export const filterSettings = {
+export const trimmerFilterSettings = {
 	allSettings: state => {
-		return state.filterSettings
+		return state.trimmerFilterSettings
 	}
 }

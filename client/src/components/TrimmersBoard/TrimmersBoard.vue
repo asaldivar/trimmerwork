@@ -2,7 +2,7 @@
 	<ul class="trimmers-board">
 		<!-- filters -->
 		<div class="input-group trimmers-board__filters">
-			<input type="text" class="form-control" v-model="filterSettings['search']" placeholder="search location">
+			<input type="text" class="form-control" v-model="trimmerFilterSettings['search']" placeholder="search location">
 		  <span class="input-group-btn">
 		    <button class="btn btn-default" type="button" @click="toggleFilter">
 		    	Filters
@@ -12,8 +12,8 @@
 		  	</button>
 		  </span>
 	  </div>
-		<div class="form-group" v-show="filterSettings['filtersOn']">
-			<select class="form-control" id="job_category" v-model="filterSettings['skillLevel']">
+		<div class="form-group" v-show="trimmerFilterSettings['filtersOn']">
+			<select class="form-control" id="job_category" v-model="trimmerFilterSettings['skillLevel']">
 				<option value="all" selected="All">All skill levels</option>
 				<option value="Entry">Entry-level</option>
 				<option value="Mid">Mid-level</option>
@@ -21,21 +21,21 @@
 			</select>
 			<div class="checkbox">
 				<label for="certification-filter">
-					<input id="certification-filter" type="checkbox" v-model="filterSettings['isCertified']">
+					<input id="certification-filter" type="checkbox" v-model="trimmerFilterSettings['isCertified']">
 					<i class="fa fa-certificate" aria-hidden="true"></i>
 					Has certification(s)
 				</label>
 			</div>
 			<div class="checkbox">
 				<label for="accommodations-filter">
-					<input id="accommodations-filter" type="checkbox" v-model="filterSettings['wantsAccommodations']">
+					<input id="accommodations-filter" type="checkbox" v-model="trimmerFilterSettings['wantsAccommodations']">
 						<i class="fa fa-home" aria-hidden="true"></i>
 						Requests accommodations
 				</label>
 			</div>
 			<div class="checkbox">
 				<label for="references-filter">
-					<input id="references-filter" type="checkbox" v-model="filterSettings['hasReferences']">
+					<input id="references-filter" type="checkbox" v-model="trimmerFilterSettings['hasReferences']">
 						<i class="fa fa-address-book" aria-hidden="true"></i>
 						Has references
 				</label>
@@ -71,7 +71,7 @@
 	export default {
 		data() {
 			return {
-				filterSettings: this.$store.getters.allSettings,
+				trimmerFilterSettings: this.$store.getters.allSettings,
 				trimmers: this.$store.getters.allTrimmers,
 				paginate: ['trimmers']
 			}
@@ -84,15 +84,15 @@
 		computed: {
 			orderedAndFilteredTrimmers() {
 				let orderedTrimmers = orderByDate(this.trimmers)
-				let filteredResumes = filterBySkillLevel(filterByLocation(orderedTrimmers, this.filterSettings['search']), this.filterSettings['skillLevel'])
+				let filteredResumes = filterBySkillLevel(filterByLocation(orderedTrimmers, this.trimmerFilterSettings['search']), this.trimmerFilterSettings['skillLevel'])
 
-				if (this.filterSettings['isCertified']) {
+				if (this.trimmerFilterSettings['isCertified']) {
 					filteredResumes = filterByMetadata('certification', filteredResumes)
 				}
-				if (this.filterSettings['wantsAccommodations']) {
+				if (this.trimmerFilterSettings['wantsAccommodations']) {
 					filteredResumes = filterByMetadata('accommodations', filteredResumes)
 				}
-				if (this.filterSettings['hasReferences']) {
+				if (this.trimmerFilterSettings['hasReferences']) {
 					filteredResumes = filterByMetadata('references', filteredResumes)
 				}
 
@@ -103,7 +103,7 @@
 		},
 		methods: {
 			resetFilters() {
-				this.$store.commit('resetFilterSettings')
+				this.$store.commit('resettrimmerFilterSettings')
 			},
 			toggleFilter() {
 				this.$store.commit('toggleFilter')

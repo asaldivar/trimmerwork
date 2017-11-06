@@ -22,17 +22,17 @@ export const resumesMutations = {
 	}
 }
 export const filterSettingsMutations = {
-	resetFilterSettings(state) {
-		state.filterSettings['search'] = ''
-		state.filterSettings['skillLevel'] = 'all'
-		state.filterSettings['isCertified'] = false
-		state.filterSettings['wantsAccommodations'] = false
-		state.filterSettings['hasReferences'] = false
+	resettrimmerFilterSettings(state) {
+		state.trimmerFilterSettings['search'] = ''
+		state.trimmerFilterSettings['skillLevel'] = 'all'
+		state.trimmerFilterSettings['isCertified'] = false
+		state.trimmerFilterSettings['wantsAccommodations'] = false
+		state.trimmerFilterSettings['hasReferences'] = false
 	},
-	setFilterSettings(state, key, value) {
-		state.filterSettings[key] = value
+	settrimmerFilterSettings(state, key, value) {
+		state.trimmerFilterSettings[key] = value
 	},
 	toggleFilter(state) {
-		state.filterSettings['filtersOn'] = !state.filterSettings['filtersOn']
+		state.trimmerFilterSettings['filtersOn'] = !state.trimmerFilterSettings['filtersOn']
 	}
 }
