@@ -23,7 +23,7 @@ export default new Vuex.Store({
 			skillLevel: 'all',
 			isCertified: false,
 			wantsAccommodations: false,
-			hasReferences: false,
+			hasReferences: false
 		},
 		activeBoardTab: 'jobs',
 		jobForm: {

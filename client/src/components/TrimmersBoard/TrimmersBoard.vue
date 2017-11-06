@@ -4,8 +4,11 @@
 		<div class="input-group trimmers-board__filters">
 			<input type="text" class="form-control" v-model="filterSettings['search']" placeholder="search location">
 		  <span class="input-group-btn">
-		    <button class="btn btn-default filter-button" type="button" @click="filtersOn = !filtersOn">
+		    <button class="btn btn-default" type="button" @click="filtersOn = !filtersOn">
 		    	Filters
+		  	</button>
+		    <button class="btn btn-default" type="button" @click="resetFilters">
+		    	<i class="fa fa-ban" aria-hidden="true"></i>
 		  	</button>
 		  </span>
 	  </div>
@@ -97,6 +100,11 @@
 				this.$store.commit('setFilteredTrimmers', filteredResumes)
 
 				return filteredResumes
+			}
+		},
+		methods: {
+			resetFilters() {
+				this.$store.commit('resetFilterSettings')
 			}
 		}
 	}

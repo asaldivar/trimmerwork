@@ -22,8 +22,12 @@ export const resumesMutations = {
 	}
 }
 export const filterSettingsMutations = {
-	resetFilterSettings() {
-		state.filterSettings = {}
+	resetFilterSettings(state) {
+		state.filterSettings['search'] = ''
+		state.filterSettings['skillLevel'] = 'all'
+		state.filterSettings['isCertified'] = false
+		state.filterSettings['wantsAccommodations'] = false
+		state.filterSettings['hasReferences'] = false
 	},
 	setFilterSettings(state, key, value) {
 		state.filterSettings[key] = value
