@@ -160,4 +160,7 @@
 		  color: #4fc08d;
 		}
 	}
+	.btn:focus,.btn:active {
+	   outline: none !important;
+	}
 </style>
