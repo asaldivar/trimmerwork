@@ -8,6 +8,7 @@
     "postinstall": "npm install express"
   },
   "dependencies": {
+    "connect-history-api-fallback": "^1.4.0",
     "newrelic": "^2.3.2"
   }
 }
