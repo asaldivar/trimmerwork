@@ -34,7 +34,7 @@ export default {
 	        },
 	        success: data => {
 	          if (data.result != 'success') {
-	          	if (data.msg.indexOf('already subscribed') != -1) {
+	          	if (data.msg.includes('already subscribed') != -1 || data.msg.includes('too many recent signup requests')) {
 		          	Cookies.set('trimmerWorkEmail', $email.val())
 		          	this.$store.commit('setCookie', $email.val())
 		          } else {
@@ -42,7 +42,7 @@ export default {
 		            $email.css('border-color', '#a94442')
 		            let message = data.msg.substr(data.msg.indexOf('- ') + 1)
 
-								if (message.indexOf('TrimmerWork. ') !== -1) {
+								if (message.includes('TrimmerWork. ')) {
 									message = message.substr(0, message.indexOf('TrimmerWork. '))
 								}
 		            this.errorMessage = message
