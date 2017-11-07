@@ -1,0 +1,10 @@
+.post-tab {
+	color: #d9534f !important;
+  border-radius: 3px !important;
+  transition: border 0.3s ease;
+  &:hover {
+		background-color: #fff !important;
+		border: 1px solid #d9534f !important;
+	  border-radius: 3px !important;
+  }
+}

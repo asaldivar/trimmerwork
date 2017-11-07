@@ -1,0 +1,41 @@
+.job-form {
+	padding-bottom: 50px;
+	&__company-details {
+		&__header {
+			position: relative;
+			margin-bottom: 20px;
+		}
+	}
+	&__job-details {
+		margin-top: 20px;
+		&__description {
+		}
+		&__category {
+			padding-left: 0;
+		}
+		&__type {
+			padding-right: 0;
+		}
+	}
+	&__featured-post {
+		margin-top: 20px;
+		&__description {
+			font-weight: 400;
+			line-height: 1.4;
+		}
+		&__image {
+			height: 130px;
+			background-image: url('../../../static/images/featured-post.png');
+	    background-size: contain;
+	    background-repeat: no-repeat;
+	    background-position: center;
+		}
+	}
+	&__button {
+		margin-top: 25px;
+		line-height: 1.4;
+		background-color: #4fc08d;
+		border-color: #4fc08d;
+		text-transform: uppercase;
+	}
+}

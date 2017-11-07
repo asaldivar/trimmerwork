@@ -1,0 +1,16 @@
+.trimmerwork-header {
+  margin: 40px 0 40px;
+  &__leaf {
+    display: block;
+    height: 150px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  &__mission {
+    text-align: center;
+    font-weight: 400;
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    color: #4fc08d;
+    -webkit-font-smoothing: antialiased;
+  }
+}
