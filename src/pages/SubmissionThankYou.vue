@@ -6,6 +6,9 @@
 			Your resume is now under review and will be published as soon as possible on the <a href="/">resume board</a>. If you no longer want your resume posted, please contact cs@trimmerwork.com to have your post removed.
 		</p>
 		<p class="submission-thank-you__text">
+			To hear about the latest jobs first sign up <a href="/subscribe">here</a>.
+		</p>
+		<p class="submission-thank-you__text">
 			Where other cannabis job boards either charge or simply don't give visibility to resumes looking for work, TrimmerWork provides all this and for FREE!
 		</p>
 		<p class="submission-thank-you__text">
