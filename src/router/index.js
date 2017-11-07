@@ -4,7 +4,6 @@ import Board from '@/pages/Board'
 import About from '@/pages/About'
 import Donate from '@/pages/Donate'
 import Contact from '@/pages/Contact'
-import SignUp from '@/pages/SignUp/SignUp'
 import Test from '@/pages/Subscription/Test'
 import JobDetail from '@/pages/JobDetail/JobDetail'
 import TrimmerDetail from '@/pages/TrimmerDetail/TrimmerDetail'
@@ -86,11 +85,6 @@ export default new Router({
       path: '/submission-thank-you',
       name: 'SubmissionThankYou',
       component: SubmissionThankYou
-    },
-    {
-      path: '/sign-up',
-      name: 'SignUp',
-      component: SignUp
     },
     {
       path: '/subscribe',
