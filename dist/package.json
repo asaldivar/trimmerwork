@@ -1,0 +1,10 @@
+{
+ "name": "TrimmerWork",
+ "version": "2.0.0",
+ "description": "An Open Job Board for the Cannabis Community",
+ "author": "alexander",
+ "private": true,
+ "scripts": {
+   "postinstall": "npm install express"
+ }
+}
