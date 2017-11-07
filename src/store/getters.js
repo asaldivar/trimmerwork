@@ -1,3 +1,8 @@
+export const cookieGetters = {
+	getCookie: state => {
+		return state.hasCookie
+	}
+}
 export const jobGetters = {
 	allJobs: state => {
 		return state.jobs
