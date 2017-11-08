@@ -51,7 +51,7 @@
 	  <paginate name="resumes" :per="15" :list="orderedandFilteredResumes" class="paginate-list">
 			<li class="resumes-board__post" v-for="resume in paginated('resumes')">
 				<router-link class="resumes-board__post__link" :to="`/resumes/${resume._id}`">
-					<span class="resumes-board__post__job-title">{{ resume.job_title }}</span>
+					<span class="resumes-board__post__job-title">{{ resume.jobTitle }}</span>
 					<span class="resumes-board__post__name">/ {{ resume.name }}</span>
 					<span class="resumes-board__post__metadata">
 						<span>
@@ -124,7 +124,7 @@
 		})
 	}
 	function filterByJobCategory(resumes, category) {
-		return resumes.filter(resume => resume.job_category === category)
+		return resumes.filter(resume => resume.jobCategory === category)
 	}
 </script>
 

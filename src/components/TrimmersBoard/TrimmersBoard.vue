@@ -45,12 +45,12 @@
 	  <paginate name="trimmers" :per="15" :list="orderedAndFilteredTrimmers" class="paginate-list">
 			<li class="trimmers-board__post" v-for="trimmer in paginated('trimmers')">
 				<router-link class="trimmers-board__post__link" :to="`/trimmers/${trimmer._id}`">
-					<span class="trimmers-board__post__trimmer-skill">{{ trimmer.skill_level }}-level</span>
-					<span class="trimmers-board__post__trimmer-name">/ {{ trimmer.trimmer_name }}</span>
+					<span class="trimmers-board__post__trimmer-skill">{{ trimmer.skillLevel }}-level</span>
+					<span class="trimmers-board__post__trimmer-name">/ {{ trimmer.name }}</span>
 					<span class="trimmers-board__post__metadata">
 						<span>
 							<i class="fa fa-map-marker" aria-hidden="true"></i>
-							{{ trimmer.trimmer_location }}
+							{{ trimmer.location }}
 						</span>
 						<span class="trimmers-board__post__metadata__date">
 							<span class="hidden-xs">-</span>
@@ -119,13 +119,13 @@
 
 		const search = userLocationInput.trim().toLowerCase()
 		return resumes.filter(resume => {
-			return resume.trimmer_location.toLowerCase().match(search)
+			return resume.location.toLowerCase().match(search)
 		})
 	}
 	function filterBySkillLevel(resumes, skillLevel) {
 		if (skillLevel === 'all') return resumes
 
-		return resumes.filter(resume => resume.skill_level === skillLevel)
+		return resumes.filter(resume => resume.skillLevel === skillLevel)
 	}
 	function filterByMetadata(metadata, resumes) {
 		return resumes.filter(resume => {

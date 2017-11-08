@@ -4,7 +4,7 @@
 		<back-to-jobs></back-to-jobs>
 		<div class="trimmer-detail col-md-12">
 			<div class="col-md-8 trimmer-detail__header">
-				<h1 class="trimmer-detail__header__title">{{ resume.job_title }}</h1>
+				<h1 class="trimmer-detail__header__title">{{ resume.jobTitle }}</h1>
 				<div class="trimmer-detail__header__date">Posted {{ resume.date | daysAgo }}</div>
 				<h4>{{ resume.name }}</h4>
 				<div>
@@ -18,11 +18,11 @@
 		</div>
 		<div class="trimmer-detail__metadata col-md-12">
 			<div class="trimmer-detail__metadata__category">
-				<i v-if="resume.job_category === 'Grow'" class="fa fa-sun-o" aria-hidden="true"></i>
-				<i v-else-if="resume.job_category === 'Harvest'" class="fa fa-scissors" aria-hidden="true"></i>
-				<i v-else-if="resume.job_category === 'Sales'" class="fa fa-users" aria-hidden="true"></i>
+				<i v-if="resume.jobCategory === 'Grow'" class="fa fa-sun-o" aria-hidden="true"></i>
+				<i v-else-if="resume.jobCategory === 'Harvest'" class="fa fa-scissors" aria-hidden="true"></i>
+				<i v-else-if="resume.jobCategory === 'Sales'" class="fa fa-users" aria-hidden="true"></i>
 				<i v-else class="fa fa-random" aria-hidden="true"></i>
-				<span>{{resume.job_category}}</span>
+				<span>{{resume.jobCategory}}</span>
 			</div>
 			<div v-if="resume.references === 'true'">
 				<i class="fa fa-address-book-o" aria-hidden="true"></i>
@@ -30,18 +30,18 @@
 			</div>
 		</div>
 		<div class="col-md-12 trimmer-detail__description">
-			<div class="trimmer-detail-description" v-html="resume.cover_letter"></div>
+			<div class="trimmer-detail-description" v-html="resume.coverLetter"></div>
 			<div>
 				<label>Work Experience:</label>
-				<div class="trimmer-detail-description" v-html="resume.work_experience"></div>
+				<div class="trimmer-detail-description" v-html="resume.workExperience"></div>
 			</div>
-			<div v-if="resume.additional_info">
+			<div v-if="resume.additionalInfo">
 				<label>Additional Info:</label>
-				<div class="trimmer-detail-description" v-html="resume.additional_info"></div>
+				<div class="trimmer-detail-description" v-html="resume.additionalInfo"></div>
 			</div>
 			<div class="trimmer-detail__description__application">
 				<label>How to contact:</label>
-				<div v-html="resume.contact_info"></div>
+				<div v-html="resume.contactInfo"></div>
 			</div>
 		</div>
 	</div>

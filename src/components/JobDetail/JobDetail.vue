@@ -4,13 +4,13 @@
 		<div v-else>
 			<div class="job-detail col-md-12">
 				<div class="col-md-8 job-detail__header">
-					<h1 class="job-detail__header__title">{{ job.job_title }}</h1>
+					<h1 class="job-detail__header__title">{{ job.jobTitle }}</h1>
 					<div class="job-detail__header__date">Posted {{ job.date | daysAgo }}</div>
-					<h4>{{ job.company_name }}</h4>
+					<h4>{{ job.companyName }}</h4>
 					<div>
 						<h5 class="job-detail__header__location">
 							<i class="fa fa-map-marker" aria-hidden="true"></i>
-							{{ job.job_location }}
+							{{ job.jobLocation }}
 						</h5>
 					</div>
 				</div>
@@ -18,28 +18,28 @@
 			</div>
 			<div class="job-detail__metadata col-md-12">
 				<div class="job-detail__metadata__category">
-					<i v-if="job.job_category === 'Grow'" class="fa fa-sun-o" aria-hidden="true"></i>
-					<i v-else-if="job.job_category === 'Harvest'" class="fa fa-scissors" aria-hidden="true"></i>
-					<i v-else-if="job.job_category === 'Sales'" class="fa fa-users" aria-hidden="true"></i>
+					<i v-if="job.jobCategory === 'Grow'" class="fa fa-sun-o" aria-hidden="true"></i>
+					<i v-else-if="job.jobCategory === 'Harvest'" class="fa fa-scissors" aria-hidden="true"></i>
+					<i v-else-if="job.jobCategory === 'Sales'" class="fa fa-users" aria-hidden="true"></i>
 					<i v-else aria-hidden="true"></i>
-					<span v-if="job.job_category !== 'Other'">{{job.job_category}}</span>
+					<span v-if="job.jobCategory !== 'Other'">{{job.jobCategory}}</span>
 				</div>
 				<div class="job-detail__metadata__type">
 					<i class="fa fa-clock-o" aria-hidden="true"></i>
-					<span>{{job.job_type}}</span>
+					<span>{{job.jobType}}</span>
 				</div>
-				<span v-if="job.job_compensation" class="job-detail__metadata__compensation">{{job.job_compensation}}</span>
-				<div v-show="job.job_category === 'Grow' || job.job_category === 'Harvest'" class="job-detail__metadata__accommodations">
+				<span v-if="job.jobCompensation" class="job-detail__metadata__compensation">{{job.jobCompensation}}</span>
+				<div v-show="job.jobCategory === 'Grow' || job.jobCategory === 'Harvest'" class="job-detail__metadata__accommodations">
 					<i class="fa fa-home" aria-hidden="true"></i>
-					<span v-if="job.job_accommodations === 'true'">Housing</span>
+					<span v-if="job.jobAccommodations === 'true'">Housing</span>
 					<span v-else>No housing</span>
 				</div>
 			</div>
 			<div class="col-md-12 job-detail__description">
-				<div class="job-detail-description" v-html="job.job_description"></div>
+				<div class="job-detail-description" v-html="job.jobDescription"></div>
 				<div class="job-detail__description__application">
 					<label>How to apply:</label>
-					<div v-html="job.job_application"></div>
+					<div v-html="job.jobApplication"></div>
 				</div>
 			</div>
 		</div>
