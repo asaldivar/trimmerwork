@@ -13,6 +13,11 @@ export const cookieMutations = {
 		state.hasCookie = payload
 	}
 }
+export const trimmerMutations = {
+	setTrimmers(state, payload) {
+		state.trimmers = payload
+	}
+}
 export const resumesMutations = {
 	setFilteredTrimmers(state, payload) {
 		state.filteredTrimmers = payload

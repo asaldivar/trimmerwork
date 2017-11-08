@@ -71,17 +71,27 @@
 	export default {
 		data() {
 			return {
-				trimmerFilterSettings: this.$store.getters.allSettings,
 				trimmers: this.$store.getters.allTrimmers,
+				trimmerFilterSettings: this.$store.getters.allSettings,
 				paginate: ['trimmers']
 			}
 		},
+		// async created() {
+		// 	try {
+		// 		await this.$store.dispatch('getTrimmers')
+		// 	} catch(e) {
+		// 		console.warn(e)
+		// 	}
+		// },
 		filters: {
 			formatDate: (value) => {
 				return moment(String(value)).format('D MMM')
 			}
 		},
 		computed: {
+			// trimmers() {
+			// 	return this.$store.getters.allTrimmers
+			// },
 			orderedAndFilteredTrimmers() {
 				let orderedTrimmers = orderByDate(this.trimmers)
 				let filteredResumes = filterBySkillLevel(filterByLocation(orderedTrimmers, this.trimmerFilterSettings['search']), this.trimmerFilterSettings['skillLevel'])
