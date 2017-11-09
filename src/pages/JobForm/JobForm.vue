@@ -6,7 +6,7 @@
 		<div class="col-md-12 job-form__company-details">
 			<fieldset>
 				<legend>Company details</legend>
-				<div class="col-md-8">
+				<div class="col-md-8 job-form__company-details__inputs">
 					<div
 						class="form-group"
 						:class="{'has-error':errors.has('companyName')}">
@@ -45,7 +45,10 @@
 						<input type="text" id="companyWebsite" class="form-control" placeholder="http://company.com" v-model="jobForm['company_website']">
 					</div>
 				</div>
-				<div class="col-md-4"></div>
+				<div class="col-md-4">
+					<label class="job-form__company-details__inputs__logo-label">Company logo</label>
+					<photo-upload></photo-upload>
+				</div>
 			</fieldset>
 		</div>
 		<div class="col-md-12 job-form__job-details">
@@ -180,13 +183,15 @@
 	import BackToJobs from '@/components/BackToJobs/BackToJobs'
 	import TWHeadSmall from '@/components/HeadSmall/HeadSmall'
 	import JobFormPhase from '@/components/JobFormPhase/JobFormPhase'
+	import PhotoUpload from '@/components/PhotoUpload/PhotoUpload'
 
 	export default {
 		components: {
 			BackToJobs,
 			VueEditor,
 			TWHeadSmall,
-			JobFormPhase
+			JobFormPhase,
+			PhotoUpload
 		},
 		data() {
 			return {

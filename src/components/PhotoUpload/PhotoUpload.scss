@@ -1,0 +1,14 @@
+.photo-upload {
+  height: 183px;
+  width: 183px;
+	display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+	border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  &__image {
+  	height: 183px;
+  }
+}
