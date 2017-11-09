@@ -127,7 +127,7 @@
 					<vue-editor
 						name="experiece"
 						:editorToolbar="customToolbar"
-						v-model="resume['experiece']"
+						v-model="resume['experience']"
 						v-validate="'required'"
 						row="5"
 						data-vv-as="work experience"></vue-editor>
