@@ -1,5 +1,5 @@
 function upload(formData) {
-    const photos = formData.getAll('photos');
+    const photos = formData.getAll('image');
     const promises = photos.map((x) => getImage(x)
         .then(img => ({
             id: img,

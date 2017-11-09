@@ -1,5 +1,6 @@
 <template>
-	<form id="trimmer-form" class="trimmer-form" @submit.prevent="validateBeforeSubmit">
+	<form id="trimmer-form" class="trimmer-form" method="POST" action="https://api.staticman.net/v2/entry/asaldivar/trimmerwork/master/trimmers" @submit.prevent="validateBeforeSubmit">
+		<input type="hidden" name="options[redirect]" value="http://trimmerwork.herokuapp.com/submission-thank-you">
 		<TWHeadSmall></TWHeadSmall>
 		<back-to-jobs></back-to-jobs>
 		<div class="col-md-12">
@@ -16,11 +17,11 @@
 						<label class="control-label" for="name">Name</label>
 						<input
 							type="text"
-							name="name"
+							name="fields[name]"
 							id="name"
 							class="form-control"
 							placeholder="Alex Smith"
-							v-model="fields['name']"
+							v-model="trimmer['name']"
 							v-validate="'required'">
 						<span v-show="errors.has('name')" class="help-block">{{ errors.first('name') }}</span>
 					</div>
@@ -30,11 +31,11 @@
 						<label class="control-label" for="email">Email</label>
 						<input
 							type="text"
-							name="email"
+							name="fields[email]"
 							id="email"
 							class="form-control"
 							placeholder="asmith@gmail.com"
-							v-model="fields['email']"
+							v-model="trimmer['email']"
 							v-validate="'required'">
 						<span v-show="errors.has('email')" class="help-block">{{ errors.first('name') }}</span>
 					</div>
@@ -44,11 +45,11 @@
 						<label class="control-label" for="location">Location</label>
 						<input
 							type="text"
-							name="location"
+							name="fields[location]"
 							id="location"
 							class="form-control"
 							placeholder="Ashland, OR"
-							v-model="fields['location']"
+							v-model="trimmer['location']"
 							v-validate="'required'">
 						<span v-show="errors.has('location')" class="help-block">{{ errors.first('location') }}</span>
 					</div>
@@ -68,9 +69,9 @@
 					<select
 						id="skillLevel"
 						class="form-control"
-						name="skillLevel"
+						name="fields[skillLevel]"
 						v-validate="'required'"
-						v-model="fields['skillLevel']"
+						v-model="trimmer['skillLevel']"
 						data-vv-as="skill level">
 						<option value="Entry">Entry</option>
 						<option value="Mid">Mid</option>
@@ -82,8 +83,8 @@
 					<select
 						class="form-control"
 						id="workType"
-						name="workType"
-						v-model="fields['workType']">
+						name="fields[workType]"
+						v-model="trimmer['workType']">
 						<option value="Part-time">Part-time</option>
 						<option value="Full-time">Full-time</option>
 						<option value="Seasonal">Seasonal</option>
@@ -95,11 +96,11 @@
 				<small class="help-block">Do you need accommodations of any sort (e.g. shelter, food, etc.)? If so, please detail in cover letter.</small>
 				<div class="radio">
 					<label>
-				    <input type="radio" name="accommodations" v-model="fields['accommodations']" value="true">
+				    <input type="radio" name="fields[accommodations]" v-model="trimmer['accommodations']" value="true">
 				    Yes
 					</label>
 					<label>
-				    <input type="radio" name="accommodations" v-model="fields['accommodations']" value="false" checked>
+				    <input type="radio" name="fields[accommodations]" v-model="trimmer['accommodations']" value="false" checked>
 				    No
 					</label>
 				</div>
@@ -109,10 +110,10 @@
 				:class="{'has-error':errors.has('coverLetter')}">
 				<label class="control-label" for="coverLetter">Cover letter</label>
 				<small class="help-block">Please describe your qualifications, any accommodations desired, timeframe you are available to work and anything else you deem appropriate.</small>
+				<input type="hidden" name="fields[coverLetter]" :value="trimmer['coverLetter']">
 				<vue-editor
-					name="coverLetter"
 					:editorToolbar="customToolbar"
-					v-model="fields['coverLetter']"
+					v-model="trimmer['coverLetter']"
 					v-validate="'required'"
 					data-vv-as="cover letter"></vue-editor>
 					<span v-show="errors.has('coverLetter')" class="help-block">{{ errors.first('coverLetter') }}</span>
@@ -122,11 +123,11 @@
 				<small class="help-block">Do you have any type of marijuana worker/handler certification(s)?</small>
 				<div class="radio">
 					<label>
-				    <input type="radio" name="certification" v-model="fields['certification']" value="true">
+				    <input type="radio" name="fields[certification]" v-model="trimmer['certification']" value="true">
 				    Yes
 					</label>
 					<label>
-				    <input type="radio" name="certification" v-model="fields['certification']" value="false" checked>
+				    <input type="radio" name="fields[certification]" v-model="trimmer['certification']" value="false" checked>
 				    No
 					</label>
 				</div>
@@ -136,11 +137,11 @@
 				<small class="help-block">If requested, could you provide work-related references?</small>
 				<div class="radio">
 					<label>
-				    <input type="radio" name="references" v-model="fields['references']" value="true">
+				    <input type="radio" name="fields[references]" v-model="trimmer['references']" value="true">
 				    Yes
 					</label>
 					<label>
-				    <input type="radio" name="references" v-model="fields['references']" value="false" checked>
+				    <input type="radio" name="fields[references]" v-model="trimmer['references']" value="false" checked>
 				    No
 					</label>
 				</div>
@@ -152,11 +153,11 @@
 				<small class="help-block">How would you like to be contacted by employers?</small>
 				<input
 					type="text"
-					name="contact"
+					name="fields[contact]"
 					id="contact"
 					class="form-control"
 					placeholder="asmith@gmail.com"
-					v-model="fields['contact']"
+					v-model="trimmer['contact']"
 					v-validate="'required'">
 				<span v-show="errors.has('contact')" class="help-block">{{ errors.first('contact') }}</span>
 			</div>

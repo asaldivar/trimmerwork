@@ -1,5 +1,6 @@
 <template>
-	<form class="resume-form" @submit.prevent="validateBeforeSubmit">
+	<form id="resume-form" class="resume-form" method="POST" action="https://api.staticman.net/v2/entry/asaldivar/trimmerwork/master/resumes" @submit.prevent="validateBeforeSubmit">
+		<input type="hidden" name="options[redirect]" value="http://trimmerwork.herokuapp.com/submission-thank-you">
 		<TWHeadSmall></TWHeadSmall>
 		<back-to-jobs></back-to-jobs>
 		<div class="col-md-12">
@@ -16,7 +17,7 @@
 						<label class="control-label" for="name">Name</label>
 						<input
 							type="text"
-							name="name"
+							name="fields[name]"
 							id="name"
 							class="form-control"
 							placeholder="Alex Smith"
@@ -30,7 +31,7 @@
 						<label class="control-label" for="email">Email</label>
 						<input
 							type="text"
-							name="email"
+							name="fields[email]"
 							id="email"
 							class="form-control"
 							placeholder="asmith@gmail.com"
@@ -44,7 +45,7 @@
 						<label class="control-label" for="location">Location</label>
 						<input
 							type="text"
-							name="location"
+							name="fields[location]"
 							id="location"
 							class="form-control"
 							placeholder="Los Angeles, CA"
@@ -68,7 +69,7 @@
 					<label class="control-label" for="title">Job title</label>
 					<input
 						type="text"
-						name="title"
+						name="fields[title]"
 						id="title"
 						class="form-control"
 						placeholder="Ashland, OR"
@@ -77,12 +78,12 @@
 					<span v-show="errors.has('title')" class="help-block">{{ errors.first('title') }}</span>
 				</div>
 				<div class="form-group col-md-6 resume-form__resume__job-category">
-					<label for="workType">Work type</label>
+					<label for="jobCateogry">Work type</label>
 					<select
 						class="form-control"
-						id="workType"
-						name="workType"
-						v-model="resume['workType']">
+						id="jobCateogry"
+						name="fields[jobCateogry]"
+						v-model="resume['jobCateogry']">
 						<option value="Part-time">Part-time</option>
 						<option value="Full-time">Full-time</option>
 						<option value="Seasonal">Seasonal</option>
@@ -93,11 +94,11 @@
 					<small class="help-block">If requested, could you provide work-related references?</small>
 					<div class="radio">
 						<label>
-					    <input type="radio" name="references" v-model="resume['references']" value="true">
+					    <input type="radio" name="fields[references]" v-model="resume['references']" value="true">
 					    Yes
 						</label>
 						<label>
-					    <input type="radio" name="references" v-model="resume['references']" value="false" checked>
+					    <input type="radio" name="fields[references]" v-model="resume['references']" value="false" checked>
 					    No
 						</label>
 					</div>
@@ -107,6 +108,7 @@
 					:class="{'has-error':errors.has('coverLetter')}">
 					<label class="control-label" for="coverLetter">Cover letter</label>
 					<small class="help-block">Please introduce yourself as well as describe what makes you stand out from other resumes of the same job type.</small>
+					<input type="hidden" name="fields[coverLetter]" :value="resume['coverLetter']">
 					<vue-editor
 						name="coverLetter"
 						:editorToolbar="customToolbar"
@@ -120,6 +122,7 @@
 					:class="{'has-error':errors.has('experiece')}">
 					<label class="control-label" for="experiece">Work experience</label>
 					<small class="help-block">Please provide a few bullet points of the most recent/relevant jobs you’ve held and duration of time you worked there.</small>
+					<input type="hidden" name="fields[experience]" :value="resume['experience']">
 					<vue-editor
 						name="experiece"
 						:editorToolbar="customToolbar"
@@ -134,6 +137,7 @@
 					:class="{'has-error':errors.has('additionalInfo')}">
 					<label class="control-label" for="additionalInfo">Additional information</label>
 					<small class="help-block">Please provide a few bullet points of the most recent/relevant jobs you’ve held and duration of time you worked there.</small>
+					<input type="hidden" name="fields[additionalInfo]" :value="resume['additionalInfo']">
 					<vue-editor
 						name="additionalInfo"
 						:editorToolbar="customToolbar"
@@ -233,7 +237,7 @@
 		data() {
 			return {
 				resume: {
-					workType: 'Seasonal'
+					jobCateogry: 'Seasonal'
 				},
 	      customToolbar: [
 	        ['bold', 'italic', 'underline'],
@@ -248,7 +252,7 @@
 			validateBeforeSubmit() {
 				this.$validator.validateAll().then((result) => {
 					if (result) {
-						this.$router.push('/submission-thank-you')
+						return document.querySelector('#resume-form').submit()
 					}
 					console.warn('Please fill out all form goodness')
 				})
