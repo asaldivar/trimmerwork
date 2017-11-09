@@ -54,7 +54,7 @@
 					</div>
 				</div>
 				<div class="col-md-4">
-					<label class="resume-form__about-you__avatar">Company logo</label>
+					<label class="resume-form__about-you__avatar">Profile picture</label>
 					<photo-upload></photo-upload>
 				</div>
 			</fieldset>

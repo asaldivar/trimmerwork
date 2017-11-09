@@ -9,7 +9,7 @@ export default {
         uploadedFiles: [],
         uploadError: null,
         currentStatus: null,
-        uploadFieldName: 'photos'
+        uploadFieldName: 'image'
       }
     },
     computed: {

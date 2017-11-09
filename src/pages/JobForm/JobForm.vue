@@ -1,5 +1,5 @@
 <template>
-	<form class="job-form" @submit.prevent="validateBeforeSubmit">
+	<form class="job-form" method="POST" action="https://api.staticman.net/v2/entry/asaldivar/trimmerwork/master/jobs" @submit.prevent="validateBeforeSubmit">
 		<TWHeadSmall></TWHeadSmall>
 		<back-to-jobs></back-to-jobs>
 		<job-form-phase :step="'create'"></job-form-phase>
@@ -42,7 +42,7 @@
 							Company website
 							<small>(optional)</small>
 						</label>
-						<input type="text" id="companyWebsite" class="form-control" placeholder="http://company.com" v-model="jobForm['company_website']">
+						<input type="text" id="companyWebsite" class="form-control" placeholder="http://company.com" v-model="jobForm['companyWebsite']">
 					</div>
 				</div>
 				<div class="col-md-4">
@@ -86,7 +86,7 @@
 				</div>
 				<div class="form-group col-md-6 job-form__job-details__category">
 					<label for="jobCategory">Job category</label>
-					<select class="form-control" id="jobCategory" v-model="jobForm['job_category']">
+					<select class="form-control" id="jobCategory" v-model="jobForm['jobCategory']">
 						<option value="Grow">Grow</option>
 						<option value="Harvest">Harvest</option>
 						<option value="Sales">Sales</option>
@@ -95,7 +95,7 @@
 				</div>
 				<div class="form-group col-md-6 job-form__job-details__type">
 					<label for="jobType">Job Type</label>
-					<select class="form-control" id="jobType" v-model="jobForm['job_type']">
+					<select class="form-control" id="jobType" v-model="jobForm['jobType']">
 						<option value="Full-time">Full-time</option>
 						<option value="Part-time" selected>Part-time</option>
 						<option value="Seasonal">Seasonal</option>
@@ -107,7 +107,7 @@
 						<small>(optional but recommended)</small>
 					</label>
 					<div class="help-block">Job posts listed with pay help both workers and companies more quickly determine if they fit each other's needs.</div>
-					<input type="text" id="jobCompensation" class="form-control" placeholder="$20/hr or $175/lb" v-model="jobForm['job_compensation']">
+					<input type="text" id="jobCompensation" class="form-control" placeholder="$20/hr or $175/lb" v-model="jobForm['jobCompensation']">
 				</div>
 				<div
 					class="form-group"
@@ -122,16 +122,16 @@
 						data-vv-as="job description"></vue-editor>
 						<span v-show="errors.has('jobDescription')" class="help-block">{{ errors.first('jobDescription') }}</span>
 				</div>
-				<div class="form-group" v-show="jobForm['job_category'] === 'Grow' || jobForm['job_category'] ===  'Harvest'">
+				<div class="form-group" v-show="jobForm['jobCategory'] === 'Grow' || jobForm['jobCategory'] ===  'Harvest'">
 					<label for="">Accommodations</label>
 					<div class="help-block">Will you be providing any type of accommodations? If so, be sure to detail in job description.</div>
 					<div class="radio">
 						<label>
-					    <input type="radio" value="true" checked v-model="jobForm['job_accommodations']">
+					    <input type="radio" value="true" checked v-model="jobForm['jobAccommodations']">
 					    Yes
 						</label>
 						<label>
-					    <input type="radio"  value="false" v-model="jobForm['job_accommodations']">
+					    <input type="radio"  value="false" v-model="jobForm['jobAccommodations']">
 					    No
 						</label>
 					</div>
@@ -146,7 +146,7 @@
 						class="form-control"
 						cols="30" rows="3"
 						placeholder="e.g. Please email all applications to hr@company.com"
-						v-model="jobForm['job_application']"
+						v-model="jobForm['jobApplication']"
 						v-validate="'required'"
 						data-vv-as="how to apply"></textarea>
 						<span v-show="errors.has('jobApplication')" class="help-block">{{ errors.first('jobApplication') }}</span>

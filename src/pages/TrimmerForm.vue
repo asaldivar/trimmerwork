@@ -1,5 +1,5 @@
 <template>
-	<form class="trimmer-form" @submit.prevent="validateBeforeSubmit">
+	<form id="trimmer-form" class="trimmer-form" @submit.prevent="validateBeforeSubmit">
 		<TWHeadSmall></TWHeadSmall>
 		<back-to-jobs></back-to-jobs>
 		<div class="col-md-12">
@@ -20,7 +20,7 @@
 							id="name"
 							class="form-control"
 							placeholder="Alex Smith"
-							v-model="trimmer['name']"
+							v-model="fields['name']"
 							v-validate="'required'">
 						<span v-show="errors.has('name')" class="help-block">{{ errors.first('name') }}</span>
 					</div>
@@ -34,7 +34,7 @@
 							id="email"
 							class="form-control"
 							placeholder="asmith@gmail.com"
-							v-model="trimmer['email']"
+							v-model="fields['email']"
 							v-validate="'required'">
 						<span v-show="errors.has('email')" class="help-block">{{ errors.first('name') }}</span>
 					</div>
@@ -48,13 +48,13 @@
 							id="location"
 							class="form-control"
 							placeholder="Ashland, OR"
-							v-model="trimmer['location']"
+							v-model="fields['location']"
 							v-validate="'required'">
 						<span v-show="errors.has('location')" class="help-block">{{ errors.first('location') }}</span>
 					</div>
 				</div>
 				<div class="col-md-4">
-					<label class="trimmer-form__about-you__avatar">Company logo</label>
+					<label class="trimmer-form__about-you__avatar">Profile picture</label>
 					<photo-upload></photo-upload>
 				</div>
 			</fieldset>
@@ -70,7 +70,7 @@
 						class="form-control"
 						name="skillLevel"
 						v-validate="'required'"
-						v-model="trimmer['skillLevel']"
+						v-model="fields['skillLevel']"
 						data-vv-as="skill level">
 						<option value="Entry">Entry</option>
 						<option value="Mid">Mid</option>
@@ -83,7 +83,7 @@
 						class="form-control"
 						id="workType"
 						name="workType"
-						v-model="trimmer['workType']">
+						v-model="fields['workType']">
 						<option value="Part-time">Part-time</option>
 						<option value="Full-time">Full-time</option>
 						<option value="Seasonal">Seasonal</option>
@@ -95,11 +95,11 @@
 				<small class="help-block">Do you need accommodations of any sort (e.g. shelter, food, etc.)? If so, please detail in cover letter.</small>
 				<div class="radio">
 					<label>
-				    <input type="radio" name="accommodations" v-model="trimmer['accommodations']" value="true">
+				    <input type="radio" name="accommodations" v-model="fields['accommodations']" value="true">
 				    Yes
 					</label>
 					<label>
-				    <input type="radio" name="accommodations" v-model="trimmer['accommodations']" value="false" checked>
+				    <input type="radio" name="accommodations" v-model="fields['accommodations']" value="false" checked>
 				    No
 					</label>
 				</div>
@@ -112,7 +112,7 @@
 				<vue-editor
 					name="coverLetter"
 					:editorToolbar="customToolbar"
-					v-model="trimmer['coverLetter']"
+					v-model="fields['coverLetter']"
 					v-validate="'required'"
 					data-vv-as="cover letter"></vue-editor>
 					<span v-show="errors.has('coverLetter')" class="help-block">{{ errors.first('coverLetter') }}</span>
@@ -122,11 +122,11 @@
 				<small class="help-block">Do you have any type of marijuana worker/handler certification(s)?</small>
 				<div class="radio">
 					<label>
-				    <input type="radio" name="certification" v-model="trimmer['certification']" value="true">
+				    <input type="radio" name="certification" v-model="fields['certification']" value="true">
 				    Yes
 					</label>
 					<label>
-				    <input type="radio" name="certification" v-model="trimmer['certification']" value="false" checked>
+				    <input type="radio" name="certification" v-model="fields['certification']" value="false" checked>
 				    No
 					</label>
 				</div>
@@ -136,11 +136,11 @@
 				<small class="help-block">If requested, could you provide work-related references?</small>
 				<div class="radio">
 					<label>
-				    <input type="radio" name="references" v-model="trimmer['references']" value="true">
+				    <input type="radio" name="references" v-model="fields['references']" value="true">
 				    Yes
 					</label>
 					<label>
-				    <input type="radio" name="references" v-model="trimmer['references']" value="false" checked>
+				    <input type="radio" name="references" v-model="fields['references']" value="false" checked>
 				    No
 					</label>
 				</div>
@@ -156,7 +156,7 @@
 					id="contact"
 					class="form-control"
 					placeholder="asmith@gmail.com"
-					v-model="trimmer['contact']"
+					v-model="fields['contact']"
 					v-validate="'required'">
 				<span v-show="errors.has('contact')" class="help-block">{{ errors.first('contact') }}</span>
 			</div>
@@ -243,7 +243,7 @@
 			validateBeforeSubmit() {
 				this.$validator.validateAll().then((result) => {
 					if (result) {
-						this.$router.push('/submission-thank-you')
+						return document.querySelector('#trimmer-form').submit()
 					}
 					console.warn('Please fill out all form goodness')
 				})
