@@ -72,21 +72,22 @@
 						name="fields[title]"
 						id="title"
 						class="form-control"
-						placeholder="Ashland, OR"
+						placeholder="Budtender"
 						v-model="resume['title']"
 						v-validate="'required'">
 					<span v-show="errors.has('title')" class="help-block">{{ errors.first('title') }}</span>
 				</div>
 				<div class="form-group col-md-6 resume-form__resume__job-category">
-					<label for="jobCateogry">Work type</label>
+					<label for="jobCateogry">Job category</label>
 					<select
 						class="form-control"
 						id="jobCateogry"
 						name="fields[jobCateogry]"
 						v-model="resume['jobCateogry']">
-						<option value="Part-time">Part-time</option>
-						<option value="Full-time">Full-time</option>
-						<option value="Seasonal">Seasonal</option>
+						<option value="Grow">Grow</option>
+						<option value="Harvest">Harvest</option>
+						<option value="Sales">Sales</option>
+						<option value="Other">Other</option>
 					</select>
 				</div>
 				<div class="form-group">
@@ -237,7 +238,7 @@
 		data() {
 			return {
 				resume: {
-					jobCateogry: 'Seasonal'
+					jobCateogry: 'Sales'
 				},
 	      customToolbar: [
 	        ['bold', 'italic', 'underline'],
