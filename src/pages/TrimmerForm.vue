@@ -42,7 +42,6 @@
 						class="form-group"
 						:class="{'has-error':errors.has('location')}">
 						<label class="control-label" for="location">Location</label>
-						<small class="help-block">Where do you want to work?</small class="help-block">
 						<input
 							type="text"
 							name="location"
@@ -53,6 +52,10 @@
 							v-validate="'required'">
 						<span v-show="errors.has('location')" class="help-block">{{ errors.first('location') }}</span>
 					</div>
+				</div>
+				<div class="col-md-4">
+					<label class="trimmer-form__about-you__avatar">Company logo</label>
+					<photo-upload></photo-upload>
 				</div>
 			</fieldset>
 		</div>
@@ -168,6 +171,12 @@
 
 <style lang="scss">
 	.trimmer-form {
+		&__about-you {
+			&__avatar {
+				width: 100%;
+				text-align: center;
+			}
+		}
 		&__about-you, &__resume {
 			margin-top: 20px;
 		}
@@ -206,12 +215,14 @@
 
 	import TWHeadSmall from '@/components/HeadSmall/HeadSmall'
 	import BackToJobs from '@/components/BackToJobs/BackToJobs'
+	import PhotoUpload from '@/components/PhotoUpload/PhotoUpload'
 
 	export default {
 		components: {
 			BackToJobs,
 			VueEditor,
 			TWHeadSmall,
+			PhotoUpload
 		},
 		data() {
 			return {
