@@ -53,6 +53,10 @@
 						<span v-show="errors.has('location')" class="help-block">{{ errors.first('location') }}</span>
 					</div>
 				</div>
+				<div class="col-md-4">
+					<label class="resume-form__about-you__avatar">Company logo</label>
+					<photo-upload></photo-upload>
+				</div>
 			</fieldset>
 		</div>
 		<div class="col-md-12 resume-form__resume">
@@ -162,6 +166,12 @@
 
 <style lang="scss">
 	.resume-form {
+		&__about-you {
+			&__avatar {
+				width: 100%;
+				text-align: center;
+			}
+		}
 		&__about-you, &__resume {
 			margin-top: 20px;
 		}
@@ -211,12 +221,14 @@
 
 	import TWHeadSmall from '@/components/HeadSmall/HeadSmall'
 	import BackToJobs from '@/components/BackToJobs/BackToJobs'
+	import PhotoUpload from '@/components/PhotoUpload/PhotoUpload'
 
 	export default {
 		components: {
 			BackToJobs,
 			VueEditor,
 			TWHeadSmall,
+			PhotoUpload
 		},
 		data() {
 			return {
