@@ -77,15 +77,15 @@ module.exports = {
         "groupBy": [
           {
             "pattern": "data/jobs/*.json",
-            "fileName": "data/jobs.json"
+            "fileName": "../data/jobs.json"
           },
           {
             "pattern": "data/resumes/*.json",
-            "fileName": "data/resumes.json"
+            "fileName": "../data/resumes.json"
           },
           {
             "pattern": "data/trimmers/*.json",
-            "fileName": "data/trimmers.json"
+            "fileName": "../data/trimmers.json"
           }
         ]
       }
