@@ -1,25 +1,21 @@
 function upload(formData) {
-    const photos = formData.getAll('image');
-    const promises = photos.map((x) => getImage(x)
-        .then(img => ({
-            id: img,
-            originalName: x.name,
-            fileName: x.name,
-            url: img
-        })));
-    return Promise.all(promises);
-}
+    const photo = formData.get('image')
 
-function getImage(file) {
+    const fReader = new FileReader()
+
     return new Promise((resolve, reject) => {
-        const fReader = new FileReader();
+        const fReader = new FileReader()
 
         fReader.onload = () => {
-            resolve(fReader.result);
+            const imageURL = {
+                originalName: photo.name,
+                url: fReader.result
+            }
+            resolve(imageURL)
         }
-
-        fReader.readAsDataURL(file);
+        fReader.readAsDataURL(photo)
     })
+
 }
 
 export { upload }

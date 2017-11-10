@@ -38,8 +38,8 @@ export default {
       this.currentStatus = STATUS_SAVING;
 
       upload(formData)
-        .then(x => {
-          this.uploadedFiles = [].concat(x);
+        .then(image => {
+          this.uploadedFiles = image;
           this.currentStatus = STATUS_SUCCESS;
         })
         .then(x => {
