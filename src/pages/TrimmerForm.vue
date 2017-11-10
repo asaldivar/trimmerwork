@@ -1,7 +1,6 @@
 <template>
 	<form id="trimmer-form" class="trimmer-form" method="POST" action="https://api.staticman.net/v2/entry/asaldivar/trimmerwork/master/trimmers" @submit.prevent="validateBeforeSubmit">
 		<input type="hidden" name="options[redirect]" value="http://trimmerwork.herokuapp.com/submission-thank-you">
-		<input name="options[slug]" type="hidden" id="slug" value="">
 		<TWHeadSmall></TWHeadSmall>
 		<back-to-jobs></back-to-jobs>
 		<div class="col-md-12">
