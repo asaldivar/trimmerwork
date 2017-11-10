@@ -238,9 +238,8 @@
 
 	import TWHeadSmall from '@/components/HeadSmall/HeadSmall'
 	import BackToJobs from '@/components/BackToJobs/BackToJobs'
-	import PhotoUpload from '@/components/PhotoUpload/PhotoUpload'
+	import PhotoUpload from '@/components/PhotoUpload/PhotoUpload.vue'
 
-	console.log(PhotoUpload)
 	export default {
 		components: {
 			BackToJobs,
