@@ -4,7 +4,7 @@
 		<back-to-jobs></back-to-jobs>
 		<div class="trimmer-detail col-md-12">
 			<div class="col-md-8 trimmer-detail__header">
-				<h1 class="trimmer-detail__header__title">{{ resume.jobTitle }}</h1>
+				<h1 class="trimmer-detail__header__title">{{ resume.title }}</h1>
 				<div class="trimmer-detail__header__date">Posted {{ resume.date | daysAgo }}</div>
 				<h4>{{ resume.name }}</h4>
 				<div>
