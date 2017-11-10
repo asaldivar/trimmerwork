@@ -3,6 +3,7 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+const MergeJsonWebpackPlugin = require("merge-jsons-webpack-plugin")
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -69,5 +70,25 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new MergeJsonWebpackPlugin({
+      "output": {
+        "groupBy": [
+          {
+            "pattern": "data/jobs/*.json",
+            "fileName": "data/jobs.json"
+          },
+          {
+            "pattern": "data/resumes/*.json",
+            "fileName": "data/resumes.json"
+          },
+          {
+            "pattern": "data/trimmers/*.json",
+            "fileName": "data/trimmers.json"
+          }
+        ]
+      }
+    })
+  ]
 }
