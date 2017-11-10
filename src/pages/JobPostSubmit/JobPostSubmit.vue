@@ -23,7 +23,7 @@
 	  </div>
 		<div class="text-center">
 			<button type="submit" class="btn btn-info job-post-submit__button" :disabled="!disabled">
-				Approve!
+				Submit!
 			</button>
 		</div>
 	</form>

@@ -45,10 +45,10 @@
 						<input type="text" id="companyWebsite" class="form-control" placeholder="http://company.com" v-model="jobForm['companyWebsite']">
 					</div>
 				</div>
-				<div class="col-md-4">
+<!-- 				<div class="col-md-4">
 					<label class="job-form__company-details__inputs__logo-label">Company logo</label>
 					<photo-upload :isJobForm="true"></photo-upload>
-				</div>
+				</div> -->
 			</fieldset>
 		</div>
 		<div class="col-md-12 job-form__job-details">
@@ -153,7 +153,7 @@
 				</div>
 			</fieldset>
 		</div>
-		<div class="col-md-12 job-form__featured-post">
+<!-- 		<div class="col-md-12 job-form__featured-post">
 			<fieldset>
 				<legend>Make your post stand out!</legend>
 				<div class="col-md-6">
@@ -169,7 +169,7 @@
 				</div>
 				<div class="col-md-6 job-form__featured-post__image"></div>
 			</fieldset>
-		</div>
+		</div> -->
 		<div class="text-center">
 			<button type="submit" class="btn btn-info job-form__button">
 				Preview Your Post
@@ -216,7 +216,6 @@
 						this.$store.commit('setJobFormState', this.jobForm)
 						this.$router.push('/job-post-preview')
 					}
-					console.warn('Please fill out all form goodness')
 				})
 			}
 		}

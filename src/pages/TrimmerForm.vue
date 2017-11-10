@@ -54,10 +54,10 @@
 						<span v-show="errors.has('location')" class="help-block">{{ errors.first('location') }}</span>
 					</div>
 				</div>
-				<div class="col-md-4">
+<!-- 				<div class="col-md-4">
 					<label class="trimmer-form__about-you__avatar">Profile picture</label>
 					<photo-upload></photo-upload>
-				</div>
+				</div> -->
 			</fieldset>
 		</div>
 		<div class="col-md-12 trimmer-form__resume">

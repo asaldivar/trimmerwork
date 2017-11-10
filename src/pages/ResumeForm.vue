@@ -54,10 +54,10 @@
 						<span v-show="errors.has('location')" class="help-block">{{ errors.first('location') }}</span>
 					</div>
 				</div>
-				<div class="col-md-4">
+<!-- 				<div class="col-md-4">
 					<label class="resume-form__about-you__avatar">Profile picture</label>
 					<photo-upload></photo-upload>
-				</div>
+				</div> -->
 			</fieldset>
 		</div>
 		<div class="col-md-12 resume-form__resume">
@@ -124,7 +124,6 @@
 					:class="{'has-error':errors.has('experiece')}">
 					<label class="control-label" for="experiece">Work experience</label>
 					<small class="help-block">Please provide a few bullet points of the most recent/relevant jobs you’ve held and duration of time you worked there.</small>
-					<h1>{{resume['experience']}}</h1>
 					<input type="hidden" name="fields[experience]" :value="resume['experience']">
 					<vue-editor
 						id="work-experience"
@@ -136,7 +135,6 @@
 						data-vv-as="work experience"></vue-editor>
 						<span v-show="errors.has('experiece')" class="help-block">{{ errors.first('experiece') }}</span>
 				</div>
-				<h1>{{resume['additionalInfo']}}</h1>
 				<div
 					class="form-group resume-form__resume__additional-info"
 					:class="{'has-error':errors.has('additionalInfo')}">
