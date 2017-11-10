@@ -38,7 +38,7 @@
 			<div class="trimmer-detail-description" v-html="trimmer.coverLetter"></div>
 			<div class="trimmer-detail__description__application">
 				<label>How to contact:</label>
-				<div v-html="trimmer.contactInfo"></div>
+				<div v-html="trimmer.contact"></div>
 			</div>
 		</div>
 

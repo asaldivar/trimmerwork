@@ -28,7 +28,7 @@
 						<label class="control-label" for="companyEmail">Company email</label>
 						<input
 							type="text"
-							name="companyEmail"
+							name="fields[companyEmail]"
 							id="companyEmail"
 							class="form-control"
 							placeholder="you@company.com"
@@ -75,7 +75,7 @@
 					<label class="control-label" for="jobLocation">Job location</label>
 					<input
 						type="text"
-						name="jobLocation"
+						name="fields[jobLocation]"
 						id="jobLocation"
 						class="form-control"
 						placeholder="Medford, OR"

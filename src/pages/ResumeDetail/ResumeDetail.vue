@@ -33,7 +33,7 @@
 			<div class="trimmer-detail-description" v-html="resume.coverLetter"></div>
 			<div>
 				<label>Work Experience:</label>
-				<div class="trimmer-detail-description" v-html="resume.workExperience"></div>
+				<div class="trimmer-detail-description" v-html="resume.experience"></div>
 			</div>
 			<div v-if="resume.additionalInfo">
 				<label>Additional Info:</label>
@@ -41,7 +41,7 @@
 			</div>
 			<div class="trimmer-detail__description__application">
 				<label>How to contact:</label>
-				<div v-html="resume.contactInfo"></div>
+				<div v-html="resume.contact"></div>
 			</div>
 		</div>
 	</div>

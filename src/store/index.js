@@ -6,9 +6,9 @@ import { jobGetters, trimmersGetters, resumesGetters, activeTabGetters, jobForm,
 import { boardMutations, formMutations, cookieMutations, resumesMutations, filterSettingsMutations, trimmerMutations } from './mutations'
 import { trimmerActions } from './actions'
 
-import jobs from '../../data/jobs.json'
-import trimmers from '../../data/trimmers.json'
-import resumes from '../../data/resumes.json'
+import jobs from '../../dist/data/jobs.json'
+import trimmers from '../../dist/data/trimmers.json'
+import resumes from '../../dist/data/resumes.json'
 
 Vue.use(Vuex)
 
