@@ -76,16 +76,16 @@ module.exports = {
       "output": {
         "groupBy": [
           {
-            "pattern": "data/jobs/*.json",
-            "fileName": "../dist/data/jobs.json"
+            "pattern": "../data/jobs/*.json",
+            "fileName": "../data/jobs.json"
           },
           {
-            "pattern": "data/resumes/*.json",
-            "fileName": "../dist/data/resumes.json"
+            "pattern": "../data/resumes/*.json",
+            "fileName": "../data/resumes.json"
           },
           {
-            "pattern": "data/trimmers/*.json",
-            "fileName": "../dist/data/trimmers.json"
+            "pattern": "../data/trimmers/*.json",
+            "fileName": "../data/trimmers.json"
           }
         ]
       }
