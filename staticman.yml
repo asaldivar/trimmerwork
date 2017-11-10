@@ -50,7 +50,7 @@ jobs:
   # (*) REQUIRED
   #
   # Destination path (directory) for the data files. Accepts placeholders.
-  path: "jobs"
+  path: "data/jobs"
 # Name of the property. You can have multiple properties with completely
 # different config blocks for different sections of your site.
 # For example, you can have one property to handle comment submission and
@@ -103,7 +103,7 @@ trimmers:
   # (*) REQUIRED
   #
   # Destination path (directory) for the data files. Accepts placeholders.
-  path: "trimmers"
+  path: "data/trimmers"
 # Name of the property. You can have multiple properties with completely
 # different config blocks for different sections of your site.
 # For example, you can have one property to handle comment submission and
@@ -156,4 +156,4 @@ resumes:
   # (*) REQUIRED
   #
   # Destination path (directory) for the data files. Accepts placeholders.
-  path: "resumes"
+  path: "data/resumes"

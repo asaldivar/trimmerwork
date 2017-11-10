@@ -162,8 +162,13 @@
 				<span v-show="errors.has('contact')" class="help-block">{{ errors.first('contact') }}</span>
 			</div>
 		</div>
+	  <div class="checkbox col-md-12">
+	    <label>
+	      <input type="checkbox" v-model="disabled" value="true"> I am 21+ years of age and agree/understand that this resume will be posted publicly on TrimmerWork.com so that employers can find (and hire!) me.
+	    </label>
+	  </div>
 		<div class="text-center">
-			<button type="submit" class="btn btn-info trimmer-form__button">
+			<button type="submit" :disabled="!disabled" class="btn btn-info trimmer-form__button">
 				Submit
 			</button>
 		</div>
@@ -231,6 +236,8 @@
 					skillLevel: 'Entry',
 					workType: 'Seasonal'
 				},
+				disabled: false,
+				isSubmitted: false,
 	      customToolbar: [
 	        ['bold', 'italic', 'underline'],
 	        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],

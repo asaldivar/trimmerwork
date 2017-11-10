@@ -161,8 +161,13 @@
 				</div>
 			</fieldset>
 		</div>
+	  <div class="checkbox col-md-12">
+	    <label>
+	      <input type="checkbox" v-model="disabled" value="true"> I agree and understand that this resume will be posted publicly on TrimmerWork.com so that employers can find (and hire!) me.
+	    </label>
+	  </div>
 		<div class="text-center">
-			<button type="submit" class="btn btn-info resume-form__button">
+			<button type="submit" :disabled="!disabled" class="btn btn-info resume-form__button">
 				Submit
 			</button>
 		</div>
@@ -240,6 +245,8 @@
 				resume: {
 					jobCateogry: 'Sales'
 				},
+				disabled: false,
+				isSubmitted: false,
 	      customToolbar: [
 	        ['bold', 'italic', 'underline'],
 	        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
