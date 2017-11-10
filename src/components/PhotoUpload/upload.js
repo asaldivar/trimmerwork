@@ -22,13 +22,31 @@ function upload(formData) {
 
 }
 
-function imgReduce(img) {
+function imgReduce(image) {
     const canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
+    canvas.width = image.width;
+    canvas.height = image.height;
     const ctx = canvas.getContext("2d");
     ctx.scale(0.5, 0.5);
-    ctx.drawImage(img, 0, 0);
-    return canvas.toDataURL("image/png", 0.5)
+    ctx.drawImage(
+        image,
+        canvas.width / 2,
+        canvas.height / 2
+    );
+
+    var imgData=ctx.getImageData(0,0,canvas.width,canvas.height);
+    var data=imgData.data;
+    for(var i=0;i<data.length;i+=4){
+        if(data[i+3]<255){
+            data[i]=255;
+            data[i+1]=255;
+            data[i+2]=255;
+            data[i+3]=255;
+        }
+    }
+    ctx.putImageData(imgData,0,0);
+
+    console.log(canvas.toDataURL("image/jpeg", 0.5))
+    return canvas.toDataURL("image/jpeg", 0.5)
 }
 export { upload }
