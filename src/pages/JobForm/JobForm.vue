@@ -1,5 +1,5 @@
 <template>
-	<form class="job-form" method="POST" action="https://api.staticman.net/v2/entry/asaldivar/trimmerwork/master/jobs" @submit.prevent="validateBeforeSubmit">
+	<form class="job-form" @submit.prevent="validateBeforeSubmit">
 		<TWHeadSmall></TWHeadSmall>
 		<back-to-jobs></back-to-jobs>
 		<job-form-phase :step="'create'"></job-form-phase>
@@ -17,7 +17,7 @@
 							id="companyName"
 							class="form-control"
 							placeholder="The Company"
-							v-model="jobForm['company_name']"
+							v-model="jobForm['companyName']"
 							v-validate="'required'"
 							data-vv-as="company name">
 						<span v-show="errors.has('companyName')" class="help-block">{{ errors.first('companyName') }}</span>
@@ -32,7 +32,7 @@
 							id="companyEmail"
 							class="form-control"
 							placeholder="you@company.com"
-							v-model="jobForm['company_email']"
+							v-model="jobForm['companyEmail']"
 							v-validate="'required'"
 							data-vv-as="company email">
 						<span v-show="errors.has('companyEmail')" class="help-block">{{ errors.first('companyEmail') }}</span>
@@ -64,7 +64,7 @@
 						id="jobTitle"
 						class="form-control"
 						placeholder="Trimmer"
-						v-model="jobForm['job_title']"
+						v-model="jobForm['jobTitle']"
 						v-validate="'required'"
 						data-vv-as="job title">
 						<span v-show="errors.has('jobTitle')" class="help-block">{{ errors.first('jobTitle') }}</span>
@@ -79,7 +79,7 @@
 						id="jobLocation"
 						class="form-control"
 						placeholder="Medford, OR"
-						v-model="jobForm['job_location']"
+						v-model="jobForm['jobLocation']"
 						v-validate="'required'"
 						data-vv-as="job location">
 						<span v-show="errors.has('jobLocation')" class="help-block">{{ errors.first('jobLocation') }}</span>
@@ -117,7 +117,7 @@
 						class="job-form__job-details__description"
 						name="jobDescription"
 						:editorToolbar="customToolbar"
-						v-model="jobForm['job_description']"
+						v-model="jobForm['jobDescription']"
 						v-validate="'required'"
 						data-vv-as="job description"></vue-editor>
 						<span v-show="errors.has('jobDescription')" class="help-block">{{ errors.first('jobDescription') }}</span>

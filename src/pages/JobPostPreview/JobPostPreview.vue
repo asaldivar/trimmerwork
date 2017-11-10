@@ -5,7 +5,7 @@
 		<job-detail :job="jobForm"></job-detail>
 		<div class="text-center">
 			<router-link to="/job-post-submit">
-				<button type="button" class="btn btn-info job-post-preview__link" @click="setJobFormState">
+				<button type="button" class="btn btn-info job-post-preview__link">
 					Approve!
 				</button>
 			</router-link>
@@ -33,11 +33,6 @@
 		data() {
 			return {
 				jobForm: this.$store.getters.jobFormApplication
-			}
-		},
-		methods: {
-			setJobFormState() {
-
 			}
 		}
 	}

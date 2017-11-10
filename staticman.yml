@@ -7,7 +7,7 @@ jobs:
   #
   # Names of the fields the form is allowed to submit. If a field that is
   # not here is part of the request, an error will be thrown.
-  allowedFields: ["companyName", "jobTitle", "jobDescription", "jobLocation", "jobCompensation", "jobCategory", "jobType", "companyWebsite", "jobAccommodations", "jobApplication", "image"]
+  allowedFields: ["companyName", "jobTitle", "jobDescription", "jobLocation", "jobCompensation", "jobCategory", "jobType", "companyWebsite", "jobAccommodations", "jobApplication", "image", "jobIsFeatured"]
 
   allowedOrigins: ["localhost", "trimmerwork.herokuapp.com"]
 

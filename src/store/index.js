@@ -33,8 +33,8 @@ export default new Vuex.Store({
 		},
 		activeBoardTab: 'jobs',
 		jobForm: {
-			job_category: 'Grow',
-			job_type: 'Full-time',
+			jobCategory: 'Grow',
+			jobType: 'Full-time',
 			date: new Date().toISOString()
 		},
 		hasCookie: Cookies.get('trimmerWorkEmail')

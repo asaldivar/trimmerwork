@@ -1,13 +1,31 @@
 <template>
-	<div>
+	<form class="job-post-submit" method="POST" action="https://api.staticman.net/v2/entry/asaldivar/trimmerwork/master/jobs">
+		<input type="hidden" name="fields[companyName]" :value="jobForm['companyName']">
+		<input type="hidden" name="fields[jobTitle]" :value="jobForm['jobTitle']">
+		<input type="hidden" name="fields[jobDescription]" :value="jobForm['jobDescription']">
+		<input type="hidden" name="fields[jobLocation]" :value="jobForm['jobLocation']">
+		<input type="hidden" name="fields[jobCompensation]" :value="jobForm['jobCompensation']">
+		<input type="hidden" name="fields[jobCategory]" :value="jobForm['jobCategory']">
+		<input type="hidden" name="fields[jobType]" :value="jobForm['jobType']">
+		<input type="hidden" name="fields[companyWebsite]" :value="jobForm['companyWebsite']">
+		<input type="hidden" name="fields[jobAccommodations]" :value="jobForm['jobAccommodations']">
+		<input type="hidden" name="fields[jobApplication]" :value="jobForm['jobApplication']">
+		<input type="hidden" name="fields[image]" :value="jobForm['image']">
+		<input type="hidden" name="fields[jobIsFeatured]" :value="jobForm['jobIsFeatured']">
 		<TWHeadSmall></TWHeadSmall>
 		<job-form-phase :step="'submit'"></job-form-phase>
 		<h5 class="col-md-12">STRIPE GOES HERE! :)</h5>
-		<div class="job-post-submit col-md-12">
-			<h5>By creating a new job post you agree with:</h5>
-			<p>I am a part of / I represent the hiring company. Details provided above refer to the actual hiring entity.</p>
+	  <div class="checkbox col-md-12">
+	    <label>
+	      <input type="checkbox" v-model="disabled" value="true"> I agree and understand that this resume will be posted publicly on TrimmerWork.com so that employers can find (and hire!) me.
+	    </label>
+	  </div>
+		<div class="text-center">
+			<button type="submit" class="btn btn-info job-post-submit__button" :disabled="!disabled">
+				Approve!
+			</button>
 		</div>
-	</div>
+	</form>
 </template>
 
 <script>
@@ -18,14 +36,27 @@
 		components: {
 			TWHeadSmall,
 			JobFormPhase
+		},
+		data() {
+			return {
+				jobForm: this.$store.getters.jobFormApplication,
+				disabled: false,
+				isSubmitted: false
+			}
 		}
 	}
 </script>
 
 <style lang="scss">
 	.job-post-submit {
-		background-color: #ddd;
-    padding: 10px 15px;
-    border-radius: 4px;
+		padding-bottom: 50px;
+		&__button {
+			background-color: #4fc08d;
+			border-color: #4fc08d;
+			&:hover, &:focus {
+				background-color: #4fc08d;
+				border-color: #4fc08d;
+			}
+		}
 	}
 </style>

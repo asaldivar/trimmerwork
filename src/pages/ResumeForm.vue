@@ -233,13 +233,13 @@
 </style>
 
 <script>
-	import _ from 'lodash'
 	import { VueEditor } from 'vue2-editor'
 
 	import TWHeadSmall from '@/components/HeadSmall/HeadSmall'
 	import BackToJobs from '@/components/BackToJobs/BackToJobs'
-	import PhotoUpload from '@/components/PhotoUpload/PhotoUpload.vue'
+	import PhotoUpload from '@/components/PhotoUpload/PhotoUpload.vue' // <- stop-gap
 
+	import _ from 'lodash'
 	export default {
 		components: {
 			BackToJobs,
