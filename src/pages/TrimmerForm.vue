@@ -1,6 +1,7 @@
 <template>
 	<form id="trimmer-form" class="trimmer-form" method="POST" action="https://api.staticman.net/v2/entry/asaldivar/trimmerwork/master/trimmers" @submit.prevent="validateBeforeSubmit">
 		<input type="hidden" name="options[redirect]" value="http://trimmerwork.herokuapp.com/submission-thank-you">
+		<input name="options[slug]" type="hidden" id="slug" value="">
 		<TWHeadSmall></TWHeadSmall>
 		<back-to-jobs></back-to-jobs>
 		<div class="col-md-12">
@@ -13,7 +14,7 @@
 				<div class="col-md-8">
 					<div
 						class="form-group"
-						:class="{'has-error':errors.has('name')}">
+						:class="{'has-error':errors.has('fields[name]')}">
 						<label class="control-label" for="name">Name</label>
 						<input
 							type="text"
@@ -22,12 +23,13 @@
 							class="form-control"
 							placeholder="Alex Smith"
 							v-model="trimmer['name']"
+							data-vv-as="name"
 							v-validate="'required'">
-						<span v-show="errors.has('name')" class="help-block">{{ errors.first('name') }}</span>
+						<span v-show="errors.has('fields[name]')" class="help-block">{{ errors.first('fields[name]') }}</span>
 					</div>
 					<div
 						class="form-group"
-						:class="{'has-error':errors.has('email')}">
+						:class="{'has-error':errors.has('fields[email]')}">
 						<label class="control-label" for="email">Email</label>
 						<input
 							type="text"
@@ -36,12 +38,13 @@
 							class="form-control"
 							placeholder="asmith@gmail.com"
 							v-model="trimmer['email']"
+							data-vv-as="email"
 							v-validate="'required'">
-						<span v-show="errors.has('email')" class="help-block">{{ errors.first('name') }}</span>
+						<span v-show="errors.has('fields[email]')" class="help-block">{{ errors.first('fields[email]') }}</span>
 					</div>
 					<div
 						class="form-group"
-						:class="{'has-error':errors.has('location')}">
+						:class="{'has-error':errors.has('fields[location]')}">
 						<label class="control-label" for="location">Location</label>
 						<input
 							type="text"
@@ -50,8 +53,9 @@
 							class="form-control"
 							placeholder="Ashland, OR"
 							v-model="trimmer['location']"
+							data-vv-as="location"
 							v-validate="'required'">
-						<span v-show="errors.has('location')" class="help-block">{{ errors.first('location') }}</span>
+						<span v-show="errors.has('fields[location]')" class="help-block">{{ errors.first('fields[location]') }}</span>
 					</div>
 				</div>
 <!-- 				<div class="col-md-4">
@@ -64,7 +68,7 @@
 			<fieldset>
 				<legend>Trimmer resume</legend>
 				<div class="form-group col-md-6 trimmer-form__resume__skill-level"
-					:class="{'has-error':errors.has('skillLevel')}">
+					:class="{'has-error':errors.has('fields[skillLevel]')}">
 					<label class="control-label" for="skillLevel">Skill level</label>
 					<select
 						id="skillLevel"
@@ -96,7 +100,7 @@
 				<small class="help-block">Do you need accommodations of any sort (e.g. shelter, food, etc.)? If so, please detail in cover letter.</small>
 				<div class="radio">
 					<label>
-				    <input type="radio" name="fields[accommodations]" v-model="trimmer['accommodations']" value="true">
+				    <input type="radio" name="fields[accommodations]" v-model="trimmer['accommodations']" value="true" checked>
 				    Yes
 					</label>
 					<label>
@@ -107,16 +111,17 @@
 			</div>
 			<div
 				class="form-group"
-				:class="{'has-error':errors.has('coverLetter')}">
+				:class="{'has-error':errors.has('fields[coverLetter]')}">
 				<label class="control-label" for="coverLetter">Cover letter</label>
 				<small class="help-block">Please describe your qualifications, any accommodations desired, timeframe you are available to work and anything else you deem appropriate.</small>
 				<input type="hidden" name="fields[coverLetter]" :value="trimmer['coverLetter']">
 				<vue-editor
 					:editorToolbar="customToolbar"
+					name="fields[coverLetter]"
 					v-model="trimmer['coverLetter']"
 					v-validate="'required'"
 					data-vv-as="cover letter"></vue-editor>
-					<span v-show="errors.has('coverLetter')" class="help-block">{{ errors.first('coverLetter') }}</span>
+					<span v-show="errors.has('fields[coverLetter]')" class="help-block">{{ errors.first('fields[coverLetter]') }}</span>
 			</div>
 			<div class="form-group">
 				<label for="certification">Marijuana certification</label>
@@ -148,7 +153,7 @@
 			</div>
 			<div
 				class="form-group"
-				:class="{'has-error':errors.has('contact')}">
+				:class="{'has-error':errors.has('fields[contact]')}">
 				<label class="control-label" for="contact">Contact</label>
 				<small class="help-block">How would you like to be contacted by employers?</small>
 				<input
@@ -158,8 +163,9 @@
 					class="form-control"
 					placeholder="asmith@gmail.com"
 					v-model="trimmer['contact']"
+					data-vv-as="contact information"
 					v-validate="'required'">
-				<span v-show="errors.has('contact')" class="help-block">{{ errors.first('contact') }}</span>
+				<span v-show="errors.has('fields[contact]')" class="help-block">{{ errors.first('fields[contact]') }}</span>
 			</div>
 		</div>
 	  <div class="checkbox col-md-12">
@@ -258,7 +264,7 @@
 					}
 					console.warn('Please fill out all form goodness')
 				})
-			}, 1000)
+			}, 750)
 		}
 	}
 </script>

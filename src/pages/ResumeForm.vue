@@ -1,5 +1,5 @@
 <template>
-	<form id="resume-form" class="resume-form" method="POST" action="https://api.staticman.net/v2/entry/asaldivar/trimmerwork/master/resumes">
+	<form id="resume-form" class="resume-form" method="POST" action="https://api.staticman.net/v2/entry/asaldivar/trimmerwork/master/resumes" @submit.prevent="validateBeforeSubmit">
 		<input type="hidden" name="options[redirect]" value="http://trimmerwork.herokuapp.com/submission-thank-you">
 		<TWHeadSmall></TWHeadSmall>
 		<back-to-jobs></back-to-jobs>
@@ -13,7 +13,7 @@
 				<div class="col-md-8">
 					<div
 						class="form-group"
-						:class="{'has-error':errors.has('name')}">
+						:class="{'has-error':errors.has('fields[name]')}">
 						<label class="control-label" for="name">Name</label>
 						<input
 							type="text"
@@ -21,13 +21,14 @@
 							id="name"
 							class="form-control"
 							placeholder="Alex Smith"
+							data-vv-as="name"
 							v-model="resume['name']"
 							v-validate="'required'">
-						<span v-show="errors.has('name')" class="help-block">{{ errors.first('name') }}</span>
+						<span v-show="errors.has('fields[name]')" class="help-block">{{ errors.first('fields[name]') }}</span>
 					</div>
 					<div
 						class="form-group"
-						:class="{'has-error':errors.has('email')}">
+						:class="{'has-error':errors.has('fields[email]')}">
 						<label class="control-label" for="email">Email</label>
 						<input
 							type="text"
@@ -36,12 +37,13 @@
 							class="form-control"
 							placeholder="asmith@gmail.com"
 							v-model="resume['email']"
+							data-vv-as="email"
 							v-validate="'required'">
-						<span v-show="errors.has('email')" class="help-block">{{ errors.first('name') }}</span>
+						<span v-show="errors.has('fields[email]')" class="help-block">{{ errors.first('fields[email]') }}</span>
 					</div>
 					<div
 						class="form-group"
-						:class="{'has-error':errors.has('location')}">
+						:class="{'has-error':errors.has('fields[location]')}">
 						<label class="control-label" for="location">Location</label>
 						<input
 							type="text"
@@ -50,8 +52,9 @@
 							class="form-control"
 							placeholder="Los Angeles, CA"
 							v-model="resume['location']"
+							data-vv-as="location"
 							v-validate="'required'">
-						<span v-show="errors.has('location')" class="help-block">{{ errors.first('location') }}</span>
+						<span v-show="errors.has('fields[location]')" class="help-block">{{ errors.first('fields[location]') }}</span>
 					</div>
 				</div>
 <!-- 				<div class="col-md-4">
@@ -65,7 +68,7 @@
 				<legend>Resume</legend>
 				<div
 					class="form-group col-md-6 resume-form__resume__job-title"
-					:class="{'has-error':errors.has('title')}">
+					:class="{'has-error':errors.has('fields[title]')}">
 					<label class="control-label" for="title">Job title</label>
 					<input
 						type="text"
@@ -74,8 +77,9 @@
 						class="form-control"
 						placeholder="Budtender"
 						v-model="resume['title']"
+						data-vv-as="job title"
 						v-validate="'required'">
-					<span v-show="errors.has('title')" class="help-block">{{ errors.first('title') }}</span>
+					<span v-show="errors.has('fields[title]')" class="help-block">{{ errors.first('fields[title]') }}</span>
 				</div>
 				<div class="form-group col-md-6 resume-form__resume__job-category">
 					<label for="jobCateogry">Job category</label>
@@ -106,39 +110,38 @@
 				</div>
 				<div
 					class="form-group resume-form__resume__cover-letter"
-					:class="{'has-error':errors.has('coverLetter')}">
+					:class="{'has-error':errors.has('fields[coverLetter]')}">
 					<label class="control-label" for="coverLetter">Cover letter</label>
 					<small class="help-block">Please introduce yourself as well as describe what makes you stand out from other resumes of the same job type.</small>
 					<input type="hidden" name="fields[coverLetter]" :value="resume['coverLetter']">
 					<vue-editor
 						id="cover-letter"
-						name="coverLetter"
+						name="fields[coverLetter]"
 						:editorToolbar="customToolbar"
 						v-model="resume['coverLetter']"
 						v-validate="'required'"
 						data-vv-as="cover letter"></vue-editor>
-						<span v-show="errors.has('coverLetter')" class="help-block">{{ errors.first('coverLetter') }}</span>
+						<span v-show="errors.has('fields[coverLetter]')" class="help-block">{{ errors.first('fields[coverLetter]') }}</span>
 				</div>
 				<div
 					class="form-group resume-form__resume__work-experience"
-					:class="{'has-error':errors.has('experiece')}">
+					:class="{'has-error':errors.has('fields[experiece]')}">
 					<label class="control-label" for="experiece">Work experience</label>
 					<small class="help-block">Please provide a few bullet points of the most recent/relevant jobs you’ve held and duration of time you worked there.</small>
 					<input type="hidden" name="fields[experience]" :value="resume['experience']">
 					<vue-editor
 						id="work-experience"
-						name="experiece"
+						name="fields[experiece]"
 						:editorToolbar="customToolbar"
 						v-model="resume['experience']"
 						v-validate="'required'"
 						row="5"
 						data-vv-as="work experience"></vue-editor>
-						<span v-show="errors.has('experiece')" class="help-block">{{ errors.first('experiece') }}</span>
+						<span v-show="errors.has('fields[experiece]')" class="help-block">{{ errors.first('fields[experiece]') }}</span>
 				</div>
-				<div
-					class="form-group resume-form__resume__additional-info"
-					:class="{'has-error':errors.has('additionalInfo')}">
+				<div class="form-group resume-form__resume__additional-info">
 					<label class="control-label" for="additionalInfo">Additional information</label>
+					<small>(optional)</small>
 					<small class="help-block">Please provide a few bullet points of the most recent/relevant jobs you’ve held and duration of time you worked there.</small>
 					<input type="hidden" name="fields[additionalInfo]" :value="resume['additionalInfo']">
 					<vue-editor
@@ -149,18 +152,19 @@
 				</div>
 				<div
 					class="form-group"
-					:class="{'has-error':errors.has('contact')}">
+					:class="{'has-error':errors.has('fields[contact]')}">
 					<label class="control-label" for="contact">Contact</label>
 					<small class="help-block">How would you like to be contacted by employers?</small>
 					<input
 						type="text"
-						name="contact"
+						name="fields[contact]"
 						id="contact"
 						class="form-control"
 						placeholder="asmith@gmail.com"
 						v-model="resume['contact']"
+						data-vv-as="contact information"
 						v-validate="'required'">
-					<span v-show="errors.has('contact')" class="help-block">{{ errors.first('contact') }}</span>
+					<span v-show="errors.has('fields[contact]')" class="help-block">{{ errors.first('fields[contact]') }}</span>
 				</div>
 			</fieldset>
 		</div>
@@ -265,12 +269,13 @@
 			validateBeforeSubmit: _.debounce(function() {
 				this.$validator.validateAll().then((result) => {
 					if (result) {
+						console.log('in here')
 						this.isSubmitted = true
 						return document.querySelector('#resume-form').submit()
 					}
 					console.warn('Please fill out all form goodness')
 				})
-			}, 1000)
+			}, 750)
 		}
 	}
 </script>

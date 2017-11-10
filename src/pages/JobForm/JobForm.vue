@@ -9,23 +9,23 @@
 				<div class="col-md-8 job-form__company-details__inputs">
 					<div
 						class="form-group"
-						:class="{'has-error':errors.has('companyName')}">
-						<label class="control-label" for="companyName">Company name</label>
+						:class="{'has-error':errors.has('fields[companyName]')}">
+						<label class="control-label" for="fields[companyName]">Company name</label>
 						<input
 							type="text"
-							name="companyName"
+							name="fields[companyName]"
 							id="companyName"
 							class="form-control"
 							placeholder="The Company"
 							v-model="jobForm['companyName']"
 							v-validate="'required'"
 							data-vv-as="company name">
-						<span v-show="errors.has('companyName')" class="help-block">{{ errors.first('companyName') }}</span>
+						<span v-show="errors.has('fields[companyName]')" class="help-block">{{ errors.first('fields[companyName]') }}</span>
 					</div>
 					<div
 						class="form-group"
-						:class="{'has-error':errors.has('companyEmail')}">
-						<label class="control-label" for="companyEmail">Company email</label>
+						:class="{'has-error':errors.has('fields[companyEmail]')}">
+						<label class="control-label" for="fields[companyEmail]">Company email</label>
 						<input
 							type="text"
 							name="fields[companyEmail]"
@@ -35,13 +35,13 @@
 							v-model="jobForm['companyEmail']"
 							v-validate="'required'"
 							data-vv-as="company email">
-						<span v-show="errors.has('companyEmail')" class="help-block">{{ errors.first('companyEmail') }}</span>
+						<span v-show="errors.has('fields[companyEmail]')" class="help-block">{{ errors.first('fields[companyEmail]') }}</span>
 					</div>
 					<div class="form-group">
 						<label for="companyWebsite">
 							Company website
-							<small>(optional)</small>
 						</label>
+						<small>(optional)</small>
 						<input type="text" id="companyWebsite" class="form-control" placeholder="http://company.com" v-model="jobForm['companyWebsite']">
 					</div>
 				</div>
@@ -71,8 +71,8 @@
 				</div>
 				<div
 					class="form-group"
-					:class="{'has-error':errors.has('jobLocation')}">
-					<label class="control-label" for="jobLocation">Job location</label>
+					:class="{'has-error':errors.has('fields[jobLocation]')}">
+					<label class="control-label" for="fields[jobLocation]">Job location</label>
 					<input
 						type="text"
 						name="fields[jobLocation]"
@@ -82,7 +82,7 @@
 						v-model="jobForm['jobLocation']"
 						v-validate="'required'"
 						data-vv-as="job location">
-						<span v-show="errors.has('jobLocation')" class="help-block">{{ errors.first('jobLocation') }}</span>
+						<span v-show="errors.has('fields[jobLocation]')" class="help-block">{{ errors.first('fields[jobLocation]') }}</span>
 				</div>
 				<div class="form-group col-md-6 job-form__job-details__category">
 					<label for="jobCategory">Job category</label>
