@@ -4,7 +4,7 @@
 		<TWHeadSmall></TWHeadSmall>
 		<back-to-jobs></back-to-jobs>
 		<div class="col-md-12">
-			<h1>Submit your resume</h1>
+			<h1>Trimmer resume</h1>
 			<h4 class="help-block">Let the community know you're ready to trim!</h4>
 		</div>
 		<div class="col-md-12 trimmer-form__about-you">

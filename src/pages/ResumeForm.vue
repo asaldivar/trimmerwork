@@ -1,5 +1,5 @@
 <template>
-	<form id="resume-form" class="resume-form" method="POST" action="https://api.staticman.net/v2/entry/asaldivar/trimmerwork/master/resumes" @submit.prevent="validateBeforeSubmit">
+	<form id="resume-form" class="resume-form" method="POST" action="https://api.staticman.net/v2/entry/asaldivar/trimmerwork/master/resumes">
 		<input type="hidden" name="options[redirect]" value="http://trimmerwork.herokuapp.com/submission-thank-you">
 		<TWHeadSmall></TWHeadSmall>
 		<back-to-jobs></back-to-jobs>
@@ -111,6 +111,7 @@
 					<small class="help-block">Please introduce yourself as well as describe what makes you stand out from other resumes of the same job type.</small>
 					<input type="hidden" name="fields[coverLetter]" :value="resume['coverLetter']">
 					<vue-editor
+						id="cover-letter"
 						name="coverLetter"
 						:editorToolbar="customToolbar"
 						v-model="resume['coverLetter']"
@@ -123,8 +124,10 @@
 					:class="{'has-error':errors.has('experiece')}">
 					<label class="control-label" for="experiece">Work experience</label>
 					<small class="help-block">Please provide a few bullet points of the most recent/relevant jobs you’ve held and duration of time you worked there.</small>
+					<h1>{{resume['experience']}}</h1>
 					<input type="hidden" name="fields[experience]" :value="resume['experience']">
 					<vue-editor
+						id="work-experience"
 						name="experiece"
 						:editorToolbar="customToolbar"
 						v-model="resume['experience']"
@@ -133,6 +136,7 @@
 						data-vv-as="work experience"></vue-editor>
 						<span v-show="errors.has('experiece')" class="help-block">{{ errors.first('experiece') }}</span>
 				</div>
+				<h1>{{resume['additionalInfo']}}</h1>
 				<div
 					class="form-group resume-form__resume__additional-info"
 					:class="{'has-error':errors.has('additionalInfo')}">
@@ -140,6 +144,7 @@
 					<small class="help-block">Please provide a few bullet points of the most recent/relevant jobs you’ve held and duration of time you worked there.</small>
 					<input type="hidden" name="fields[additionalInfo]" :value="resume['additionalInfo']">
 					<vue-editor
+						id="additional-info"
 						name="additionalInfo"
 						:editorToolbar="customToolbar"
 						v-model="resume['additionalInfo']"></vue-editor>
@@ -235,6 +240,7 @@
 	import BackToJobs from '@/components/BackToJobs/BackToJobs'
 	import PhotoUpload from '@/components/PhotoUpload/PhotoUpload'
 
+	console.log(PhotoUpload)
 	export default {
 		components: {
 			BackToJobs,
