@@ -167,7 +167,8 @@
 	    </label>
 	  </div>
 		<div class="text-center">
-			<button type="submit" :disabled="!disabled" class="btn btn-info resume-form__button">
+			<i v-if="isSubmitted" class="fa fa-spinner fa-spin"></i>
+			<button v-else type="submit" :disabled="!disabled" class="btn btn-info resume-form__button">
 				Submit
 			</button>
 		</div>
@@ -227,6 +228,7 @@
 </style>
 
 <script>
+	import _ from 'lodash'
 	import { VueEditor } from 'vue2-editor'
 
 	import TWHeadSmall from '@/components/HeadSmall/HeadSmall'
@@ -257,14 +259,15 @@
 			}
 		},
 		methods: {
-			validateBeforeSubmit() {
+			validateBeforeSubmit: _.debounce(function() {
 				this.$validator.validateAll().then((result) => {
 					if (result) {
+						this.isSubmitted = true
 						return document.querySelector('#resume-form').submit()
 					}
 					console.warn('Please fill out all form goodness')
 				})
-			}
+			}, 1000)
 		}
 	}
 </script>
