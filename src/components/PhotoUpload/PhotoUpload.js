@@ -4,12 +4,14 @@ import $ from 'jquery'
 const STATUS_INITIAL = 0, STATUS_SAVING = 1, STATUS_SUCCESS = 2, STATUS_FAILED = 3;
 
 export default {
+  props: ['isJobForm'],
   data() {
     return {
       uploadedFiles: [],
       uploadError: null,
       currentStatus: null,
-      uploadFieldName: 'image'
+      uploadFieldName: 'image',
+      image: ''
     }
   },
   computed: {
@@ -39,6 +41,11 @@ export default {
         .then(x => {
           this.uploadedFiles = [].concat(x);
           this.currentStatus = STATUS_SUCCESS;
+        })
+        .then(x => {
+          if (this.isJobForm) {
+            this.$store.commit('setJobFormImage', this.uploadedFiles[0].url)
+          }
         })
         .catch(err => {
           this.uploadError = err.response;

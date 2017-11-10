@@ -6,6 +6,9 @@ export const boardMutations = {
 export const formMutations = {
 	setJobFormState(state, payload) {
 		state.jobForm = payload
+	},
+	setJobFormImage(state, payload) {
+		state.jobForm['image'] = payload
 	}
 }
 export const cookieMutations = {

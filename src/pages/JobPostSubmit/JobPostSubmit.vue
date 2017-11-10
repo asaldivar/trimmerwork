@@ -1,5 +1,6 @@
 <template>
 	<form class="job-post-submit" method="POST" action="https://api.staticman.net/v2/entry/asaldivar/trimmerwork/master/jobs">
+		<input type="hidden" name="options[redirect]" value="http://trimmerwork.herokuapp.com/donate">
 		<input type="hidden" name="fields[companyName]" :value="jobForm['companyName']">
 		<input type="hidden" name="fields[jobTitle]" :value="jobForm['jobTitle']">
 		<input type="hidden" name="fields[jobDescription]" :value="jobForm['jobDescription']">
@@ -50,9 +51,9 @@
 <style lang="scss">
 	.job-post-submit {
 		padding-bottom: 50px;
-		&__button {
-			background-color: #4fc08d;
-			border-color: #4fc08d;
+		&__button, &.disabled {
+			background-color: #4fc08d !important;
+			border-color: #4fc08d !important;
 			&:hover, &:focus {
 				background-color: #4fc08d;
 				border-color: #4fc08d;

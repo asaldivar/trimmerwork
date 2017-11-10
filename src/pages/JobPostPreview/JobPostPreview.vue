@@ -2,6 +2,7 @@
 	<div class="job-post-preview">
 		<TWHeadSmall></TWHeadSmall>
 		<job-form-phase :step="'preview'"></job-form-phase>
+		{{jobForm}}
 		<job-detail :job="jobForm"></job-detail>
 		<div class="text-center">
 			<router-link to="/job-post-submit">

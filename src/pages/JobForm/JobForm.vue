@@ -47,7 +47,7 @@
 				</div>
 				<div class="col-md-4">
 					<label class="job-form__company-details__inputs__logo-label">Company logo</label>
-					<photo-upload></photo-upload>
+					<photo-upload :isJobForm="true"></photo-upload>
 				</div>
 			</fieldset>
 		</div>
