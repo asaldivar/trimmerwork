@@ -26,7 +26,7 @@ export const resumesMutations = {
 		state.filteredTrimmers = payload
 	},
 	setFilteredResumes(state, payload) {
-		state.filteredTrimmers = payload
+		state.filteredResumes = payload
 	}
 }
 export const filterSettingsMutations = {

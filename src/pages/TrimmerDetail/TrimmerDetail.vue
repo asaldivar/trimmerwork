@@ -41,7 +41,6 @@
 				<div v-html="trimmer.contact"></div>
 			</div>
 		</div>
-
 		<div class="col-md-12 trimmer-detail__navigation">
 			<router-link v-if="previousResume" :to="`/trimmers/${previousResume._id}`" class="pull-left trimmer-detail__navigation__left">
 				<i class="fa fa-long-arrow-left" aria-hidden="true"></i>
@@ -52,7 +51,6 @@
 				<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
 			</router-link>
 		</div>
-
 	</div>
 </template>
 

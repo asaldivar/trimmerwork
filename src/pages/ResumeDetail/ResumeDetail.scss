@@ -1,4 +1,4 @@
-.trimmer-detail {
+.resume-detail {
 	padding: 15px 0;
 	border-bottom: 1px solid #ddd;
 	&__header {
@@ -27,6 +27,15 @@
 		white-space: pre-wrap;
 		&__application {
 			margin-top: 20px;
+		}
+	}
+	&__navigation {
+		padding: 20px 0;
+		&__left, &__right {
+			text-decoration: none;
+			& * {
+				vertical-align: middle;
+			}
 		}
 	}
 }

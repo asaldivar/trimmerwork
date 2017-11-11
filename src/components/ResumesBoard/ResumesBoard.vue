@@ -96,6 +96,8 @@
 					filteredResumes = filterByJobCategory(filteredResumes, this.resumeFilterSettings['jobCategory'])
 				}
 
+				this.$store.commit('setFilteredResumes', filteredResumes)
+
 				return filteredResumes
 			}
 		},
