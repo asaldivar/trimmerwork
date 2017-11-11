@@ -269,7 +269,6 @@
 			validateBeforeSubmit: _.debounce(function() {
 				this.$validator.validateAll().then((result) => {
 					if (result) {
-						console.log('in here')
 						this.isSubmitted = true
 						return document.querySelector('#resume-form').submit()
 					}

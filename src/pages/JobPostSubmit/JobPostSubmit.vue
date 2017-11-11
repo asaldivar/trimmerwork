@@ -1,6 +1,5 @@
 <template>
-	<form class="job-post-submit">
-	<!-- <form class="job-post-submit" method="POST" action="https://api.staticman.net/v2/entry/asaldivar/trimmerwork/master/jobs"> -->
+	<form class="job-post-submit" method="POST" action="https://api.staticman.net/v2/entry/asaldivar/trimmerwork/master/jobs">
 		<input type="hidden" name="options[redirect]" value="http://trimmerwork.herokuapp.com/donate">
 		<input type="hidden" name="fields[companyName]" :value="jobForm['companyName']">
 		<input type="hidden" name="fields[jobTitle]" :value="jobForm['jobTitle']">
@@ -18,14 +17,17 @@
 		<job-form-phase :step="'submit'"></job-form-phase>
 
 
-		<div v-if="true" class="col-md-12">
-	    <card class='stripe-card'
-	      :class='{ complete }'
-	      stripe='pk_test_3ltDFsMCMSpl3vLqOr4NjcKM'
-	      @change='complete = $event.complete'
+		<div v-if="jobForm['jobIsFeatured']" class="col-md-12">
+	    <card class="job-post-submit__stripe-card"
+	      :class="{ 'job-post-submit__stripe-card--complete' : complete }"
+	      stripe="pk_test_3ltDFsMCMSpl3vLqOr4NjcKM"
+	      @change="complete = $event.complete"
 	    />
+			<div v-if="errorMessage" class="has-error text-center">
+				<p class="help-block">There was an issue processing your payment</p>
+			</div>
 	    <div class="text-center">
-	    	Your job post is free! You will only be charged $25 for your additional request of featuring your post.
+	    	Your job post is <strong>free</strong>! You will only be charged $25 for your additional request of featuring your post.
 	    </div>
 		</div>
 	  <div class="checkbox col-md-12 job-post-submit__agreement">
@@ -34,7 +36,7 @@
 	    </label>
 	  </div>
 		<div class="text-center">
-    	<button v-if="true" class='pay-with-stripe btn' @click='pay' :disabled='!complete || !disabled'>Pay and Submit</button>
+    	<button type="button" v-if="jobForm['jobIsFeatured']" class='pay-with-stripe btn' @click='pay' :disabled='!complete || !disabled'>Pay and Submit</button>
 			<button v-else type="submit" class="btn btn-info job-post-submit__button" :disabled="!disabled">
 				Submit!
 			</button>
@@ -49,6 +51,7 @@
 </template>
 
 <script>
+	import axios from 'axios'
 	import { Card, createToken } from 'vue-stripe-elements-plus'
 
 	import TWHeadSmall from '@/components/HeadSmall/HeadSmall'
@@ -65,17 +68,26 @@
 				jobForm: this.$store.getters.jobFormApplication,
 				disabled: false,
 				isSubmitted: false,
-				complete: false
+				complete: false,
+				errorMessage: ''
 			}
 		},
 	  methods: {
 	    pay () {
-	      // createToken returns a Promise which resolves in a result object with
-	      // either a token or an error key.
-	      // See https://stripe.com/docs/api#tokens for the token object.
-	      // See https://stripe.com/docs/api#errors for the error object.
-	      // More general https://stripe.com/docs/stripe.js#stripe-create-token.
-	      createToken().then(data => console.log(data.token))
+	      createToken().then(data => {
+					const stripeData = {
+						email: 'ag.saldivar@gmail.com',
+						token: data.token.id
+					}
+	      	axios.post('http://localhost:8079/api/payments/charge', stripeData)
+	      	.then(response => {
+	      		document.querySelector('.job-post-submit').submit()
+	      		this.$router.push('/donate')
+	      	})
+	      	.catch(error => {
+	      		this.errorMessage = 'There was an issue processing your payment'
+	      	})
+	      })
 	    }
 	  }
 	}
@@ -84,6 +96,17 @@
 <style lang="scss">
 	.job-post-submit {
 		padding-bottom: 150px;
+		&__stripe-card {
+		  width: 300px;
+		  margin: 60px auto 20px;
+			padding: 10px 12px;
+	    border-radius: 4px;
+	    border: 1px solid transparent;
+	    box-shadow: 0 1px 3px 0 #94999e;
+			&--complete {
+			  border-color: green;
+			}
+		}
 		&__button, &.disabled {
 			background-color: #4fc08d !important;
 			border-color: #4fc08d !important;
@@ -94,17 +117,6 @@
 		}
 		&__agreement {
 			margin-top: 50px;
-		}
-	}
-	.stripe-card {
-	  width: 300px;
-	  margin: 60px auto 20px;
-		padding: 10px 12px;
-    border-radius: 4px;
-    border: 1px solid transparent;
-    box-shadow: 0 1px 3px 0 #94999e;
-		&.complete {
-		  border-color: green;
 		}
 	}
 	.pay-with-stripe {

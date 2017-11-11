@@ -104,8 +104,8 @@
 				<div class="form-group">
 					<label for="jobCompensation">
 						Compensation
-						<small>(optional but recommended)</small>
 					</label>
+					<small>(optional but recommended)</small>
 					<div class="help-block">Job posts listed with pay help both workers and companies more quickly determine if they fit each other's needs.</div>
 					<input type="text" id="jobCompensation" class="form-control" placeholder="$20/hr or $175/lb" v-model="jobForm['jobCompensation']">
 				</div>
@@ -153,7 +153,7 @@
 				</div>
 			</fieldset>
 		</div>
-<!-- 		<div class="col-md-12 job-form__featured-post">
+		<div class="col-md-12 job-form__featured-post">
 			<fieldset>
 				<legend>Make your post stand out!</legend>
 				<div class="col-md-6">
@@ -162,14 +162,14 @@
 					</h5>
 					<div class="checkbox">
 						<label for="jobFeatured">
-							<input id="jobFeatured" type="checkbox" v-model="jobForm['jobIsFeatured']">
+							<input id="jobFeatured" type="checkbox" name="fields[jobIsFeatured]" v-model="jobForm['jobIsFeatured']">
 							Yes, feature my post.
 						</label>
 					</div>
 				</div>
 				<div class="col-md-6 job-form__featured-post__image"></div>
 			</fieldset>
-		</div> -->
+		</div>
 		<div class="text-center">
 			<button type="submit" class="btn btn-info job-form__button">
 				Preview Your Post
