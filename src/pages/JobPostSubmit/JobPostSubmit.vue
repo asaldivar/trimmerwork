@@ -15,10 +15,9 @@
 		<input type="hidden" name="fields[jobIsFeatured]" :value="jobForm['jobIsFeatured']">
 		<TWHeadSmall></TWHeadSmall>
 		<job-form-phase :step="'submit'"></job-form-phase>
-		<h5 class="col-md-12">STRIPE GOES HERE! :)</h5>
 	  <div class="checkbox col-md-12">
 	    <label>
-	      <input type="checkbox" v-model="disabled" value="true"> I agree and understand that this resume will be posted publicly on TrimmerWork.com so that employers can find (and hire!) me.
+	      <input type="checkbox" v-model="disabled" value="true">I am a part of / I represent the hiring company. Details provided in the job post refer to the actual hiring entity.
 	    </label>
 	  </div>
 		<div class="text-center">

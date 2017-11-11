@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<email-sign-up v-if="!cookie"></email-sign-up>
+		<email-sign-up v-if="!cookie && !job"></email-sign-up>
 		<div v-else>
 			<div class="job-detail col-md-12">
 				<div class="col-md-8 job-detail__header">
