@@ -66,6 +66,24 @@ const webpackConfig = merge(baseWebpackConfig, {
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency'
     }),
+    new MergeJsonWebpackPlugin({
+      "output": {
+        "groupBy": [
+          {
+            "pattern": "data/jobs/*.json",
+            "fileName": "../data/jobs.json"
+          },
+          {
+            "pattern": "data/resumes/*.json",
+            "fileName": "../data/resumes.json"
+          },
+          {
+            "pattern": "data/trimmers/*.json",
+            "fileName": "../data/trimmers.json"
+          }
+        ]
+      }
+    })
     new PrerenderSpaPlugin(
       // Absolute path to compiled SPA
       path.join(__dirname, '../dist'),
