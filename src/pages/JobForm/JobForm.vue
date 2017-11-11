@@ -180,6 +180,8 @@
 
 <script>
 	import { VueEditor } from 'vue2-editor'
+	import Cookies from 'js-cookie'
+
 	import BackToJobs from '@/components/BackToJobs/BackToJobs'
 	import TWHeadSmall from '@/components/HeadSmall/HeadSmall'
 	import JobFormPhase from '@/components/JobFormPhase/JobFormPhase'
@@ -214,6 +216,8 @@
 				this.$validator.validateAll().then((result) => {
 					if (result) {
 						this.$store.commit('setJobFormState', this.jobForm)
+						Cookies.set('trimmerWorkEmail', this.jobForm.companyEmail)
+						this.$store.commit('setCookie', this.jobForm.companyEmail)
 						this.$router.push('/job-post-preview')
 					}
 				})
