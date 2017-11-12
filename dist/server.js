@@ -12,7 +12,6 @@ app = express()
 // 		return next()
 //   }
 // })
-app.use(redirectToHTTPS())
 
 app.use(history())
 app.use(serveStatic(__dirname))
