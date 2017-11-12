@@ -5,13 +5,14 @@ var path = require('path')
 var serveStatic = require('serve-static')
 app = express()
 
-app.use(function (req, res, next) {
-  if (!/https/.test(req.protocol)) {
-		return res.redirect("https://" + req.headers.host + req.url)
-  } else {
-		return next()
-  }
-})
+// app.use(function (req, res, next) {
+//   if (!/https/.test(req.protocol)) {
+// 		return res.redirect("https://" + req.headers.host + req.url)
+//   } else {
+// 		return next()
+//   }
+// })
+app.use(redirectToHTTPS())
 
 app.use(history())
 app.use(serveStatic(__dirname))
