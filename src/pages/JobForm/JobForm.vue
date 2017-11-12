@@ -153,7 +153,7 @@
 				</div>
 			</fieldset>
 		</div>
-<!-- 		<div class="col-md-12 job-form__featured-post">
+		<div class="col-md-12 job-form__featured-post">
 			<fieldset>
 				<legend>Make your post stand out!</legend>
 				<div class="col-md-6">
@@ -169,7 +169,7 @@
 				</div>
 				<div class="col-md-6 job-form__featured-post__image"></div>
 			</fieldset>
-		</div> -->
+		</div>
 		<div class="text-center">
 			<button type="submit" class="btn btn-info job-form__button">
 				Preview Your Post

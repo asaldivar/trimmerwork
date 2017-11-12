@@ -7,6 +7,7 @@
 		<input type="hidden" name="fields[jobLocation]" :value="jobForm['jobLocation']">
 		<input type="hidden" name="fields[jobCompensation]" :value="jobForm['jobCompensation']">
 		<input type="hidden" name="fields[jobCategory]" :value="jobForm['jobCategory']">
+		<input type="hidden" name="fields[companyEmail]" :value="jobForm['companyEmail']">
 		<input type="hidden" name="fields[jobType]" :value="jobForm['jobType']">
 		<input type="hidden" name="fields[companyWebsite]" :value="jobForm['companyWebsite']">
 		<input type="hidden" name="fields[jobAccommodations]" :value="jobForm['jobAccommodations']">
@@ -76,10 +77,10 @@
 	    pay () {
 	      createToken().then(data => {
 					const stripeData = {
-						email: 'ag.saldivar@gmail.com',
+						email: this.jobForm['companyEmail'],
 						token: data.token.id
 					}
-	      	axios.post('http://localhost:8079/api/payments/charge', stripeData)
+	      	axios.post('http://hybridsativaindica.herokuapp.com/api/payments/charge', stripeData)
 	      	.then(response => {
 	      		document.querySelector('.job-post-submit').submit()
 	      		this.$router.push('/donate')
