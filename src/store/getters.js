@@ -1,6 +1,12 @@
 export const cookieGetters = {
 	getCookie: state => {
 		return state.hasCookie
+	},
+	savedPosts: state => {
+		return state.savedPosts
+	},
+	savedById: (state, getters) => id => {
+		return getters.savedPosts.filter(post => post._id === id)[0]
 	}
 }
 export const jobGetters = {

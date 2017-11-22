@@ -12,7 +12,12 @@
 		  <li role="presentation" :class="{'active': activeTab === 'resumes'}">
 		  	<a class="navigation" href="#resumes" aria-controls="resumes" role="tab" data-toggle="tab" @click="setActiveTab('resumes')">RESUMES</a>
 		  </li>
-		  <!-- post a <job, trimmer resume, resume button -->
+		  <li role="presentation" :class="{'active': activeTab === 'saved'}">
+		  	<a class="navigation" href="#saved" aria-controls="saved" role="tab" data-toggle="tab" @click="setActiveTab('saved')">
+		  		<i class="fa fa-heart" aria-hidden="true"></i>
+		  	</a>
+		  </li>
+		  <!-- post a <job, trimmer resume, resume, saved> button -->
 		  <post-tab :postType="activeTab"></post-tab>
 		</ul>
 		<!-- board content -->
@@ -26,6 +31,9 @@
 			<div id="resumes" class="tab-pane" role="tabpanel" :class="{'active': activeTab === 'resumes'}">
 				<resumes-board :resumes="resumes"></resumes-board>
 			</div>
+			<div id="saved" class="tab-pane" role="tabpanel" :class="{'active': activeTab === 'saved'}">
+				<saved-board :savedPosts="savedPosts"></saved-board>
+			</div>
 		</div>
 	</div>
 </template>
@@ -34,6 +42,7 @@
 	import JobsBoard from '@/components/JobsBoard/JobsBoard'
 	import TrimmersBoard from '@/components/TrimmersBoard/TrimmersBoard'
 	import ResumesBoard from '@/components/ResumesBoard/ResumesBoard'
+	import SavedBoard from '@/components/SavedBoard/SavedBoard'
 	import PostTab from '@/components/PostTab/PostTab'
 	import TWHead from '@/components/Head/Head.vue'
 
@@ -42,12 +51,14 @@
 			return {
 				jobs: this.$store.getters.allJobs,
 				resumes: this.$store.getters.allResumes,
+				savedPosts: this.$store.getters.savedPosts
 			}
 		},
 		components: {
 			JobsBoard,
 			TrimmersBoard,
 			ResumesBoard,
+			SavedBoard,
 			PostTab,
 			TWHead
 		},

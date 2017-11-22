@@ -1,6 +1,14 @@
 .trimmer-detail {
 	padding: 15px 0;
 	border-bottom: 1px solid #ddd;
+	&__save {
+		position: absolute;
+		right: 0;
+		cursor: pointer;
+		&--red {
+			color: #d9534f;
+		}
+	}
 	&__header {
 		padding: 0;
 		font-weight: 300;

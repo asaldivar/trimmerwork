@@ -14,6 +14,9 @@ export const formMutations = {
 export const cookieMutations = {
 	setCookie(state, payload) {
 		state.hasCookie = payload
+	},
+	savePost(state, payload) {
+		state.savedPosts.push(payload)
 	}
 }
 export const trimmerMutations = {
