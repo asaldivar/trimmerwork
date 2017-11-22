@@ -8,7 +8,7 @@
 		  <i class="fa fa-plus" aria-hidden="true"></i>
 		  POST A TRIMMER RESUME
 		</router-link>
-		<router-link v-else="postType === 'resumes'" to="/resume-form" class="post-tab">
+		<router-link v-else-if="postType === 'resumes'" to="/resume-form" class="post-tab">
 		  <i class="fa fa-plus" aria-hidden="true"></i>
 		  POST A RESUME
 		</router-link>

@@ -1,0 +1,8 @@
+.heart-save {
+	position: absolute;
+	right: 0;
+	cursor: pointer;
+	&--red {
+		color: #d9534f;
+	}
+}
