@@ -15,6 +15,7 @@
 					</div>
 				</div>
 				<div class="col-md-4 job-detail__company-logo"></div>
+				<save-heart :post="job"></save-heart>
 			</div>
 			<div class="job-detail__metadata col-md-12">
 				<div class="job-detail__metadata__category">
@@ -52,6 +53,7 @@
 	import BackToJobs from '@/components/BackToJobs/BackToJobs'
 	import TWHeadSmall from '@/components/HeadSmall/HeadSmall'
 	import EmailSignUp from '@/components/EmailSignUp/Test'
+	import SaveHeart from '@/components/SaveHeart/SaveHeart'
 
 	export default {
 		props: ['job'],
@@ -63,7 +65,8 @@
 		components: {
 			BackToJobs,
 			TWHeadSmall,
-			EmailSignUp
+			EmailSignUp,
+			SaveHeart
 		},
 		filters: {
 			daysAgo: function(value) {

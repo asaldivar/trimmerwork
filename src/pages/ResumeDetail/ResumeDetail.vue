@@ -15,6 +15,7 @@
 				</div>
 			</div>
 			<div class="col-md-4 resume-detail__company-logo"></div>
+			<save-heart :post="resume"></save-heart>
 		</div>
 		<div class="resume-detail__metadata col-md-12">
 			<div class="resume-detail__metadata__category">
@@ -62,6 +63,7 @@
 
 	import BackToJobs from '@/components/BackToJobs/BackToJobs'
 	import TWHeadSmall from '@/components/HeadSmall/HeadSmall'
+	import SaveHeart from '@/components/SaveHeart/SaveHeart'
 
 	export default {
 		data() {
@@ -85,7 +87,8 @@
 		},
 		components: {
 			BackToJobs,
-			TWHeadSmall
+			TWHeadSmall,
+			SaveHeart
 		},
 		filters: {
 			daysAgo: function(value) {

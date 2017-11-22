@@ -6,6 +6,7 @@
 
 <script>
 	export default {
+		props: ['post'],
 		computed: {
 			saved() {
 				return this.$store.getters.savedById(this.$route.params.id)

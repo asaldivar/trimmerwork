@@ -15,7 +15,7 @@
 				</div>
 			</div>
 			<div class="col-md-4 trimmer-detail__company-logo"></div>
-			<save-heart></save-heart>
+			<save-heart :post="trimmer"></save-heart>
 		</div>
 		<div class="trimmer-detail__metadata col-md-12">
 			<div class="trimmer-detail__metadata__type">
@@ -71,9 +71,6 @@
 			}
 		},
 		computed: {
-			saved() {
-				return this.$store.getters.savedById(this.$route.params.id)
-			},
 			currentResumeIndex() {
 				return this.filteredResumes.map(function(trimmer) {
 					return trimmer._id
@@ -90,17 +87,6 @@
 			BackToJobs,
 			TWHeadSmall,
 			SaveHeart
-		},
-		methods: {
-			savePost() {
-				// let savedPosts = Cookies.get('savedPosts') ? JSON.parse(Cookies.get('savedPosts')) : []
-				// savedPosts.push(this.trimmer)
-				// console.log(savedPosts)
-				// Cookies.set('savedPosts', JSON.parse(savedPosts))
-				// console.log("Cookies.get('savedPosts'):",Cookies.get('savedPosts'))
-				this.$store.commit('savePost', this.trimmer)
-				// console.log(this.$store.getters.savedPosts)
-			}
 		},
 		filters: {
 			daysAgo: function(value) {
