@@ -44,20 +44,7 @@
 	  <!-- li items paginated -->
 	  <paginate name="trimmers" :per="15" :list="orderedAndFilteredTrimmers" class="paginate-list">
 			<li class="trimmers-board__post" v-for="trimmer in paginated('trimmers')">
-				<router-link class="trimmers-board__post__link" :to="`/trimmers/${trimmer._id}`">
-					<span class="trimmers-board__post__trimmer-skill">{{ trimmer.skillLevel }}-level</span>
-					<span class="trimmers-board__post__trimmer-name">/ {{ trimmer.name }}</span>
-					<span class="trimmers-board__post__metadata">
-						<span>
-							<i class="fa fa-map-marker" aria-hidden="true"></i>
-							{{ trimmer.location }}
-						</span>
-						<span class="trimmers-board__post__metadata__date">
-							<span class="hidden-xs">-</span>
-							{{ trimmer.date | formatDate }}
-						</span>
-					</span>
-				</router-link>
+				<trimmer-board-item :trimmer="trimmer"></trimmer-board-item>
 			</li>
 	  </paginate>
 	  <paginate-links for="trimmers" :limit="5" :show-step-links="true"></paginate-links>
@@ -68,7 +55,12 @@
 	import moment from 'moment'
 	import _ from 'lodash'
 
+	import TrimmerBoardItem from '@/components/TrimmerBoardItem/TrimmerBoardItem'
+
 	export default {
+		components: {
+			TrimmerBoardItem
+		},
 		data() {
 			return {
 				trimmers: this.$store.getters.allTrimmers,

@@ -1,20 +1,18 @@
 <template>
-	<div>
-		<router-link class="job-post__link" :to="`/jobs/${job._id}`">
-			<span class="job-post__job-title">{{ job.jobTitle }}</span>
-			<span class="job-post__company-name">@ {{ job.companyName }}</span>
-			<span class="job-post__metadata">
-				<span>
-					<i class="fa fa-map-marker" aria-hidden="true"></i>
-					{{ job.jobLocation }}
-				</span>
-				<span class="job-post__metadata__date">
-					<span class="hidden-xs">-</span>
-					{{ job.date | formatDate }}
-				</span>
+	<router-link class="job-post__link" :to="`/jobs/${job._id}`">
+		<span class="job-post__job-title">{{ job.jobTitle }}</span>
+		<span class="job-post__company-name">@ {{ job.companyName }}</span>
+		<span class="job-post__metadata">
+			<span>
+				<i class="fa fa-map-marker" aria-hidden="true"></i>
+				{{ job.jobLocation }}
 			</span>
-		</router-link>
-	</div>
+			<span class="job-post__metadata__date">
+				<span class="hidden-xs">-</span>
+				{{ job.date | formatDate }}
+			</span>
+		</span>
+	</router-link>
 </template>
 
 <style lang="scss" src="./JobBoardItem.scss"></style>

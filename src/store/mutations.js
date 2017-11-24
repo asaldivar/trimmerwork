@@ -21,10 +21,8 @@ export const cookieMutations = {
 		}).indexOf(payload._id)
 
 		if (index === -1) {
-			console.log('add')
 			state.savedPosts.push(payload)
 		} else {
-			console.log('remove')
 			state.savedPosts.splice(index, 1)
 		}
 	}
