@@ -1,7 +1,7 @@
 <template>
 	<ul class="saved-board">
 		<p v-if="savedPosts.length < 1" class="saved-board__message">
-			Improve your recruitment or job search efforts by saving your favorite posts. Favorited posts will appear here so you can quickly work through them.
+			Improve your recruitment or job search efforts by saving your favorite posts.
 		</p>
 		<li v-else class="saved-board__post" v-for="post in savedPosts">
 			<job-board-item v-if="post.hasOwnProperty('companyName')" :job="post"></job-board-item>
@@ -31,6 +31,7 @@
 <style lang="scss" scoped>
 	.saved-board {
 		padding: 0;
+		min-height: 350px;
 		&__message {
 			text-align: center;
 			padding:	20px 0;

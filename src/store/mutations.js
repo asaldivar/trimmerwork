@@ -1,5 +1,3 @@
-import Cookies from 'js-cookie'
-
 export const boardMutations = {
 	setActiveTab(state, payload) {
 		state.activeBoardTab = payload
@@ -28,7 +26,7 @@ export const cookieMutations = {
 			state.savedPosts.splice(index, 1)
 		}
 
-		// Cookies.set('savedPosts', state.savedPosts)
+		localStorage.setItem('savedPosts', JSON.stringify(state.savedPosts))
 	}
 }
 export const trimmerMutations = {
