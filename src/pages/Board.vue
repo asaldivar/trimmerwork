@@ -38,6 +38,12 @@
 	</div>
 </template>
 
+<style lang="scss" scoped>
+	.fa-heart {
+		color: #d9534f;
+	}
+</style>
+
 <script>
 	import JobsBoard from '@/components/JobsBoard/JobsBoard'
 	import TrimmersBoard from '@/components/TrimmersBoard/TrimmersBoard'
