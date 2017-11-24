@@ -1,15 +1,4 @@
-.job-posts-container {
-	padding: 0;
-}
 .job-post {
-	padding: 10px 0;
-	list-style: none;
-	&:hover {
-		background-color: rgba(79,192,141	,0.1);
-	}
-	&:not(:last-child) {
-		border-bottom: 1px solid #ddd;
-	}
 	&__job-title {
 		font-weight: 600;
 	  color: #ff9d00;

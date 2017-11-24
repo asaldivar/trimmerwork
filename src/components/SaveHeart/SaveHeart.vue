@@ -1,5 +1,5 @@
 <template>
-	<i class="fa heart-save" :class="[saved ? 'fa-heart': 'fa-heart-o']" aria-hidden="true" @click="savePost()"></i>
+	<i class="fa heart-save" :class="[saved ? 'fa-heart': 'fa-heart-o']" aria-hidden="true" @click="updateSavedPosts()"></i>
 </template>
 
 <style lang="scss" src="./SaveHeart.scss"></style>
@@ -13,14 +13,11 @@
 			}
 		},
 		methods: {
-			savePost() {
+			updateSavedPosts() {
 				// let savedPosts = Cookies.get('savedPosts') ? JSON.parse(Cookies.get('savedPosts')) : []
-				// savedPosts.push(this.trimmer)
-				// console.log(savedPosts)
 				// Cookies.set('savedPosts', JSON.parse(savedPosts))
-				// console.log("Cookies.get('savedPosts'):",Cookies.get('savedPosts'))
-				this.$store.commit('savePost', this.trimmer)
-				// console.log(this.$store.getters.savedPosts)
+
+				this.$store.commit('updateSavedPosts', this.post)
 			}
 		}
 	}

@@ -15,8 +15,18 @@ export const cookieMutations = {
 	setCookie(state, payload) {
 		state.hasCookie = payload
 	},
-	savePost(state, payload) {
-		state.savedPosts.push(payload)
+	updateSavedPosts(state, payload) {
+		const index = state.savedPosts.map(post => {
+			return post._id
+		}).indexOf(payload._id)
+
+		if (index === -1) {
+			console.log('add')
+			state.savedPosts.push(payload)
+		} else {
+			console.log('remove')
+			state.savedPosts.splice(index, 1)
+		}
 	}
 }
 export const trimmerMutations = {

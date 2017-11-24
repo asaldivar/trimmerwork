@@ -1,6 +1,8 @@
 <template>
 	<ul class="job-posts-container">
-		<job-board-item :jobs="jobs"></job-board-item>
+		<li class="job-post" v-for="job in orderedJobs">
+			<job-board-item :job="job"></job-board-item>
+		</li>
 	</ul>
 </template>
 
@@ -14,7 +16,16 @@
 		props: ['jobs'],
 		components: {
 			JobBoardItem
+		},
+		computed: {
+			orderedJobs() {
+				return orderByDate(this.jobs)
+			}
 		}
+	}
+
+	function orderByDate(items) {
+		return _.orderBy(items, 'date', 'desc')
 	}
 </script>
 
