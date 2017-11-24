@@ -50,20 +50,7 @@
 		<!-- li items paginated -->
 	  <paginate name="resumes" :per="15" :list="orderedandFilteredResumes" class="paginate-list">
 			<li class="resumes-board__post" v-for="resume in paginated('resumes')">
-				<router-link class="resumes-board__post__link" :to="`/resumes/${resume._id}`">
-					<span class="resumes-board__post__job-title">{{ resume.title }}</span>
-					<span class="resumes-board__post__name">/ {{ resume.name }}</span>
-					<span class="resumes-board__post__metadata">
-						<span>
-							<i class="fa fa-map-marker" aria-hidden="true"></i>
-							{{ resume.location }}
-						</span>
-						<span class="resumes-board__post__metadata__date">
-							<span class="hidden-xs">-</span>
-							{{ resume.date | formatDate }}
-						</span>
-					</span>
-				</router-link>
+				<resume-board-item :resume="resume"></resume-board-item>
 			</li>
 	  </paginate>
 	  <paginate-links for="resumes" :limit="5" :show-step-links="true"></paginate-links>
@@ -74,7 +61,12 @@
 	import moment from 'moment'
 	import _ from 'lodash'
 
+	import ResumeBoardItem from '@/components/ResumeBoardItem/ResumeBoardItem'
+
 	export default {
+		components: {
+			ResumeBoardItem
+		},
 		data() {
 			return {
 				resumeFilterSettings: this.$store.getters.allResumeSettings,
