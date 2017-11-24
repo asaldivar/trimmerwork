@@ -38,7 +38,7 @@ export default new Vuex.Store({
 			date: new Date().toISOString()
 		},
 		hasCookie: Cookies.get('trimmerWorkEmail'),
-		savedPosts: Cookies.get('savedPosts') ? JSON.parse(Cookies.get('savedPosts')) : []
+		savedPosts: Cookies.get('savedPosts') ? Cookies.get('savedPosts') : []
 	},
 	getters: Object.assign({}, jobGetters, trimmersGetters, resumesGetters, activeTabGetters, jobForm, trimmerFilterSettings, resumeFilterSettings, cookieGetters),
 	mutations: Object.assign({}, boardMutations, formMutations, cookieMutations, resumesMutations, filterSettingsMutations, trimmerMutations),
