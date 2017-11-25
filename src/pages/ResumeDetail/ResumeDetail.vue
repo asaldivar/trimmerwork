@@ -45,18 +45,11 @@
 				<div v-html="resume.contact"></div>
 			</div>
 		</div>
-			<div class="col-md-12 resume-detail__navigation">
-			<router-link v-if="previousResume" :to="`/resumes/${previousResume._id}`" class="pull-left resume-detail__navigation__left">
-				<i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-				<span>previous</span>
-			</router-link>
-			<router-link v-if="nextResume" :to="`/resumes/${nextResume._id}`" class="pull-right resume-detail__navigation__right">
-				<span>next</span>
-				<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-			</router-link>
-		</div>
+		<nav-carousel :resumes="filteredResumes" :page="'resumes'"></nav-carousel>
 	</div>
 </template>
+
+<style lang="scss" src="./ResumeDetail.scss" scoped></style>
 
 <script>
 	import moment from 'moment'
@@ -64,6 +57,7 @@
 	import BackToJobs from '@/components/BackToJobs/BackToJobs'
 	import TWHeadSmall from '@/components/HeadSmall/HeadSmall'
 	import SaveHeart from '@/components/SaveHeart/SaveHeart'
+	import NavCarousel from '@/components/NavCarousel/NavCarousel'
 
 	export default {
 		data() {
@@ -72,23 +66,11 @@
 				filteredResumes: this.$store.getters.filteredResumes
 			}
 		},
-		computed: {
-			currentResumeIndex() {
-				return this.filteredResumes.map(function(resume) {
-					return resume._id
-				}).indexOf(this.$route.params.id)
-			},
-			previousResume() {
-				return this.filteredResumes[this.currentResumeIndex - 1]
-			},
-			nextResume() {
-				return this.filteredResumes[this.currentResumeIndex + 1]
-			}
-		},
 		components: {
 			BackToJobs,
 			TWHeadSmall,
-			SaveHeart
+			SaveHeart,
+			NavCarousel
 		},
 		filters: {
 			daysAgo: function(value) {
@@ -102,5 +84,3 @@
 		}
 	}
 </script>
-
-<style lang="scss" src="./ResumeDetail.scss" scoped></style>

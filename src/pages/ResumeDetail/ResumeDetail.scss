@@ -29,13 +29,4 @@
 			margin-top: 20px;
 		}
 	}
-	&__navigation {
-		padding: 20px 0;
-		&__left, &__right {
-			text-decoration: none;
-			& * {
-				vertical-align: middle;
-			}
-		}
-	}
 }
