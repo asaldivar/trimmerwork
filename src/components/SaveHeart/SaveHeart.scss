@@ -3,7 +3,7 @@
 	right: 0;
 	cursor: pointer;
 	&--red {
-		margin: 0;
+		margin: 0 !important;
 		color: #d9534f !important;
 	}
 }
