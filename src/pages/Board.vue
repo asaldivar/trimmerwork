@@ -12,7 +12,7 @@
 		  <li role="presentation" :class="{'active': activeTab === 'resumes'}">
 		  	<a class="navigation" href="#resumes" aria-controls="resumes" role="tab" data-toggle="tab" @click="setActiveTab('resumes')">RESUMES</a>
 		  </li>
-		  <li role="presentation" :class="{'active': activeTab === 'saved'}">
+		  <li role="presentation" class="hidden-xs" :class="{'active': activeTab === 'saved'}">
 		  	<a class="navigation" href="#saved" aria-controls="saved" role="tab" data-toggle="tab" @click="setActiveTab('saved')">
 		  		<i class="fa fa-heart" aria-hidden="true"></i>
 		  	</a>
