@@ -1,5 +1,5 @@
 <template>
-	<i class="fa heart-save" :class="[saved ? 'fa-heart heart-save--red': 'fa-heart-o']" aria-hidden="true" @click="updateSavedPosts()"></i>
+	<i class="fa heart-save hidden-xs" :class="[saved ? 'fa-heart heart-save--red': 'fa-heart-o']" aria-hidden="true" @click="updateSavedPosts()"></i>
 </template>
 
 <style lang="scss" src="./SaveHeart.scss" scoped></style>
