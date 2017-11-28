@@ -2,8 +2,8 @@
 	<div>
 		<TWHeadSmall></TWHeadSmall>
 		<back-to-jobs></back-to-jobs>
-		<div class="resume-detail col-md-12">
-			<div class="col-md-8 resume-detail__header">
+		<div class="resume-detail col-sm-12 col-md-12">
+			<div class="col-md-8 col-sm-8 resume-detail__header">
 				<h1 class="resume-detail__header__title">{{ resume.title }}</h1>
 				<div class="resume-detail__header__date">Posted {{ resume.date | daysAgo }}</div>
 				<h4>{{ resume.name }}</h4>
@@ -14,10 +14,10 @@
 					</h5>
 				</div>
 			</div>
-			<div class="col-md-4 resume-detail__company-logo"></div>
+			<div class="col-md-4 col-sm-4 resume-detail__company-logo"></div>
 			<save-heart :post="resume"></save-heart>
 		</div>
-		<div class="resume-detail__metadata col-md-12">
+		<div class="resume-detail__metadata col-sm-12 col-md-12">
 			<div class="resume-detail__metadata__category">
 				<i v-if="resume.jobCategory === 'Grow'" class="fa fa-sun-o" aria-hidden="true"></i>
 				<i v-else-if="resume.jobCategory === 'Harvest'" class="fa fa-scissors" aria-hidden="true"></i>
@@ -30,7 +30,7 @@
 				<span>has references</span>
 			</div>
 		</div>
-		<div class="col-md-12 resume-detail__description">
+		<div class="col-md-12 col-sm-12 resume-detail__description">
 			<div class="resume-detail-description" v-html="resume.coverLetter"></div>
 			<div>
 				<label>Work Experience:</label>

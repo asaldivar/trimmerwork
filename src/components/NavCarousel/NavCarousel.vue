@@ -1,5 +1,5 @@
 <template>
-	<div class="col-md-12 post-detail__navigation">
+	<div class="col-md-12 col-sm-12 post-detail__navigation">
 		<router-link v-if="previousResume" :to="`/${page}/${previousResume._id}`" class="pull-left post-detail__navigation__left">
 			<i class="fa fa-long-arrow-left" aria-hidden="true"></i>
 			<span>previous</span>

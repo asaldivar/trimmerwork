@@ -1,5 +1,5 @@
 <template>
-	<footer class="col-md-12 text-center tw-footer">
+	<footer class="col-md-12 col-sm-12 text-center tw-footer">
   	<span class="trimmer-work">TrimmerWork © 2017</span>
   	&middot;
   	<router-link to="/about">About</router-link>

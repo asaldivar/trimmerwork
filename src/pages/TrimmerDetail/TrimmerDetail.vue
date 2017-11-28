@@ -2,8 +2,8 @@
 	<div>
 		<TWHeadSmall></TWHeadSmall>
 		<back-to-jobs></back-to-jobs>
-		<div class="trimmer-detail col-md-12">
-			<div class="col-md-8 trimmer-detail__header">
+		<div class="trimmer-detail col-sm-12 col-md-12">
+			<div class="col-md-8 col-sm-8 trimmer-detail__header">
 				<h1 class="trimmer-detail__header__title">{{ trimmer.skillLevel }}-level</h1>
 				<div class="trimmer-detail__header__date">Posted {{ trimmer.date | daysAgo }}</div>
 				<h4>{{ trimmer.name }}</h4>
@@ -14,10 +14,10 @@
 					</h5>
 				</div>
 			</div>
-			<div class="col-md-4 trimmer-detail__company-logo"></div>
+			<div class="col-md-4 col-sm-4 trimmer-detail__company-logo"></div>
 			<save-heart :post="trimmer"></save-heart>
 		</div>
-		<div class="trimmer-detail__metadata col-md-12">
+		<div class="trimmer-detail__metadata col-sm-12 col-md-12">
 			<div class="trimmer-detail__metadata__type">
 				<i class="fa fa-clock-o" aria-hidden="true"></i>
 				<span>{{trimmer.workType}}</span>
@@ -35,7 +35,7 @@
 				<span>has references</span>
 			</div>
 		</div>
-		<div class="col-md-12 trimmer-detail__description">
+		<div class="col-md-12 col-sm-12 trimmer-detail__description">
 			<div class="trimmer-detail-description" v-html="trimmer.coverLetter"></div>
 			<div class="trimmer-detail__description__application">
 				<label>How to contact:</label>
