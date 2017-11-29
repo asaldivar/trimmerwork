@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "connect-history-api-fallback": "^1.4.0",
+    "express-sslify": "^1.2.0",
     "newrelic": "^2.3.2"
   }
 }
