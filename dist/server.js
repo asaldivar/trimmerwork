@@ -1,17 +1,16 @@
 require('newrelic')
 var history = require('connect-history-api-fallback')
 var express = require('express')
-var path = require('path')
 var serveStatic = require('serve-static')
 app = express()
 
-// app.use(function (req, res, next) {
-//   if (!/https/.test(req.protocol)) {
-// 		return res.redirect("https://" + req.headers.host + req.url)
-//   } else {
-// 		return next()
-//   }
-// })
+app.get('/sitemap.xml', function(req, res) {
+	res.sendFile(__dirname + '/sitemap.xml')
+})
+
+app.get('/robots.txt', function(req, res) {
+	res.sendFile(__dirname + '/robots.txt')
+})
 
 app.use(history())
 app.use(serveStatic(__dirname))

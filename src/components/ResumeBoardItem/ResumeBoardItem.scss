@@ -22,6 +22,9 @@
 			&:hover {
 				text-decoration: none;
 			}
+			@media (max-width: 426px) {
+				min-height: 48px;
+			}
 		}
 		&__metadata {
 			display: block;
