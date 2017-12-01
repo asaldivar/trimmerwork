@@ -43,7 +43,7 @@ export default {
 							}
 	            this.errorMessage = message
 	          } else {
-	          	Cookies.set('trimmerWorkEmail', $email.val())
+	          	localStorage.setItem('trimmerWorkEmail', $email.val())
 	          	this.$store.commit('setCookie', $email.val())
 	          	this.isSubscribed = true;
 	          }

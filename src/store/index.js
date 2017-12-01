@@ -37,7 +37,7 @@ export default new Vuex.Store({
 			jobType: 'Full-time',
 			date: new Date().toISOString()
 		},
-		hasCookie: Cookies.get('trimmerWorkEmail'),
+		hasCookie: localStorage.getItem('trimmerWorkEmail'),
 		savedPosts: JSON.parse(localStorage.getItem('savedPosts')) ? JSON.parse(localStorage.getItem('savedPosts')) : []
 	},
 	getters: Object.assign({}, jobGetters, trimmersGetters, resumesGetters, activeTabGetters, jobForm, trimmerFilterSettings, resumeFilterSettings, cookieGetters),

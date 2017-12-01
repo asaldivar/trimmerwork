@@ -35,7 +35,7 @@ export default {
 	        success: data => {
 	          if (data.result != 'success') {
 	          	if (data.msg.includes('already subscribed') != -1 || data.msg.includes('too many recent signup requests')) {
-		          	Cookies.set('trimmerWorkEmail', $email.val())
+	          		localStorage.setItem('trimmerWorkEmail', $email.val())
 		          	this.$store.commit('setCookie', $email.val())
 		          } else {
 		            this.error = true
@@ -48,7 +48,7 @@ export default {
 		            this.errorMessage = message
 		          }
 	          } else {
-	          	Cookies.set('trimmerWorkEmail', $email.val())
+	          	localStorage.setItem('trimmerWorkEmail', $email.val())
 	          	this.$store.commit('setCookie', $email.val())
 	          	this.isSubscribed = true;
 	          }
