@@ -82,12 +82,12 @@
 					<span v-show="errors.has('fields[title]')" class="help-block">{{ errors.first('fields[title]') }}</span>
 				</div>
 				<div class="form-group col-md-6 resume-form__resume__job-category">
-					<label for="jobCateogry">Job category</label>
+					<label for="jobCategory">Job category</label>
 					<select
 						class="form-control"
-						id="jobCateogry"
-						name="fields[jobCateogry]"
-						v-model="resume['jobCateogry']">
+						id="jobCategory"
+						name="fields[jobCategory]"
+						v-model="resume['jobCategory']">
 						<option value="Grow">Grow</option>
 						<option value="Harvest">Harvest</option>
 						<option value="Sales">Sales</option>
@@ -252,7 +252,7 @@
 		data() {
 			return {
 				resume: {
-					jobCateogry: 'Sales'
+					jobCategory: 'Sales'
 				},
 				disabled: false,
 				isSubmitted: false,
