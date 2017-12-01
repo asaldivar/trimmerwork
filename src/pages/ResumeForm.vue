@@ -1,6 +1,6 @@
 <template>
 	<form id="resume-form" class="resume-form" method="POST" action="https://api.staticman.net/v2/entry/asaldivar/trimmerwork/master/resumes" @submit.prevent="validateBeforeSubmit">
-		<input type="hidden" name="options[redirect]" value="http://trimmerwork.herokuapp.com/submission-thank-you">
+		<input type="hidden" name="options[redirect]" value="https://trimmerwork.com/submission-thank-you">
 		<TWHeadSmall></TWHeadSmall>
 		<back-to-jobs></back-to-jobs>
 		<div class="col-md-12">
