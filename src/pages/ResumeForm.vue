@@ -28,18 +28,18 @@
 					</div>
 					<div
 						class="form-group"
-						:class="{'has-error':errors.has('fields[email]')}">
-						<label class="control-label" for="email">Email</label>
+						:class="{'has-error':errors.has('fields[poster_email]')}">
+						<label class="control-label" for="poster_email">Email</label>
 						<input
 							type="text"
-							name="fields[email]"
-							id="email"
+							name="fields[poster_email]"
+							id="poster_email"
 							class="form-control"
 							placeholder="asmith@gmail.com"
-							v-model="resume['email']"
+							v-model="resume['poster_email']"
 							data-vv-as="email"
 							v-validate="'required'">
-						<span v-show="errors.has('fields[email]')" class="help-block">{{ errors.first('fields[email]') }}</span>
+						<span v-show="errors.has('fields[poster_email]')" class="help-block">{{ errors.first('fields[poster_email]') }}</span>
 					</div>
 					<div
 						class="form-group"

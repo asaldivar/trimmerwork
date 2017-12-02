@@ -113,7 +113,7 @@ resumes:
   #
   # Names of the fields the form is allowed to submit. If a field that is
   # not here is part of the request, an error will be thrown.
-  allowedFields: ["name", "email", "location", "title", "image", "jobCategory", "references", "experience", "coverLetter", "additionalInfo", "contact"]
+  allowedFields: ["name", "poster_email", "location", "title", "image", "jobCategory", "references", "experience", "coverLetter", "additionalInfo", "contact"]
 
   allowedOrigins: ["localhost", "trimmerwork.herokuapp.com"]
 
