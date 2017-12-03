@@ -25,6 +25,10 @@
 	}
 
 	function orderByDate(items) {
+		items.map(item => {
+			item.date = moment(item.date).toISOString()
+			return item
+		})
 		return _.orderBy(items, 'date', 'desc')
 	}
 </script>

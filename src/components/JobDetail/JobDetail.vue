@@ -18,7 +18,7 @@
 				<save-heart :post="job"></save-heart>
 			</div>
 			<div class="job-detail__metadata col-sm-12 col-md-12">
-				<div class="job-detail__metadata__category">
+				<div v-if="job.jobCategory" class="job-detail__metadata__category">
 					<i v-if="job.jobCategory === 'Grow'" class="fa fa-sun-o" aria-hidden="true"></i>
 					<i v-else-if="job.jobCategory === 'Harvest'" class="fa fa-scissors" aria-hidden="true"></i>
 					<i v-else-if="job.jobCategory === 'Sales'" class="fa fa-users" aria-hidden="true"></i>
