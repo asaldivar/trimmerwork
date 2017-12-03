@@ -3,7 +3,7 @@
 		<email-sign-up v-if="!cookie"></email-sign-up>
 		<div v-else>
 			<div class="job-detail col-sm-12 col-md-12">
-				<div class="col-md-8 col-sm-8 job-detail__header">
+				<div class="col-md-10 col-sm-10 job-detail__header">
 					<h1 class="job-detail__header__title">{{ job.jobTitle }}</h1>
 					<div class="job-detail__header__date">Posted {{ job.date | daysAgo }}</div>
 					<h4>{{ job.companyName }}</h4>
@@ -14,7 +14,7 @@
 						</h5>
 					</div>
 				</div>
-				<div class="col-md-4 col-sm-4 job-detail__company-logo"></div>
+				<div class="col-md-2 col-sm-2 job-detail__company-logo"></div>
 				<save-heart :post="job"></save-heart>
 			</div>
 			<div class="job-detail__metadata col-sm-12 col-md-12">
