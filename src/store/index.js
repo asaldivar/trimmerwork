@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Cookies from 'js-cookie'
 
-import { jobGetters, trimmersGetters, resumesGetters, activeTabGetters, jobForm, trimmerFilterSettings, resumeFilterSettings, cookieGetters } from './getters'
+import { jobGetters, trimmersGetters, resumesGetters, activeTabGetters, jobForm, jobFilterSettings, trimmerFilterSettings, resumeFilterSettings, cookieGetters } from './getters'
 import { boardMutations, formMutations, cookieMutations, resumesMutations, filterSettingsMutations, trimmerMutations } from './mutations'
 import { trimmerActions } from './actions'
 
@@ -27,6 +27,9 @@ export default new Vuex.Store({
 			wantsAccommodations: false,
 			hasReferences: false
 		},
+		jobFilterSettings: {
+			search: ''
+		},
 		resumeFilterSettings: {
 			search: '',
 			jobCategory: ''
@@ -40,7 +43,7 @@ export default new Vuex.Store({
 		hasCookie: localStorage.getItem('trimmerWorkEmail'),
 		savedPosts: JSON.parse(localStorage.getItem('savedPosts')) ? JSON.parse(localStorage.getItem('savedPosts')) : []
 	},
-	getters: Object.assign({}, jobGetters, trimmersGetters, resumesGetters, activeTabGetters, jobForm, trimmerFilterSettings, resumeFilterSettings, cookieGetters),
+	getters: Object.assign({}, jobGetters, trimmersGetters, resumesGetters, activeTabGetters, jobForm, jobFilterSettings, trimmerFilterSettings, resumeFilterSettings, cookieGetters),
 	mutations: Object.assign({}, boardMutations, formMutations, cookieMutations, resumesMutations, filterSettingsMutations, trimmerMutations),
 	actions: Object.assign({}, trimmerActions)
 })

@@ -1,5 +1,8 @@
 .job-posts-container {
 	padding: 0;
+	&__filter {
+		margin: 10px 0;
+	}
 }
 .job-post {
 	padding: 10px 0;

@@ -59,3 +59,8 @@ export const resumeFilterSettings = {
 		return state.resumeFilterSettings
 	}
 }
+export const jobFilterSettings = {
+	allJobSettings: state => {
+		return state.jobFilterSettings
+	}
+}

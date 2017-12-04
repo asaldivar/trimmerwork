@@ -1,11 +1,19 @@
 <template>
 	<ul class="job-posts-container">
+		<!-- filters -->
+		<div class="input-group job-posts-container__filter">
+			<input type="text" class="form-control" v-model="jobFilterSettings['search']" placeholder="search location">
+		  <span class="input-group-btn">
+		    <button class="btn btn-default" type="button" @click="resetFilters">
+		    	<i class="fa fa-ban" aria-hidden="true"></i>
+		  	</button>
+		  </span>
+	  </div>
+		<!-- jobs -->
 	  <paginate name="jobs" :per="15" :list="orderedJobs" class="paginate-list">
-
 			<li class="job-post" :class="{'job-post--featured':job.jobIsFeatured}" v-for="job in paginated('jobs')">
 				<job-board-item :job="job"></job-board-item>
 			</li>
-
 	  </paginate>
 	  <paginate-links for="jobs" :limit="5" :show-step-links="true"></paginate-links>
 	</ul>
@@ -53,6 +61,7 @@
 		props: ['jobs'],
 		data() {
 			return {
+				jobFilterSettings: this.$store.getters.allJobSettings,
 				paginate: ['jobs']
 			}
 		},
@@ -61,11 +70,27 @@
 		},
 		computed: {
 			orderedJobs() {
-				return orderByDate(this.jobs)
+				let orderedJobs = orderByDate(this.jobs)
+				let filteredJobs = filterByLocation(orderedJobs, this.jobFilterSettings['search'])
+
+				return filteredJobs
+			}
+		},
+		methods: {
+			resetFilters() {
+				this.jobFilterSettings['search'] = ''
 			}
 		}
 	}
 
+	function filterByLocation(jobs, userLocationInput) {
+		if (!userLocationInput) return jobs
+
+		const search = userLocationInput.trim().toLowerCase()
+		return jobs.filter(resume => {
+			return resume.jobLocation.toLowerCase().match(search)
+		})
+	}
 	function orderByDate(jobs) {
 		jobs.map(item => {
 			item.date = moment(item.date).toISOString()
