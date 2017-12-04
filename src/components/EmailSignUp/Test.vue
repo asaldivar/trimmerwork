@@ -1,6 +1,6 @@
 <template>
 	<div class="email-sign-up" id="mc_embed_signup">
-		<p>In order to read this job, please enter your email address. We promise to never spam you, only help you find a great job.</p>
+		<p>In order to read this job, please enter your email address. We promise to never spam you, only to help you find a great job.</p>
 		<form action="//trimmerwork.us16.list-manage.com/subscribe/post-json?u=c2998ebc9b1021aa3cbd8b458&amp;id=510ffda251&c=?" method="POST" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 			<div id="mc_embed_signup_scroll">
 			<div
