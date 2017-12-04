@@ -1,4 +1,7 @@
 .job-post {
+	&--featured {
+		background-color: #FFFFE0;
+	}
 	&__job-title {
 		font-weight: 600;
 	  color: #ff9d00;

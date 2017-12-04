@@ -2,7 +2,7 @@
 	<ul class="job-posts-container">
 	  <paginate name="jobs" :per="15" :list="orderedJobs" class="paginate-list">
 
-			<li class="job-post" v-for="job in paginated('jobs')">
+			<li class="job-post" :class="{'job-post--featured':job.jobIsFeatured}" v-for="job in paginated('jobs')">
 				<job-board-item :job="job"></job-board-item>
 			</li>
 
@@ -71,7 +71,25 @@
 			item.date = moment(item.date).toISOString()
 			return item
 		})
-		return _.orderBy(jobs, 'date', 'desc')
+
+		let jobsSortedByDate = _.orderBy(jobs, 'date', 'desc')
+		let featuredArray = []
+
+		jobsSortedByDate.map((job, i, arr) => {
+			if (job.jobIsFeatured == 'true') {
+				arr.splice(i,1)
+				featuredArray.push(job)
+			}
+			return job
+		})
+
+		featuredArray = _.orderBy(featuredArray, 'date', 'asc')
+
+		featuredArray.map(job => {
+			jobsSortedByDate.unshift(job)
+		})
+
+		return jobsSortedByDate
 	}
 </script>
 
