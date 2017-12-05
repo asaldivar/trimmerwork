@@ -7,12 +7,18 @@
 	  color: #ff9d00;
 	  cursor: pointer;
 		vertical-align: top;
-	  @media (max-width:1439px) {
-	  	max-width: 200px;
-		  display: inline-block;
-		  overflow: hidden;
-		  white-space: nowrap;
-		  text-overflow: ellipsis;
+	  display: inline-block;
+	  overflow: hidden;
+	  white-space: nowrap;
+	  text-overflow: ellipsis;
+	  @media (max-width:1024px) {
+	  	max-width: 165px;
+	  }
+	  @media (min-width:1025px) {
+	  	max-width: 205px;
+	  }
+	  @media (min-width:1350px) {
+	  	max-width: none;
 	  }
 	}
 	&__company-name {
@@ -21,12 +27,18 @@
 		font-weight: 300;
 		color: #2c3e50;
 		vertical-align: top;
-	  @media (max-width:1439px) {
-	  	max-width: 200px;
-		  display: inline-block;
-		  overflow: hidden;
-		  white-space: nowrap;
-		  text-overflow: ellipsis;
+	  display: inline-block;
+	  overflow: hidden;
+	  white-space: nowrap;
+	  text-overflow: ellipsis;
+	  @media (max-width:1024px) {
+	  	max-width: 165px;
+	  }
+	  @media (min-width:1025px) {
+	  	max-width: 205px;
+	  }
+	  @media (min-width:1350px) {
+	  	max-width: none;
 	  }
 	}
 	&__link {
