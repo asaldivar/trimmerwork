@@ -6,17 +6,28 @@
 		font-weight: 600;
 	  color: #ff9d00;
 	  cursor: pointer;
-	  max-width: 165px;
-	  display: inline-block;
-	  overflow: hidden;
-	  white-space: nowrap;
-	  text-overflow: ellipsis;
-	  vertical-align: top;
+		vertical-align: top;
+	  @media (max-width:1439px) {
+	  	max-width: 200px;
+		  display: inline-block;
+		  overflow: hidden;
+		  white-space: nowrap;
+		  text-overflow: ellipsis;
+	  }
 	}
 	&__company-name {
+		white-space: nowrap;
 		font-size: 16px;
 		font-weight: 300;
 		color: #2c3e50;
+		vertical-align: top;
+	  @media (max-width:1439px) {
+	  	max-width: 200px;
+		  display: inline-block;
+		  overflow: hidden;
+		  white-space: nowrap;
+		  text-overflow: ellipsis;
+	  }
 	}
 	&__link {
 		display: block;
