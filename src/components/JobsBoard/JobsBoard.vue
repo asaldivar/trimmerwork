@@ -24,6 +24,7 @@
 		padding: 0;
 	}
 	.paginate-links.jobs {
+		padding: 0;
 	  text-align: center;
 	  user-select: none;
 	  li {
