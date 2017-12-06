@@ -40,7 +40,10 @@
 				<div class="job-detail-description" v-html="job.jobDescription"></div>
 				<div class="job-detail__description__application">
 					<label>How to apply:</label>
-					<div v-html="job.jobApplication"></div>
+					<div v-if="job.jobApplication.slice(0,4).includes('http')">
+						<a :href="job.jobApplication" target="_blank">click here</a>
+					</div>
+					<div v-else v-html="job.jobApplication"></div>
 				</div>
 			</div>
 		</div>
