@@ -42,6 +42,11 @@ export const resumesMutations = {
 		state.filteredResumes = payload
 	}
 }
+export const jobMutations = {
+	setFilteredJobs(state, payload) {
+		state.filteredJobs = payload
+	}
+}
 export const filterSettingsMutations = {
 	resetTrimmerFilterSettings(state) {
 		state.trimmerFilterSettings['search'] = ''

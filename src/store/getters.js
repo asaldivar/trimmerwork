@@ -15,6 +15,9 @@ export const jobGetters = {
 	},
 	jobById: (state, getters) => id => {
 		return getters.allJobs.filter(job => job._id === id)[0]
+	},
+	filteredJobs: state => {
+		return state.filteredJobs
 	}
 }
 export const trimmersGetters = {

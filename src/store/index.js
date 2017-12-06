@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import Cookies from 'js-cookie'
 
 import { jobGetters, trimmersGetters, resumesGetters, activeTabGetters, jobForm, jobFilterSettings, trimmerFilterSettings, resumeFilterSettings, cookieGetters } from './getters'
-import { boardMutations, formMutations, cookieMutations, resumesMutations, filterSettingsMutations, trimmerMutations } from './mutations'
+import { boardMutations, formMutations, cookieMutations, jobMutations, resumesMutations, filterSettingsMutations, trimmerMutations } from './mutations'
 import { trimmerActions } from './actions'
 
 import jobs from '../../dist/data/jobs.json'
@@ -15,6 +15,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 	state: {
 		jobs,
+		filteredJobs: jobs,
 		trimmers,
 		filteredTrimmers: trimmers,
 		resumes,
@@ -44,6 +45,6 @@ export default new Vuex.Store({
 		savedPosts: JSON.parse(localStorage.getItem('savedPosts')) ? JSON.parse(localStorage.getItem('savedPosts')) : []
 	},
 	getters: Object.assign({}, jobGetters, trimmersGetters, resumesGetters, activeTabGetters, jobForm, jobFilterSettings, trimmerFilterSettings, resumeFilterSettings, cookieGetters),
-	mutations: Object.assign({}, boardMutations, formMutations, cookieMutations, resumesMutations, filterSettingsMutations, trimmerMutations),
+	mutations: Object.assign({}, boardMutations, formMutations, cookieMutations, jobMutations, resumesMutations, filterSettingsMutations, trimmerMutations),
 	actions: Object.assign({}, trimmerActions)
 })

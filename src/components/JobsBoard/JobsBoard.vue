@@ -74,6 +74,8 @@
 				let orderedJobs = orderByDate(this.jobs)
 				let filteredJobs = filterByLocation(orderedJobs, this.jobFilterSettings['search'])
 
+				this.$store.commit('setFilteredJobs', filteredJobs)
+
 				return filteredJobs
 			}
 		},
@@ -88,9 +90,11 @@
 		if (!userLocationInput) return jobs
 
 		const search = userLocationInput.trim().toLowerCase()
-		return jobs.filter(resume => {
+		let filteredJobs = jobs.filter(resume => {
 			return resume.jobLocation.toLowerCase().match(search)
 		})
+
+		return filteredJobs
 	}
 	function orderByDate(jobs) {
 		jobs.map(item => {

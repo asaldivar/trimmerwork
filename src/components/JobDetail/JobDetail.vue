@@ -44,6 +44,7 @@
 				</div>
 			</div>
 		</div>
+		<nav-carousel :resumes="filteredJobs" :page="'jobs'"></nav-carousel>
 	</div>
 </template>
 
@@ -54,9 +55,15 @@
 	import TWHeadSmall from '@/components/HeadSmall/HeadSmall'
 	import EmailSignUp from '@/components/EmailSignUp/Test'
 	import SaveHeart from '@/components/SaveHeart/SaveHeart'
+	import NavCarousel from '@/components/NavCarousel/NavCarousel'
 
 	export default {
-		props: ['job'],
+		data() {
+			return {
+				job: this.$store.getters.jobById(this.$route.params.id),
+				filteredJobs : this.$store.getters.filteredJobs
+			}
+		},
 		computed: {
 			cookie() {
 				return this.$store.getters.getCookie
@@ -66,11 +73,17 @@
 			BackToJobs,
 			TWHeadSmall,
 			EmailSignUp,
-			SaveHeart
+			SaveHeart,
+			NavCarousel
 		},
 		filters: {
 			daysAgo: function(value) {
 				return moment(String(value)).fromNow()
+			}
+		},
+		watch: {
+			$route () {
+				this.job = this.$store.getters.jobById(this.$route.params.id)
 			}
 		}
 	}
