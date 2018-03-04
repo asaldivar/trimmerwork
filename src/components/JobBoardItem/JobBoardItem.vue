@@ -1,7 +1,7 @@
 <template>
 	<router-link class="job-post__link" :to="`/jobs/${job._id}`">
 		<span class="job-post__job-title">{{ job.jobTitle }}</span>
-		<span class="job-post__company-name">@ {{ job.companyName }}</span>
+		<span v-if="job.companyName" class="job-post__company-name">@ {{ job.companyName }}</span>
 		<span class="job-post__metadata">
 			<span>
 				<i class="fa fa-map-marker" aria-hidden="true"></i>
